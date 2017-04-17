@@ -45,19 +45,19 @@ the API.
 
 **Objective:** Decks can be studied and cards hold information on the user's given score.
 
-### Phase 3: Current Learners (1 day)
+### Phase 4: Current Learners (1 day)
 
 **Objective:** List of current learners and their profile picture is shown for a given subject.
 
-### Phase 4: Categories and Tags (1 day)
+### Phase 5: Categories and Tags (1 day)
 
 **Objective:** Subjects are nested under a category and can be tagged.
 
-### Phase 5: Search (1 day, W2 Th 6pm)
+### Phase 6: Search (1 day, W2 Th 6pm)
 
 **Objective:** Subjects can be searched by tags and name.
 
-### Phase 6: - Show score (1 day, W2 F 6pm)
+### Phase 7: - Show score (1 day, W2 F 6pm)
 
 **Objective:** Deck study score renders a percentage as well as number of cards for each given value.
 
