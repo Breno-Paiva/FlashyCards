@@ -5,7 +5,6 @@ column name     | data type | details
 ----------------|-----------|-----------------------
 id              | integer   | not null, primary key
 username        | string    | not null, indexed, unique
-email           | string    | not null, indexed, unique
 password_digest | string    | not null
 session_token   | string    | not null, indexed, unique
 user_pic_url    | string    |
@@ -34,14 +33,15 @@ id          | integer   | not null, primary key
 name        | string    | not null
 category_id | integer   | not null, foreign key (references users), indexed
 description | string    |
+category    | string    |
 subject_pic_url | integer   |
 
-
-## categories
+## subject_subscriptions
 column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
-name        | string    | not null
+user_id     | integer   | not null, primary key
+subject_id  | integer   | not null, primary key
 
 ## tags
 column name | data type | details
@@ -56,7 +56,7 @@ id          | integer   | not null, primary key
 subject_id  | string    | not null, foreign key (references users), indexed
 tag_id      | string    | not null, foreign key (references users), indexed
 
-## card-scores
+## card_scores
 column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key

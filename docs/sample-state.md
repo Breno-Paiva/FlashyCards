@@ -12,19 +12,13 @@
     createDeck: {errors: ["name can't be blank"]}
     createSubject: {errors: ["name can't be blank"]}
   },
-  categories: {
-    1: {
-      id: 1,
-      name: "History"
-    }
-  },
   subjects: {
     1: {
       id: 1,
       name: "U.S. History",
       description: "A review of American history",
       subject_pic_url: "http://images.com/ushistory.jpg",
-      category_id: 1,
+      category: "History",
       tags: {
         1: {
           id: 1

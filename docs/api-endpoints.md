@@ -8,13 +8,14 @@
 
 ## JSON API
 
-### Users
+### User
 
-- `POST /api/users`
-- `PATCH /api/users`
+- `POST /api/user`
+- `PATCH /api/user`
 
 ### Session
 
+- `GET /api/session`
 - `POST /api/session`
 - `DELETE /api/session`
 
@@ -43,12 +44,6 @@
 - `DELETE /api/subjects/:id`
 - `GET /api/subjects/:id/decks`
   - index of all decks for a subject
-
-### Categories
-
-- `GET /api/categories`
-- `GET /api/categories/:id/subjects`
-  - index of all subjects for a category
 
 ### Tags
 
