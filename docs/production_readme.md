@@ -1,4 +1,4 @@
-# FresherNote
+# FlashyCards
 
 [FlashyCards live][heroku]
 
