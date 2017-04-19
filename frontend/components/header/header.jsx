@@ -43,7 +43,7 @@ class Header extends React.Component {
 
   render() {
     return(
-      <div>
+      <div className="header-component">
         <h3>Dis be da header</h3>
         { this.userGreet()}
       </div>
