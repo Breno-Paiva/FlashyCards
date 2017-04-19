@@ -1,9 +1,12 @@
 ```js
 {
-  currentUser: {
-    id: 1,
-    username: "friskyB",
-    user_pic_url: "http://profile.com/myspacepicture.jpg"
+  session:{  
+    currentUser: {
+      id: 1,
+      username: "friskyB",
+      user_pic_url: "http://profile.com/myspacepicture.jpg"
+    },
+    errors: []
   },
   forms: {
     signUp: {errors: []},
