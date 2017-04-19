@@ -10,8 +10,8 @@ const mapStateToProps = state => {
   };
 };
 
-const mapDispatchToProps = (dispatch, { location }) => {
-  const formType = location.pathname.slice(1);
+const mapDispatchToProps = (dispatch, { formType }) => {
+
   const sessionAction = (formType === 'login') ? login : signup;
 
   return {

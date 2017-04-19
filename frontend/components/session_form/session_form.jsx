@@ -53,6 +53,7 @@ class SessionForm extends React.Component {
   render() {
     return(
       <div className="session-form-container">
+        <h3>Form</h3>
         {this.renderErrors()}
         <form onSubmit={this.handleSubmit}>
           <h3>{this.props.formType}</h3>
@@ -72,5 +73,7 @@ class SessionForm extends React.Component {
   }
 
 }
+
+// nav link updates based on state.session.formType
 
 export default withRouter(SessionForm);
