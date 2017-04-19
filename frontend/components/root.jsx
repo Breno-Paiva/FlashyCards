@@ -21,7 +21,7 @@ const _redirectIfLoggedIn = (nextState, replace) => {
   }
 }
 
-
+window.store = store
 
   return (
     <Provider store={store}>
