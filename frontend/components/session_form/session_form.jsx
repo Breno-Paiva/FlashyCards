@@ -9,7 +9,7 @@ class SessionForm extends React.Component {
   }
 
   update(field) {
-    return e => this.setState({ [field]: e.currentTarget.value })
+    return e => this.setState({ [field]: e.currentTarget.value });
   }
 
   render() {
@@ -22,8 +22,9 @@ class SessionForm extends React.Component {
           <input onChange={this.update("password")} />
         </label>
       </form>
-    )
+    );
   }
 }
 
-export default withRouter(SessionForm);
+// withRouter
+export default SessionForm;
