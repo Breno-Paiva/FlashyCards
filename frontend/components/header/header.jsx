@@ -22,11 +22,30 @@ class Header extends React.Component {
   //   return e => this.setState({ [field]: e.currentTarget.value });
   // }
 
+  userGreet () {
+    if (this.props.currentUser) {
+      return (
+        <div>
+          <h3>{`hey ${this.props.currentUser.username}`}</h3>
+          <button onClick={this.props.logout}>LOGOUT</button>
+        </div>
+      );
+    }else{
+      return(
+        <div>
+          <Link to={'/login'}>Login</Link>
+          <br/>
+          <Link to={'/signup'}>Signup</Link>
+        </div>
+      );
+    }
+  }
+
   render() {
     return(
       <div>
-        <h3>{`hey ${this.props.currentUser.username}`}</h3>
-        <button onClick={this.props.logout}>LOGOUT</button>
+        <h3>Dis be da header</h3>
+        { this.userGreet()}
       </div>
     );
   }
