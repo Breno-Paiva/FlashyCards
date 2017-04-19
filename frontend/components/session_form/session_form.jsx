@@ -31,28 +31,28 @@ class SessionForm extends React.Component {
   }
 
   renderErrors() {
-  return (
-    <ul>
-      {this.props.errors.map((error, i) => (
-        <li key={`error-${i}`}>
-          {error}
-        </li>
-      ))}
-    </ul>
-  );
-}
+    return (
+      <ul>
+        {this.props.errors.map((error, i) => (
+          <li key={`error-${i}`}>
+            {error}
+          </li>
+        ))}
+      </ul>
+    );
+  }
 
   navLink() {
     if (this.props.formType === "login") {
-      return <Link to="/signup">sign up instead</Link>;
-      }else{
-      return <Link to="/login">login instead</Link>;
-      }
+      return <button onClick={this.props.switchFormType}>sign up instead</button>;
+    }else{
+      return <button onClick={this.props.switchFormType}>login instead</button>;
+    }
   }
 
   render() {
     return(
-      <div className="session-form-container">
+      <div className={this.props.className}>
         <h3>Form</h3>
         {this.renderErrors()}
         <form onSubmit={this.handleSubmit}>

@@ -6,35 +6,43 @@ class Header extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = { formType: 'login', formClass: "formOff"};
+    this.state = { formType: 'login', formClass: "form-off"};
+    this.setFormLogin = this.setFormLogin.bind(this);
+    this.setFormSignup = this.setFormSignup.bind(this);
+    this.switchFormType = this.switchFormType.bind(this);
   }
 
   sessionForm() {
     return( <SessionForm
       className={this.state.formClass}
       formType={this.state.formType}
-      switchForm={this.switchForm} />
+      switchFormType={this.switchFormType} />
     );
   }
 
-  switchForm() {
-    let nextForm = this.state.formClass === "formOff" ? "formOn" : "formOff";
-    this.setState({formClass: nextForm});
+  switchFormType() {
+    let nextFormType = this.state.formType === "login" ? "signup" : "login";
+    this.setState({formType: nextFormType});
   }
 
+  switchFormShow() {
+    let nextFormShow = this.state.formClass === "form-off" ? "form-on" : "form-off";
+    this.setState({formClass: nextFormShow});
+  }
 
   setFormLogin() {
-    this.switchForm();
+    this.switchFormShow();
     this.setState({ formType: "login" });
   }
 
   setFormSignup() {
-    this.switchForm();
-    this.setState({ formType: "login" });
+    this.switchFormShow();
+    this.setState({ formType: "signup" });
   }
 
   userGreet () {
     if (this.props.currentUser) {
+      this.state.formClass = "form-off";
       return (
         <div>
           <h3>{`hey ${this.props.currentUser.username}`}</h3>

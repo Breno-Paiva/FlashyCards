@@ -10,13 +10,12 @@ const mapStateToProps = state => {
   };
 };
 
-const mapDispatchToProps = (dispatch, { formType }) => {
+const mapDispatchToProps = (dispatch, { formType, switchForm }) => {
 
   const sessionAction = (formType === 'login') ? login : signup;
 
   return {
-    processForm: user => dispatch(sessionAction(user)),
-    formType
+    processForm: user => dispatch(sessionAction(user))
   };
 };
 
