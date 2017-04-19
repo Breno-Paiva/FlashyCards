@@ -30,7 +30,7 @@ class SessionForm extends React.Component {
     this.setState({ username: "", password: "" });
   }
 
-renderErrors() {
+  renderErrors() {
   return (
     <ul>
       {this.props.errors.map((error, i) => (
@@ -41,6 +41,14 @@ renderErrors() {
     </ul>
   );
 }
+
+  navLink() {
+    if (this.props.formType === "login") {
+      return <Link to="/signup">sign up instead</Link>;
+      }else{
+      return <Link to="/login">login instead</Link>;
+      }
+  }
 
   render() {
     return(
@@ -58,6 +66,7 @@ renderErrors() {
           <br/>
           <input type="submit" value={`${this.props.formType}!`} />
         </form>
+        {this.navLink()}
       </div>
     );
   }
