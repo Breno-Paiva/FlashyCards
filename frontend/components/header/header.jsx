@@ -1,26 +1,37 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router';
+import SessionForm from '../session_form/session_form_container';
 
 class Header extends React.Component {
 
   constructor(props) {
     super(props);
-    // this.state = { username: "", password: "" };
+    this.state = { formType: 'login', formClass: "formOff"};
   }
 
-  // componenetDidUpdate() {
-  //   this.redirectIfLoggedIn();
-  // }
-  //
-  // redirectIfLoggedIn() {
-  //   if (this.props.loggedIn) {
-  //     this.props.router.push('/');
-  //   }
-  // }
-  //
-  // update(field) {
-  //   return e => this.setState({ [field]: e.currentTarget.value });
-  // }
+  sessionForm() {
+    return( <SessionForm
+      className={this.state.formClass}
+      formType={this.state.formType}
+      switchForm={this.switchForm} />
+    );
+  }
+
+  switchForm() {
+    let nextForm = this.state.formClass === "formOff" ? "formOn" : "formOff";
+    this.setState({formClass: nextForm});
+  }
+
+
+  setFormLogin() {
+    this.switchForm();
+    this.setState({ formType: "login" });
+  }
+
+  setFormSignup() {
+    this.switchForm();
+    this.setState({ formType: "login" });
+  }
 
   userGreet () {
     if (this.props.currentUser) {
@@ -33,9 +44,9 @@ class Header extends React.Component {
     }else{
       return(
         <div>
-          <Link to={'/login'}>Login</Link>
+          <button onClick={this.setFormLogin}>Login</button>
           <br/>
-          <Link to={'/signup'}>Signup</Link>
+          <button onClick={this.setFormSignup}>Signup</button>
         </div>
       );
     }
@@ -46,10 +57,11 @@ class Header extends React.Component {
       <div className="header-component">
         <h3>Dis be da header</h3>
         { this.userGreet()}
+        {this.sessionForm()}
       </div>
     );
   }
 
 }
 
-export default withRouter(Header);
+export default Header;
