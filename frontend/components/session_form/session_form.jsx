@@ -9,7 +9,7 @@ class SessionForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  componenetDidUpdate() {
+  componentDidUpdate() {
     this.redirectIfLoggedIn();
   }
 
@@ -27,6 +27,7 @@ class SessionForm extends React.Component {
     e.preventDefault();
     const user = this.state;
     this.props.processForm({user});
+    this.setState({ username: "", password: "" });
   }
 
 renderErrors() {
