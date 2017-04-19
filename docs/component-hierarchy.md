@@ -3,6 +3,9 @@
 **SessionFormContainer**
  - SessionForm
 
+**HeaderContainer**
+  - Header 
+
 **HomeContainer**
  - Home
 
@@ -50,8 +53,6 @@
  - StudyCard
 
  **Sidebar**
-
- **Header**
 
 ## Routes
 
