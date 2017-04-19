@@ -1,6 +1,21 @@
-// .session-form-container {
-//   border: 5px solid red
-// }
+.session-form-container {
+  background-color: white;
+  color: #29a5dc;
+}
+
+.session-form-container input[type=submit]  {
+  color: white;
+  background-color: #29a5dc;
+}
+
+.session-form-container input {
+  background-color: #f2f2f2;
+}
+
+.session-form-container h4 {
+  color: #ff8a47;
+  text-transform: capitalize;
+}
 
 .form-on {
   border: 5px solid green
