@@ -2,7 +2,7 @@
 
 [FlashyCards live][heroku]
 
-[heroku]: http://www.herokuapp.com
+[heroku]: https://fully-flashy-cards.herokuapp.com
 
 FlashyCards is a full-stack web application that uses the layout and concepts of Brainscape.  It uses Ruby on Rails on the backend, with a PostgreSQL database, and React.js with Redux for the frontend.
 

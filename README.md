@@ -4,7 +4,7 @@
 
 [Trello link][trello]
 
-[heroku]: http://www.herokuapp.com
+[heroku]: https://fully-flashy-cards.herokuapp.com
 [trello]: https://trello.com/b/86hwz5nG/flashycards
 
 ## Minimum Viable Product
