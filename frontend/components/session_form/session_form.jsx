@@ -24,7 +24,6 @@ class SessionForm extends React.Component {
   }
 
   handleSubmit(e) {
-    debugger
     e.preventDefault();
     const user = this.state;
     this.props.processForm({user});
@@ -45,7 +44,7 @@ renderErrors() {
   render() {
     return(
       <div>
-        {this.renderErrors()}        
+        {this.renderErrors()}
         <form onSubmit={this.handleSubmit}>
           <h3>{this.props.formType}</h3>
           <label>username:
