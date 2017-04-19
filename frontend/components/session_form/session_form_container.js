@@ -15,7 +15,6 @@ const mapDispatchToProps = (dispatch, { location }) => {
   const sessionAction = (formType === 'login') ? login : signup;
 
   return {
-    logout: ()=> dispatch(logout()),
     processForm: user => dispatch(sessionAction(user)),
     formType
   };
