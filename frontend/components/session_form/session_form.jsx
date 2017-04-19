@@ -45,6 +45,7 @@ renderErrors() {
     return(
       <div>
         {this.renderErrors()}
+        <button onClick={this.props.logout}>LOGOUT</button>
         <form onSubmit={this.handleSubmit}>
           <h3>{this.props.formType}</h3>
           <label>username:
