@@ -1,11 +1,24 @@
 .session-form-container {
   background-color: white;
   color: #29a5dc;
+  width: 200px;
+}
+
+.session-form-container form {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 }
 
 .session-form-container input[type=submit]  {
   color: white;
+  width: 50px;
+  border-radius: 4px;
   background-color: #29a5dc;
+}
+
+.session-form-container input[type=submit]:hover {
+  opacity: 1;
 }
 
 .session-form-container input {

@@ -32,37 +32,30 @@ FlashyCards is a web applications that has features similar to Brainscape.  It i
 
 ## Implementation Timeline
 
-### Phase 1: Backend setup and Front End User Authentication (2 days: W1D2, W1D3)
+### Phase 1: Backend setup and Front End User Authentication (2 days, W1D2-W2D3)
 
 **Objective:** Functioning rails project with front-end Authentication
 
-### Phase 2: Model, API, and components required for home page (1 day W1D4)
+### Phase 2: Categories, Decks and Cards Model, API, and components (2 days, W1D4-W1D5)
 
-**Objective:** Under a category, decks and cards can be created, read, edited and destroyed through the API.
+**Objective:** Under a category, decks and cards can be created, read, edited and destroyed through
+the API.
 
-### Phase 3: Models, API, and components required for library page (1 day W1D5)
-
-**Objective:** Under a category, decks and cards can be created, read, edited and destroyed through the API.
-
-### Phase 4: Generate sufficient seeds and polish existing pages (Weekend)
-
-**Objective:** Under a category, decks and cards can be created, read, edited and destroyed through the API.
-
-### Phase 5: Study Deck (1 day W2D1)
+### Phase 3: Study Deck (1 day, W2D1)
 
 **Objective:** Decks can be studied and cards hold information on the user's given score.
 
-### Phase 6: Categories and Tags (1 day W2D2)
+### Phase 4: Categories and Tags (1 day, W2D2)
 
 **Objective:** Subjects are nested under a category and can be tagged.
 
-### Phase 7: Search (1 day, W2D3)
+### Phase 5: Search (1 day, W2, W2D3)
 
 **Objective:** Subjects can be searched by tags and name.
 
-### Phase 8: Animation (1 day, W2D4)
+### Phase 6: - Show score (1 day, W2D4)
 
-**Objective:** Subjects can be searched by tags and name.
+**Objective:** Deck study score renders a percentage as well as number of cards for each given value.
 
 ### Bonus Features (TBD)
 - [ ] Badges associated with progress
