@@ -15,7 +15,8 @@ class Header extends React.Component {
   }
 
   sessionForm() {
-    return( <SessionForm
+    return(
+      <SessionForm
       className={this.state.formClass}
       formType={this.state.formType}
       switchFormType={this.switchFormType} />
@@ -42,12 +43,39 @@ class Header extends React.Component {
     this.setState({ formType: "signup" });
   }
 
-  userGreet () {
+  blackOut () {
+    if (this.state.formClass === "form-on") {
+      return (<div className="black-out"
+        onClick={this.switchFormShow}
+      ></div>);
+    }
+  }
+
+  leftHeader () {
+    return (
+      <div className="left-header">
+        <h3>~logo~</h3>
+        <h3>Flashy Cards</h3>
+      </div>
+    )
+  }
+
+  rightHeader () {
+    return(
+      <div className="right-header">
+        { this.userInfo()}
+      </div>
+    )
+  }
+
+  userInfo () {
     if (this.props.currentUser) {
       this.state.formClass = "form-off";
       return (
         <div>
-          <h3>{`hey ${this.props.currentUser.username}`}</h3>
+          <Link to="/library">
+            <h3>{`${this.props.currentUser.username}`}</h3>
+          </Link>
           <button onClick={this.props.logout}>LOGOUT</button>
         </div>
       );
@@ -62,25 +90,12 @@ class Header extends React.Component {
     }
   }
 
-  blackOut () {
-    if (this.state.formClass === "form-on") {
-      return (<div className="black-out"
-        onClick={this.switchFormShow}
-      ></div>);
-    }
-  }
-
   render() {
     return(
       <div className="header-component">
         <div className="navbar">
-          <div className="left-header">
-            <h3>~logo~</h3>
-            <h3>Flashy Cards</h3>
-          </div>
-          <div className="right-header">
-            { this.userGreet()}
-          </div>
+          {this.leftHeader()}
+          {this.rightHeader()}
         </div>
         {this.sessionForm()}
         {this.blackOut()}

@@ -5,7 +5,7 @@ export const RECEIVE_ERRORS = "RECEIVE_ERRORS";
 
 export const signup = user => dispatch => (
   APIUtil.signup(user)
-    .then(user => dispatch(receiveCurrentUser(user)),
+    .then(user => dispatch(receiveCurrentUser(user)).then(),
       errors => dispatch(receiveErrors(errors.responseJSON)))
 );
 
