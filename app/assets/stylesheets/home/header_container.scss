@@ -1,5 +1,25 @@
-.header-component {
-    border: 5px solid #ff8a47;
+.navbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-bottom: 5px solid #ff8a47;
     background-color: #2f2f2f;
     color: white;
+}
+
+.left-header, .right-header {
+  display: flex;
+  padding: 10px;
+}
+
+.session-buttons {
+  display: flex;
+}
+
+.session-buttons button {
+  padding: 10px
+}
+
+.left-header h3 {
+  padding: 10px;
 }

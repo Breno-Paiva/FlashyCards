@@ -51,7 +51,7 @@ class Header extends React.Component {
       );
     }else{
       return(
-        <div>
+        <div className="session-buttons">
           <button onClick={this.setFormLogin}>Login</button>
           <br/>
           <button onClick={this.setFormSignup}>Signup</button>
@@ -63,8 +63,15 @@ class Header extends React.Component {
   render() {
     return(
       <div className="header-component">
-        <h3>Dis be da header</h3>
-        { this.userGreet()}
+        <div className="navbar">
+          <div className="left-header">
+            <h3>~logo~</h3>
+            <h3>Flashy Cards</h3>
+          </div>
+          <div className="right-header">
+            { this.userGreet()}
+          </div>
+        </div>
         {this.sessionForm()}
       </div>
     );
