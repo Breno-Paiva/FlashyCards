@@ -8,7 +8,7 @@ class Home extends React.Component {
   render() {
     return(
       <div className="home-container">
-        <h3>dis be da home page</h3>
+        <img src="https://static.pexels.com/photos/7095/people-coffee-notes-tea.jpg" alt="relative homepage"/>
       </div>
     );
   }
