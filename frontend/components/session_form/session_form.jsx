@@ -13,6 +13,10 @@ class SessionForm extends React.Component {
     this.redirectIfLoggedIn();
   }
 
+  componentWillReceiveProps() {
+    if (this.props.errors[0]) this.props.clearErrors()
+  }
+
   redirectIfLoggedIn() {
     if (this.props.loggedIn) {
       this.props.router.push('/');
@@ -80,7 +84,5 @@ class SessionForm extends React.Component {
   }
 
 }
-
-// nav link updates based on state.session.formType
 
 export default withRouter(SessionForm);
