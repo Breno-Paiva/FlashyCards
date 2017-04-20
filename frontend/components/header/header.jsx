@@ -97,8 +97,10 @@ class Header extends React.Component {
           {this.leftHeader()}
           {this.rightHeader()}
         </div>
-        {this.sessionForm()}
-        {this.blackOut()}
+        <div className="session-form-render">
+          {this.sessionForm()}
+          {this.blackOut()}
+        </div>
       </div>
     );
   }

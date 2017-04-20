@@ -53,22 +53,16 @@
 
 .form-on {
   border: 5px solid green;
+  height: 260px;
   position: absolute;
-  margin-left: auto;
-  margin-right: auto;
-  left: 0;
-  right: 0;
+  margin: auto;
+  top: 0; left: 0; bottom: 0; right: 0;
   transition: top 1s;
   z-index: 1000;
   animation: .25s ease-out 0s 1 slideInFromTop;
 }
 
 .form-off {
-  border: 5px solid red;
   position: absolute;
-  margin-left: auto;
-  margin-right: auto;
-  left: 0;
-  right: 0;
   top: -1000px;
 }
