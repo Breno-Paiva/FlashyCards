@@ -31,15 +31,17 @@ class SessionForm extends React.Component {
   }
 
   renderErrors() {
-    return (
-      <ul className="session-form-errors">
-        {this.props.errors.map((error, i) => (
-          <li key={`error-${i}`}>
-            {error}
-          </li>
-        ))}
-      </ul>
-    );
+    if (this.props.errors) {
+      return (
+        <ul className="session-form-errors">
+          {this.props.errors.map((error, i) => (
+            <li key={`error-${i}`}>
+              {error}
+            </li>
+          ))}
+        </ul>
+      );
+    }
   }
 
   navLink() {
@@ -52,25 +54,28 @@ class SessionForm extends React.Component {
 
   render() {
     return(
-      <form onSubmit={this.handleSubmit} className={`session-form-container ${this.props.className}`}>
+      <div className={`session-form-container
+          ${this.props.className}`}>
         <h4>{this.props.formType}</h4>
-        {this.renderErrors()}
-        <input placeholder="username"
-          type="text"
-          value={this.state.username}
-          onChange={this.update("username")}
-        />
-        <br/>
-        <input placeholder="password"
-          type="password"
-          value={this.state.password}
-          onChange={this.update("password")}
-        />
-        <br/>
-        <input  type="submit" value={`${this.props.formType}!`} />
-        <br/>
+        <form onSubmit={this.handleSubmit}>
+          {this.renderErrors()}
+          <input placeholder="username"
+            type="text"
+            value={this.state.username}
+            onChange={this.update("username")}
+          />
+          <br/>
+          <input placeholder="password"
+            type="password"
+            value={this.state.password}
+            onChange={this.update("password")}
+          />
+          <br/>
+          <input  type="submit" value={`${this.props.formType}!`} />
+          <br/>
+        </form>
         {this.navLink()}
-      </form>
+      </div>
     );
   }
 
