@@ -14,9 +14,9 @@
  *= require_self
  */
 
-@import "./base/colors.css";
-@import "./base/reset.css";
+@import "./base/colors.scss";
+@import "./base/reset.scss";
 
-@import "./home/session_form_container.css";
-@import "./home/header_container.css";
-@import "./home/home_container.css";
+@import "./home/session_form_container.scss";
+@import "./home/header_container.scss";
+@import "./home/home_container.scss";
