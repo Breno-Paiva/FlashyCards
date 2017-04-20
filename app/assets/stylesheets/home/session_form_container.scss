@@ -42,6 +42,15 @@
   opacity: 0.8;
 }
 
+@keyframes slideInFromTop {
+    0% {
+        transform: translatey(-30%);
+    }
+    100% {
+        transform: translate(0);
+    }
+}
+
 .form-on {
   border: 5px solid green;
   position: absolute;
@@ -51,6 +60,7 @@
   right: 0;
   transition: top 1s;
   z-index: 1000;
+  animation: .25s ease-out 0s 1 slideInFromTop;
 }
 
 .form-off {
@@ -62,5 +72,3 @@
   right: 0;
   top: -1000px;
 }
-
-// transform
