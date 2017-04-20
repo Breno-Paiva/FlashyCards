@@ -10,6 +10,8 @@ class Header extends React.Component {
     this.setFormLogin = this.setFormLogin.bind(this);
     this.setFormSignup = this.setFormSignup.bind(this);
     this.switchFormType = this.switchFormType.bind(this);
+    this.switchFormShow = this.switchFormShow.bind(this);
+    this.blackOut = this.blackOut.bind(this);
   }
 
   sessionForm() {
@@ -60,6 +62,14 @@ class Header extends React.Component {
     }
   }
 
+  blackOut () {
+    if (this.state.formClass === "form-on") {
+      return (<div className="black-out"
+        onClick={this.switchFormShow}
+      ></div>);
+    }
+  }
+
   render() {
     return(
       <div className="header-component">
@@ -73,6 +83,7 @@ class Header extends React.Component {
           </div>
         </div>
         {this.sessionForm()}
+        {this.blackOut()}
       </div>
     );
   }
