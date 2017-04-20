@@ -15,8 +15,4 @@ class Home extends React.Component {
 
 }
 
-
-// conditional in renderForm div checking state for sessionformtype
-// {renderForm()} in div
-
 export default withRouter(Home);
