@@ -1,19 +1,28 @@
 .session-form-container {
   background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: space-around;
   color: #29a5dc;
   width: 200px;
+  -webkit-box-shadow: 0px 0px 37px -9px rgba(0,0,0,0.85);
+  -moz-box-shadow: 0px 0px 37px -9px rgba(0,0,0,0.85);
+  box-shadow: 0px 0px 37px -9px rgba(0,0,0,0.85);
+  font-size: 22px;
 }
 
 .session-form-container form {
   display: flex;
   justify-content: center;
   flex-direction: column;
-  // margin: auto 0;
+  align-items: center;
 }
 
 .session-form-container h4 {
   color: #ff8a47;
   text-transform: capitalize;
+  margin: 0 auto;
 }
 
 .session-form-errors {
@@ -24,27 +33,48 @@
 
 .session-form-container input {
   background-color: #f2f2f2;
-  padding: 5px;
-  margin: 5px auto;
-
+  height: 25px;
+  padding: 2.5px;
+  margin: 0 20px;
+  font-size: 14px;
 }
 
 .session-form-container input[type=submit]  {
   color: white;
   width: 50px;
+  height: 20px;
+  padding: 5px 3px;
   border-radius: 4px;
   background-color: #29a5dc;
   transition: opacity .2s;
   text-transform: capitalize;
+  text-align: center;
+  font-size: 16px;
+  -webkit-box-shadow: 0px 6px 8px -4px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 6px 8px -4px rgba(0,0,0,0.75);
+  box-shadow: 0px 6px 8px -4px rgba(0, 0, 0, 0.75);
 }
+
+// .session-form-container input[type=text]:active, [type=password]:hover {
+//   border: 10px solid red;
+// }
 
 .session-form-container input[type=submit]:hover {
   opacity: 0.8;
 }
 
+.session-form-container button {
+  margin: 0 auto;
+  font-size: 14px;
+}
+
+.session-form-container button:hover {
+  text-decoration: underline;
+}
+
 @keyframes slideInFromTop {
     0% {
-        transform: translatey(-30%);
+        transform: translatey(-20%);
     }
     100% {
         transform: translate(0);
@@ -52,14 +82,14 @@
 }
 
 .form-on {
-  border: 5px solid green;
+  border-radius: 2.5px;
   height: 260px;
   position: absolute;
   margin: auto;
   top: 0; left: 0; bottom: 0; right: 0;
   transition: top 1s;
   z-index: 1000;
-  animation: .25s ease-out 0s 1 slideInFromTop;
+  animation: .05s ease-out 0s 1 slideInFromTop;
 }
 
 .form-off {

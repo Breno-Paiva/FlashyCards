@@ -14,8 +14,12 @@
  *= require_self
  */
 
+ // @import "font-awesome-sprockets";
+ // @import "font-awesome";
+
 @import "./base/colors.scss";
 @import "./base/reset.scss";
+
 
 @import "./home/session_form_container.scss";
 @import "./home/header_container.scss";
