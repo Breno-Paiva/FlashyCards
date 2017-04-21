@@ -1,4 +1,15 @@
 class Api::SubjectsController < ApplicationController
+
+  def index
+    @subjects = Subject.all
+    render "api/subjects"
+  end
+
+  def show
+    @subject = Subject.find(params[:id])
+    render "api/subjects/show/#{@subject.id}"
+  end
+
   def create
     @subject = Subject.new(params[:name])
     if @subject.save
