@@ -8,7 +8,7 @@ export const RECEIVE_SUBJECT_ERRORS = "RECEIVE_SUBJECT_ERRORS";
 
 export const fetchSubjects = () => dispatch => (
   APIUtil.fetchSubjects(subject)
-         .then(subjects => dispatch(receiveSubjects()))
+         .then(subjects => dispatch(receiveSubjects(subjects)))
 );
 
 export const fetchSubject = (subject) => dispatch => {
