@@ -4,7 +4,7 @@ import Subject from './Subject';
 
 
 const mapStateToProps = state => {
-  return { subjects: Object.keys(state.subjects).map(id => state.subjects[id]) };
+  return { subjects: Object.keys(state.subject).map(id => state.subject[id]) };
 };
 
 const mapDispatchToProps = (dispatch, { location }) => {

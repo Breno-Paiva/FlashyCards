@@ -7,7 +7,7 @@ export const REMOVE_SUBJECT = "REMOVE_SUBJECT";
 export const RECEIVE_SUBJECT_ERRORS = "RECEIVE_SUBJECT_ERRORS";
 
 export const fetchSubjects = () => dispatch => (
-  APIUtil.fetchSubjects(subject)
+  APIUtil.fetchSubjects()
          .then(subjects => dispatch(receiveSubjects(subjects)))
 );
 

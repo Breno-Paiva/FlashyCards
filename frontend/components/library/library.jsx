@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router';
+import Subject from '../subject/subject_container';
 
 class Library extends React.Component {
 
@@ -9,6 +10,7 @@ class Library extends React.Component {
     return(
       <div className="library-container">
         <h3>dis be da library page</h3>
+        <Subject />
       </div>
     );
   }
