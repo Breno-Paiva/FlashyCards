@@ -7,14 +7,14 @@ export const CLEAR_ERRORS = "CLEAR_ERRORS";
 
 export const signup = user => dispatch => (
   APIUtil.signup(user)
-    .then(user => dispatch(receiveCurrentUser(user)).then(),
-      errors => dispatch(receiveErrors(errors.responseJSON)))
+         .then(user => dispatch(receiveCurrentUser(user)),
+         errors => dispatch(receiveErrors(errors.responseJSON)))
 );
 
 export const login = user => dispatch => (
   APIUtil.login(user)
-    .then(user => dispatch(receiveCurrentUser(user)),
-      errors => dispatch(receiveErrors(errors.responseJSON)))
+         .then(user => dispatch(receiveCurrentUser(user)),
+         errors => dispatch(receiveErrors(errors.responseJSON)))
 );
 
 export const logout = () => dispatch => (
