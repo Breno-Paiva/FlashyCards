@@ -1,3 +1,15 @@
+export const fetchSubjects = () => {
+  return $.ajax({
+    url: '/api/subjects'
+  });
+};
+
+export const fetchSubject = (subject) => {
+  return $.ajax({
+    url: `/api/subjects/${subject.id}`
+  });
+};
+
 export const createSubject = (subject) => {
   return $.ajax({
     method: 'POST',
