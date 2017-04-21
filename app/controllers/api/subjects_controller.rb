@@ -1,9 +1,7 @@
 class Api::SubjectsController < ApplicationController
 
   def index
-    # debugger
     @subjects = Subject.all
-    # debugger
   end
 
   def show
