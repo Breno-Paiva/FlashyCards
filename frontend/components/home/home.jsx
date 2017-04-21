@@ -8,7 +8,10 @@ class Home extends React.Component {
   render() {
     return(
       <div className="home-container">
-        <h3>dis be da home</h3>
+        <div className="home-description">
+          <h2>Explore Flashy Cards</h2>
+          <h3>the classy way to study</h3>
+        </div>
       </div>
     );
   }
