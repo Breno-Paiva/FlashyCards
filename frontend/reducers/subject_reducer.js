@@ -2,7 +2,7 @@ import { RECEIVE_SUBJECTS,
   RECEIVE_SUBJECT,
   REMOVE_SUBJECT,
   RECEIVE_SUBJECT_ERRORS } from '../actions/subject_actions';
-import merge from 'loadash/merge';
+import merge from 'lodash/merge';
 
 const SubjectReducer = (state={}, action) => {
   Object.freeze(state)
