@@ -4,19 +4,16 @@ import Subject from './Subject';
 
 
 const mapStateToProps = state => {
-  return{
-    // loggedIn: Boolean(state.session.currentUser),
-    // errors: state.session.errors
-  };
+  return { subjects: Object.keys(state.subjects).map(id => state.subjects[id]) };
 };
 
 const mapDispatchToProps = (dispatch, { location }) => {
-  // const formType = location.pathname.slice(1);
-  // const sessionAction = (formType === 'login') ? login : signup;
-
   return {
-    // processForm: user => dispatch(sessionAction(user)),
-    // formType
+    fetchSubjects: () => dispatch(fetchSubjects()),
+    fetchSubject: subject => dispatch(fetchSubject(subject)),
+    createSubject: subject => dispatch(createSubject(subject)),
+    updateSubject: subject => dispatch(updateSubject(subject)),
+    deleteSubject: subject => dispatch(deleteSubject(subject))
   };
 };
 

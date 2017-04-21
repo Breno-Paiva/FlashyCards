@@ -11,7 +11,7 @@ export const fetchSubjects = () => dispatch => (
          .then(subjects => dispatch(receiveSubjects(subjects)))
 );
 
-export const fetchSubject = (subject) => dispatch => {
+export const fetchSubject = subject => dispatch => {
   APIUtil.fetchSubject(subject)
          .then(subject => dispatch(receiveSubject()))
 };
