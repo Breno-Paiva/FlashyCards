@@ -5,4 +5,30 @@
   background-size: 100%;
   background-repeat: no-repeat;
   background-position: left top;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.home-container h2 {
+  text-align: center;
+  z-index: 2;
+  font-size: 35px;
+  color: white;
+}
+.home-container h3 {
+  text-align: center;
+  z-index: 2;
+  font-size: 20px;
+  color: #ff8a47;
+}
+
+.home-description {
+  border-top: 3px solid #29a5dc;
+  border-bottom: 3px solid #29a5dc;
+  padding: 5px;
+  background-color: #2f2f2f;
+  width: 100%;
 }
