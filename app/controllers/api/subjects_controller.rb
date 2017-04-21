@@ -1,19 +1,19 @@
 class Api::SubjectsController < ApplicationController
 
   def index
+    # debugger
     @subjects = Subject.all
-    render "api/subjects"
+    # debugger
   end
 
   def show
     @subject = Subject.find(params[:id])
-    render "api/subjects/show/#{@subject.id}"
   end
 
   def create
-    @subject = Subject.new(params[:name])
+    @subject = Subject.new(subject_params)
     if @subject.save
-      render "api/subjects/show/#{@subject.id}"
+      render :show
     else
       render json: @subject.errors.full_messages, status: 422
     end
@@ -21,8 +21,8 @@ class Api::SubjectsController < ApplicationController
 
   def update
     @subject = Subject.find(params[:id])
-    if @subject.update(params[:name])
-      render "api/subjects/show/#{@subject.id}"
+    if @subject.update(subject_params)
+      render :show
     else
       render json: @subject.errors.full_messages, status: 422
     end
@@ -31,9 +31,13 @@ class Api::SubjectsController < ApplicationController
   def destroy
     @subject = Subject.find(params[:id])
     if @subject.destroy
-      render "api/subjects/show/#{@subject.id}"
+      render :show
     else
       render json: ["Error deleting"], status: 404
     end
+  end
+
+  def subject_params
+    params.require(:subject).permit(:name)
   end
 end
