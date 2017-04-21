@@ -26,13 +26,18 @@
 }
 
 .session-form-errors {
+  font-size: 14px;
   background-color: #d9edf7;
   border-radius: 4px;
   color: #3a87ad;
 }
 
+.session-form-errors li {
+  padding: 0 10px;
+}
+
 .session-form-container input {
-  background-color: #f2f2f2;
+  background-color: #d8d5d5;
   height: 25px;
   padding: 2.5px;
   margin: 0 20px;
@@ -54,10 +59,6 @@
   -moz-box-shadow: 0px 6px 8px -4px rgba(0,0,0,0.75);
   box-shadow: 0px 6px 8px -4px rgba(0, 0, 0, 0.75);
 }
-
-// .session-form-container input[type=text]:active, [type=password]:hover {
-//   border: 10px solid red;
-// }
 
 .session-form-container input[type=submit]:hover {
   opacity: 0.8;

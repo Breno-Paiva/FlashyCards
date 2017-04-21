@@ -14,8 +14,13 @@ class SessionForm extends React.Component {
   }
 
   componentWillReceiveProps() {
+    // debugger
     if (this.props.errors[0]) this.props.clearErrors()
   }
+  // componentDidUpdate() {
+  //   // debugger
+  //   if (this.props.errors[0]) this.props.clearErrors()
+  // }
 
   redirectIfLoggedIn() {
     if (this.props.loggedIn) {
@@ -74,7 +79,7 @@ class SessionForm extends React.Component {
             onChange={this.update("password")}
           />
           <br/>
-          <input  type="submit" value={`${this.props.formType}!`} />
+          <input  type="submit" value={`${this.props.formType}`} />
           <br/>
         </form>
         {this.navLink()}
