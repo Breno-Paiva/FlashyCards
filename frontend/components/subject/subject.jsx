@@ -1,10 +1,13 @@
 import React from 'react';
-import { Link };
+import { Link } from 'react-router';
 
 class Subject extends React.Component {
 
+  // this.props.fetchSubjects()
   render() {
-    <h1>these are subjects</h1>
+    return(
+      <h2>subject index ul</h2>
+    )
   }
 }
 
