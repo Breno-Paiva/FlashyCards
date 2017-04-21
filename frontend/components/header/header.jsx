@@ -55,7 +55,10 @@ class Header extends React.Component {
     return (
       <div className="left-header">
         <h3>~logo~</h3>
-        <h3>Flashy Cards</h3>
+        <i className="fa fa-lightbulb-o"></i>
+        <Link to="/library">
+          <h3>Flashy Cards</h3>
+        </Link>
       </div>
     )
   }
@@ -82,9 +85,13 @@ class Header extends React.Component {
     }else{
       return(
         <div className="session-buttons">
-          <button onClick={this.setFormLogin}>Login</button>
+          <button onClick={this.setFormLogin}
+            className="login"
+          >Login</button>
           <br/>
-          <button onClick={this.setFormSignup}>Signup</button>
+          <button onClick={this.setFormSignup}
+            className="signup"
+            >Get Started</button>
         </div>
       );
     }

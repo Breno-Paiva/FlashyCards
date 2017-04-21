@@ -7,23 +7,33 @@
     border-bottom: 5px solid #ff8a47;
     background-color: #2f2f2f;
     color: white;
+    height: 50px;
 }
 
 .left-header, .right-header {
   display: flex;
-  padding: 10px;
+  // padding: 10px;
+}
+
+.left-header {
+  margin: auto auto auto 10px;
 }
 
 .session-buttons {
   display: flex;
 }
 
-.session-buttons button {
-  padding: 10px
-}
-
 .left-header h3 {
   padding: 10px;
+}
+
+@keyframes blackOutBackground {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: .6;
+  }
 }
 
 .black-out {
@@ -32,10 +42,39 @@
   bottom: 0;
   left: 0;
   right: 0;
-  background-color: gray;
-  opacity: .8;
+  background-color: #0C0C0C;
+  opacity: .6;
+  animation: .3s linear 0s 1 blackOutBackground;
 }
 
-.session-form-render {
-  // position: fixed;
+// .session-form-render {
+//   // position: fixed;
+// }
+.signup {
+  width: 80px;
+  height: 25px;
+  // margin-left: 30px;
+  // margin-right: 10px;
+  margin: auto 10px auto 30px;
+  border-radius: 4px;
+  background-color: #29a5dc;
+  transition: opacity .2s;
+  text-transform: capitalize;
+  text-align: center;
+  font-size: 14px;
+  // transition: opacity .2s;
+  transition: background-color .2s;
+}
+
+.signup:hover {
+  // opacity: 0.8;
+  background-color: rgb(42, 186, 249);
+}
+
+.login {
+  font-size: 14px;
+}
+
+.login:hover {
+  color: #29a5dc
 }
