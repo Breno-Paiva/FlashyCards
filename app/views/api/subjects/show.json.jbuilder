@@ -1,1 +1,1 @@
-json.extract! @subject, :id, :name
+json.partial! 'subject', subject: @subject
