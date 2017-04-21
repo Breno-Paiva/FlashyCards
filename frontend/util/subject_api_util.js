@@ -14,7 +14,7 @@ export const createSubject = (subject) => {
   return $.ajax({
     method: 'POST',
     url: '/api/subjects',
-    data: subject
+    data: {subject}
   });
 };
 
@@ -22,7 +22,7 @@ export const updateSubject = (subject) => {
   return $.ajax({
     method: 'PATCH',
     url: `/api/subjects/${subject.id}`,
-    data: subject
+    data: {subject}
   });
 };
 

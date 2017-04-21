@@ -5,3 +5,14 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+Subject.delete_all
+
+Subject.create!(name: "Dinner Etiquete")
+Subject.create!(name: "Wine")
+Subject.create!(name: "Opera")
+Subject.create!(name: "Museums")
+Subject.create!(name: "Waltz")
+Subject.create!(name: "Ties")
+
+User.create!(username: "flashy", password: "friskyb")
