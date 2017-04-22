@@ -12,7 +12,7 @@ const SubjectReducer = (state={}, action) => {
     case RECEIVE_SUBJECTS:
       return action.subjects;
     case RECEIVE_SUBJECT:
-      return merge({}, state, action.subject);
+      return merge({}, state, {[action.subject.id]: action.subject});
     case REMOVE_SUBJECT:
       delete newState[action.subject]
       return newState;
