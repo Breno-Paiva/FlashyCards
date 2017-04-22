@@ -16,4 +16,10 @@ Subject.create!(name: "Waltz")
 Subject.create!(name: "Ties")
 
 User.delete_all
-User.create!(username: "flashy", password: "friskyb")
+
+User.create!(username: "flashyUser", password: "friskyb")
+
+Deck.delete_all
+Deck.create!(name: "napkins", subject_id: Subject.find_by_name("Dinner Etiquete").id)
+Deck.create!(name: "forks", subject_id: Subject.find_by_name("Dinner Etiquete").id)
+Deck.create!(name: "spoons", subject_id: Subject.find_by_name("Dinner Etiquete").id)
