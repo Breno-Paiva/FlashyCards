@@ -7,7 +7,7 @@ const mapStateToProps = state => {
   return { subjects: Object.keys(state.subject).map(id => state.subject[id]) };
 };
 
-const mapDispatchToProps = (dispatch, { location }) => {
+const mapDispatchToProps = (dispatch) => {
   return {
     fetchSubjects: () => dispatch(fetchSubjects()),
     fetchSubject: subject => dispatch(fetchSubject(subject)),

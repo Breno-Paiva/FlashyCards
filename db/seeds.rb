@@ -15,4 +15,5 @@ Subject.create!(name: "Museums")
 Subject.create!(name: "Waltz")
 Subject.create!(name: "Ties")
 
+User.delete_all
 User.create!(username: "flashy", password: "friskyb")
