@@ -29,7 +29,7 @@ export const updateSubject = subject => dispatch => (
 );
 
 export const deleteSubject = subject => dispatch => (
-  APIUtil.deleteSubject()
+  APIUtil.deleteSubject(subject)
          .then(subject => dispatch(removeSubject(subject)),
                errors => dispatch(receiveSubjectErrors(errors.responseJSON)))
 );

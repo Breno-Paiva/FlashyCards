@@ -29,6 +29,6 @@ export const updateSubject = (subject) => {
 export const deleteSubject = (subject) => {
   return $.ajax({
     method: 'DELETE',
-    url: `/api/subjects${subject.id}`
+    url: `/api/subjects/${subject.id}`
   });
 };
