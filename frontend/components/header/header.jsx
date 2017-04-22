@@ -25,11 +25,13 @@ class Header extends React.Component {
 
   switchFormType() {
     let nextFormType = this.state.formType === "login" ? "signup" : "login";
+    this.props.clearErrors()
     this.setState({formType: nextFormType});
   }
 
   switchFormShow() {
     let nextFormShow = this.state.formClass === "form-off" ? "form-on" : "form-off";
+    this.props.clearErrors()
     this.setState({formClass: nextFormShow});
   }
 

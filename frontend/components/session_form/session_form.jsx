@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, withRouter } from 'react-router';
+import { Link, withRouter, hashHistory } from 'react-router';
 
 class SessionForm extends React.Component {
 
@@ -10,17 +10,8 @@ class SessionForm extends React.Component {
   }
 
   componentDidUpdate() {
-    this.redirectIfLoggedIn();
+    if (this.props.loggedIn) hashHistory.push('/library');
   }
-
-  componentWillReceiveProps() {
-    // debugger
-    if (this.props.errors[0]) this.props.clearErrors()
-  }
-  // componentDidUpdate() {
-  //   // debugger
-  //   if (this.props.errors[0]) this.props.clearErrors()
-  // }
 
   redirectIfLoggedIn() {
     if (this.props.loggedIn) {
@@ -32,14 +23,8 @@ class SessionForm extends React.Component {
     return e => this.setState({ [field]: e.currentTarget.value });
   }
 
-  // demoUserSubmit(e){
-  //   e.preventDefault();
-  //   this.props.login({username: "flashy", password: "friskyb"});
-  //   this.setState({ username: "", password: "" });
-  // }
-
   demoUserSubmit(){
-    if(this.state.formType="login"){
+    if(this.props.formType === "login"){
       return (
         <input type="submit"
           id="demo-user"
