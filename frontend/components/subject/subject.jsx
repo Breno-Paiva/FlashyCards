@@ -45,8 +45,8 @@ class Subject extends React.Component {
 
   render() {
     return(
-      <div>
-        <h2>subject index ul</h2>
+      <div className="subject-container">
+        <h2>SUBJECTS</h2>
         <ul>
           {
             this.props.subjects.map( subject => (
