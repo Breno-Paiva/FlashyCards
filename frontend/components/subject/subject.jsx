@@ -12,15 +12,10 @@ class Subject extends React.Component {
     this.props.fetchSubjects();
   }
 
-  componentWillReceiveProps(){
-    // this.props.fetchSubjects();
-  }
-
   deleteSubject(subject){
     this.props.deleteSubject(subject).then(()=>this.props.fetchSubjects())
   }
 
-  // this.props.fetchSubjects()
   render() {
     return(
       <div>
@@ -29,7 +24,7 @@ class Subject extends React.Component {
           {
             this.props.subjects.map( subject => {
               return (
-                <li>
+                <li key={subject.id}>
                   {subject.name}
                   <button onClick={() => this.deleteSubject(subject)}>delete</button>
                 </li>

@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { fetchSubjects, fetchSubject, createSubject, updateSubject, deleteSubject } from '../../actions/subject_actions';
-import Subject from './Subject';
+import Subject from './subject';
 
 
 const mapStateToProps = state => {
