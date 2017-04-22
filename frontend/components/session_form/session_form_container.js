@@ -16,8 +16,7 @@ const mapDispatchToProps = (dispatch, { formType, switchForm }) => {
 
   return {
     login: user => dispatch(login(user)),
-    processForm: user => dispatch(sessionAction(user)),
-    clearErrors: () => dispatch(clearErrors())
+    processForm: user => dispatch(sessionAction(user))
   };
 };
 
