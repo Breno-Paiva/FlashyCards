@@ -105,3 +105,16 @@
   height: 12px;
   width: 28px;
 }
+
+.session-form-close {
+  color: white;
+  z-index: 3;
+  position: absolute;
+  top: -12px;
+  right: -15px;
+  background-color: #29a5dc;
+  border-radius: 103px;
+  padding: 5px;
+  width: 18px;
+  text-align: center;
+}

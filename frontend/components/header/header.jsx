@@ -17,6 +17,7 @@ class Header extends React.Component {
   sessionForm() {
     return(
       <SessionForm
+      switchFormShow={this.switchFormShow}
       className={this.state.formClass}
       formType={this.state.formType}
       switchFormType={this.switchFormType} />
