@@ -20,13 +20,19 @@ const Root = ({ store }) => {
       <Router history={hashHistory}>
         <Route path="/" component={App}>
           <IndexRedirect to="/home" />
-          <Route path="home" component={HomeContainer} />
-          <Route path="library" component={LibraryContainer} onEnter={_ensureLoggedIn}/>
+          <Route path="/home" component={HomeContainer} />
+          <Route path="/library" component={LibraryContainer} onEnter={_ensureLoggedIn}>
+            <Route path="/:subjectId" />
+          </Route>
         </Route>
       </Router>
     </Provider>
   );
 };
+
+// <Route path="/library" component={LibraryContainer} onEnter={_ensureLoggedIn}>
+//   <Route path="/:subjectId" />
+// </Route>
 
 // at '/'  redirect to either home or library...
 // at library redirect to home unless logged in

@@ -6,7 +6,7 @@ import DeckReducer from './deck_reducer';
 const RootReducer = combineReducers({
   session: SessionReducer,
   subject: SubjectReducer,
-  decks: DeckReducer
+  deck: DeckReducer
 });
 
 export default RootReducer;
