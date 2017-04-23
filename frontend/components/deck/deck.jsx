@@ -5,9 +5,9 @@ class Deck extends React.Component {
 
   render () {
     return(
-      <div>These are decks</div>
+      <div>{`deck for subject ${this.props.currentSubjectId}`}</div>
     )
   }
 }
 
-export default Deck
+export default Deck;
