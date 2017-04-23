@@ -3,9 +3,10 @@ import { logout } from '../../actions/session_actions';
 import Library from './library';
 
 
-const mapStateToProps = state => {
+const mapStateToProps = (state, {params}) => {
   return{
-    currentUser: state.session.currentUser
+    currentUser: state.session.currentUser,
+    currentSubjectId: params.subjectId
   };
 };
 

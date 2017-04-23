@@ -12,7 +12,7 @@ class Library extends React.Component {
       <div className="library-container">
         <h3>dis be da library page</h3>
         <Subject />
-        <Deck />
+        <Deck currentSubjectId={this.props.currentSubjectId}/>
       </div>
     );
   }

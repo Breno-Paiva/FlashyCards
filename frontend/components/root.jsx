@@ -3,8 +3,9 @@ import { Provider } from 'react-redux';
 import { Router, Route, IndexRoute, hashHistory, IndexRedirect } from 'react-router';
 
 import App from './app';
-import HomeContainer from './home/home_container'
-import LibraryContainer from './library/library_container'
+import HomeContainer from './home/home_container';
+import LibraryContainer from './library/library_container';
+import DeckContainer from './deck/deck_container';
 
 const Root = ({ store }) => {
 
@@ -22,7 +23,7 @@ const Root = ({ store }) => {
           <IndexRedirect to="/home" />
           <Route path="/home" component={HomeContainer} />
           <Route path="/library" component={LibraryContainer} onEnter={_ensureLoggedIn}>
-            <Route path="/:subjectId" />
+            <Route path=":subjectId" />
           </Route>
         </Route>
       </Router>

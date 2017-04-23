@@ -3,8 +3,11 @@ import { fetchDecks, fetchDeck } from '../../actions/deck_actions';
 import Deck from './deck';
 
 
-const mapStateToProps = state => {
-  return { decks: Object.keys(state.deck).map(id => state.deck[id]) };
+const mapStateToProps = (state, { currentSubjectId } ) => {
+  return {
+    decks: Object.keys(state.deck).map(id => state.deck[id]) ,
+    currentSubjectId
+  };
 };
 
 const mapDispatchToProps = (dispatch) => {
