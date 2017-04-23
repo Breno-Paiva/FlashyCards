@@ -1,6 +1,6 @@
-export const fetchDecks = (subject) => {
+export const fetchDecks = (subjectId) => {
   return $.ajax({
-    url: `/api/subjects/${subject.id}/decks`
+    url: `/api/subjects/${subjectId}/decks`
   });
 };
 

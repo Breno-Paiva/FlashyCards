@@ -6,8 +6,8 @@ export const RECEIVE_DECK = "RECEIVE_DECK";
 // export const REMOVE_SUBJECT = "REMOVE_SUBJECT";
 // export const RECEIVE_SUBJECT_ERRORS = "RECEIVE_SUBJECT_ERRORS";
 
-export const fetchDecks = subject => dispatch => (
-  APIUtil.fetchDecks(subject)
+export const fetchDecks = subjectId => dispatch => (
+  APIUtil.fetchDecks(subjectId)
          .then(decks => dispatch(receiveDecks(decks)))
 );
 
