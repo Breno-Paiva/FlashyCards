@@ -5,6 +5,7 @@ import Deck from './deck';
 
 const mapStateToProps = (state, { currentSubjectId } ) => {
   return {
+    subject: state.subject[currentSubjectId],
     decks: Object.keys(state.deck).map(id => state.deck[id]) ,
     currentSubjectId
   };
@@ -12,8 +13,8 @@ const mapStateToProps = (state, { currentSubjectId } ) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    fetchDecks: subjectId => dispatch(fetchSubjects(subjectId)),
-    fetchDeck: deck => dispatch(fetchSubject(deck))
+    fetchDecks: subjectId => dispatch(fetchDecks(subjectId)),
+    fetchDeck: deck => dispatch(fetchDeck(deck))
   };
 };
 
