@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router';
+import { Link, hashHistory } from 'react-router';
 
 class Subject extends React.Component {
 
@@ -51,7 +51,7 @@ class Subject extends React.Component {
           {
             this.props.subjects.map( subject => (
               <li key={subject.id}>
-                {subject.name}
+                <h2 onClick={() => hashHistory.push(`library/${subject.id}`)}>{subject.name}</h2>
                 <button onClick={() => this.deleteSubject(subject)}>delete</button>
               </li>
             ))

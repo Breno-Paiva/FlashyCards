@@ -3,9 +3,15 @@ import { Link } from 'react-router';
 
 class Deck extends React.Component {
 
+  // renderDecks{
+  //   this.props.fetchDecks()
+  // }
+
   render () {
     return(
-      <div>{`deck for subject ${this.props.currentSubjectId}`}</div>
+      <div>
+        <h3>{`deck for subject ${this.props.currentSubjectId}`}</h3>
+      </div>
     )
   }
 }
