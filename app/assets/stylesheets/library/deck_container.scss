@@ -1,17 +1,77 @@
-.deck-form {
-  // border: 2px solid green;
-}
-
-.deck-form input {
-  background-color: lightgray;
-}
-
 .deck-container {
   padding: 20px;
-  background: lightblue;
+  // background: lightblue;
+  // border: 3px solid black;
   float: left;
-  width: 70%;
+  width: 65%;
+  display: block;
+  margin: 10px;
 }
 
-.deck-container button {
+.deck-form {
+  color: black;
+  border: 2px solid #ff8a47;
+  border-radius: 4px;
+  padding: 20px 20px 10px;
+  font-size: 14px;
+}
+
+.deck-form input[type=text] {
+  margin-top: 7px;
+  display: block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 6px;
+  width: 95%;
+  font-size: 14px;
+}
+
+.deck-form input[type=text]:focus {
+  border: 1px solid #29a5dc;
+  -webkit-box-shadow: 0px 0px 7px 1px rgba(0,0,0,0.43);
+  -moz-box-shadow: 0px 0px 7px 1px rgba(0,0,0,0.43);
+  box-shadow: 0px 0px 7px 1px rgba(0,0,0,0.43);
+}
+.deck-form input[type=submit] {
+  background-color: #29a5dc;
+  color: white;
+  border-radius: 4px;
+  padding: 5px 10px;
+  border: 1px solid #ccc;
+  margin-top: 10px;
+  font-size: 12px;
+}
+
+.deck-form input[type=submit]:hover {
+  opacity: 0.8;
+}
+
+.deck-header {
+  // background: lightgreen;
+}
+
+.deck-header h3 {
+  color: #ff8a47;
+  font-size: 26px;
+  padding: 0 40px 20px;
+  border-bottom: 1px solid #ccc;
+}
+.deck-header h4 {
+  padding: 18px 8px 6px;
+  color: black;
+  font-size: 14px;
+  font-weight: bold;
+  border-bottom: 3px solid #ccc;
+}
+
+.deck-item {
+  border-bottom: 1px solid #ccc;
+  padding: 8px 0 8px 20px;
+  color: #29a5dc;
+}
+
+.deck-item h4:hover {
+  // font-size: 14px;
+  text-decoration: underline;
+  cursor: pointer;
 }

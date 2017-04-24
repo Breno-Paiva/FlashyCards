@@ -8,10 +8,10 @@
 .subject-form input[type=text] {
   margin-top: 7px;
   display: block;
-  border: 2px solid #ccc;
+  border: 1px solid #ccc;
   border-radius: 4px;
   padding: 6px;
-  width: 100%;
+  width: 95%;
   font-size: 14px;
 }
 
@@ -36,7 +36,6 @@
 }
 
 .subject-container {
-  background: purple;
   float: left;
   width: 30%;
   top: 56px;
@@ -78,6 +77,7 @@
   background: #f5f5f5;
   font-size: 12px;
   border-right: 3px solid #ccc;
+  border-bottom: 3px solid #ccc;
 }
 
 .subject-item {
@@ -102,5 +102,6 @@
   border: 1px solid #aaa;
 }
 
-.subject-item h2 {
+.subject-item h3 {
+  color: #ff8a47;
 }
