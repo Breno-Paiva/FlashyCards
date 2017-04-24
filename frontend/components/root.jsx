@@ -25,6 +25,7 @@ const Root = ({ store }) => {
           <Route path="/library" component={LibraryContainer} onEnter={_ensureLoggedIn}>
             <Route path=":subjectId" />
           </Route>
+          <Route path="/decks/:deckId/cards" component={CardContainer} />
         </Route>
       </Router>
     </Provider>
