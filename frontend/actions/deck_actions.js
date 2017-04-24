@@ -12,15 +12,15 @@ export const fetchDecks = subjectId => dispatch => (
 );
 
 export const fetchDeck = deck => dispatch => {
-  APIUtil.fetchSubject(deck)
-         .then(deck => dispatch(receiveDeck()))
+  APIUtil.fetchDeck(deck)
+         .then(deck => dispatch(receiveDeck(deck)))
 };
 
-// export const createSubject = subject => dispatch => (
-//   APIUtil.createSubject(subject)
-//          .then(subject => dispatch(receiveSubject(subject)),
-//                errors => dispatch(receiveSubjectErrors(errors.responseJSON)))
-// );
+export const createDeck = deck => dispatch => (
+  APIUtil.createDeck(deck)
+         .then(deck => dispatch(receiveDeck(deck)),
+               errors => dispatch(receiveDeckErrors(errors.responseJSON)))
+);
 //
 // export const updateSubject = subject => dispatch => (
 //   APIUtil.updateSubject(subject)

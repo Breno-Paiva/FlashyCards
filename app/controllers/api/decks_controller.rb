@@ -8,14 +8,14 @@ class Api::DecksController < ApplicationController
     @deck = Deck.find(params[:id])
   end
 
-  # def create
-  #   @deck = Subject.new(subject_params)
-  #   if @subject.save
-  #     render :show
-  #   else
-  #     render json: @subject.errors.full_messages, status: 422
-  #   end
-  # end
+  def create
+    @deck = Deck.new(deck_params)
+    if @deck.save
+      render :show
+    else
+      render json: @deck.errors.full_messages, status: 422
+    end
+  end
   #
   # def update
   #   @subject = Subject.find(params[:id])
@@ -35,8 +35,8 @@ class Api::DecksController < ApplicationController
   #   end
   # end
   #
-  # def subject_params
-  #   params.require(:subject).permit(:name)
-  # end
+  def deck_params
+    params.require(:deck).permit(:name, :subject_id)
+  end
 
 end

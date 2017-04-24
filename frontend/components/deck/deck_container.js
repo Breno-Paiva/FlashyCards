@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { fetchDecks, fetchDeck } from '../../actions/deck_actions';
+import { fetchDecks, fetchDeck, createDeck } from '../../actions/deck_actions';
 import Deck from './deck';
 
 
@@ -14,7 +14,8 @@ const mapStateToProps = (state, { currentSubjectId } ) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     fetchDecks: subjectId => dispatch(fetchDecks(subjectId)),
-    fetchDeck: deck => dispatch(fetchDeck(deck))
+    fetchDeck: deck => dispatch(fetchDeck(deck)),
+    createDeck: deck => dispatch(createDeck(deck))
   };
 };
 
