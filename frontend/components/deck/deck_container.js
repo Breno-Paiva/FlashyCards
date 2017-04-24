@@ -1,13 +1,12 @@
 import { connect } from 'react-redux';
-import { fetchDecks, fetchDeck, createDeck } from '../../actions/deck_actions';
+import { fetchDecks, fetchDeck, createDeck, deleteDeck } from '../../actions/deck_actions';
 import Deck from './deck';
 
 
-const mapStateToProps = (state, { currentSubjectId } ) => {
+const mapStateToProps = (state, ownProps ) => {
+
   return {
-    // subjectName: state.subject[currentSubjectId].name,
-    decks: Object.keys(state.deck).map(id => state.deck[id]) ,
-    currentSubjectId
+    decks: Object.keys(state.deck).map(id => state.deck[id])
   };
 };
 
@@ -15,7 +14,8 @@ const mapDispatchToProps = (dispatch) => {
   return {
     fetchDecks: subjectId => dispatch(fetchDecks(subjectId)),
     fetchDeck: deck => dispatch(fetchDeck(deck)),
-    createDeck: deck => dispatch(createDeck(deck))
+    createDeck: deck => dispatch(createDeck(deck)),
+    deleteDeck: deck => dispatch(deleteDeck(deck))
   };
 };
 

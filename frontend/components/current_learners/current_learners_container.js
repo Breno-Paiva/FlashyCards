@@ -6,7 +6,7 @@ class CurrentLearners extends React.Component {
   render() {
     return(
       <div className="current-learners-container">
-        Current Learners feature coming soon...
+        {"'Current Learners'  feature coming soon..."}
       </div>
     );
   }
