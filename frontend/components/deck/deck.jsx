@@ -48,7 +48,7 @@ class Deck extends React.Component {
 
   render () {
     return(
-      <div>
+      <div className="deck-container">
         <h3>{`deck for subject ${this.props.currentSubjectId}`}</h3>
         <ul>
           {

@@ -28,7 +28,7 @@ class Subject extends React.Component {
             value={this.state.name}
             onChange={this.update("name")}
             />
-          <input type="submit" value="save"/>
+          <input type="submit" value="Save"/>
         </form>
       </li>
     )
@@ -46,12 +46,14 @@ class Subject extends React.Component {
   render() {
     return(
       <div className="subject-container">
-        <h2>SUBJECTS</h2>
-        <ul>
+        <div className="subject-header">
+          <h2 className="subject-title">Subjects</h2>
+        </div>
+        <ul className="subject-list">
           {
             this.props.subjects.map( subject => (
-              <li key={subject.id}>
-                <h2 onClick={() => hashHistory.push(`library/${subject.id}`)}>{subject.name}</h2>
+              <li key={subject.id} onClick={() => hashHistory.push(`library/${subject.id}`)} className="subject-item">
+                <h2>{subject.name}</h2>
                 <button onClick={() => this.deleteSubject(subject)}>delete</button>
               </li>
             ))

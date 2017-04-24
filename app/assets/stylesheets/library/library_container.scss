@@ -1,6 +1,11 @@
 .library-container {
   position: relative;
   top: 67px;
-  left: 10px;
-  border: 2px solid red;
+  left: 0;
+}
+
+.main-content {
+  background: yellow;
+  float: right;
+  width: 70%;
 }

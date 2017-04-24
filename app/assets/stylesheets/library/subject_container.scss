@@ -1,15 +1,106 @@
 .subject-form {
-  border: 2px solid green;
+  border: 2px solid #ff8a47;
+  border-radius: 4px;
+  padding: 20px 20px 10px;
+  font-size: 14px;
 }
 
-.subject-form input {
-  background-color: lightgray;
+.subject-form input[type=text] {
+  margin-top: 7px;
+  display: block;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  padding: 6px;
+  width: 100%;
+  font-size: 14px;
+}
+
+.subject-form input[type=text]:focus {
+  border: 1px solid #29a5dc;
+  -webkit-box-shadow: 0px 0px 7px 1px rgba(0,0,0,0.43);
+  -moz-box-shadow: 0px 0px 7px 1px rgba(0,0,0,0.43);
+  box-shadow: 0px 0px 7px 1px rgba(0,0,0,0.43);
+}
+.subject-form input[type=submit] {
+  background-color: #29a5dc;
+  color: white;
+  border-radius: 4px;
+  padding: 5px 10px;
+  border: 1px solid #ccc;
+  margin-top: 10px;
+  font-size: 12px;
+}
+
+.subject-form input[type=submit]:hover {
+  opacity: 0.8;
 }
 
 .subject-container {
-  border: 2px solid purple;
+  background: purple;
+  float: left;
+  width: 30%;
+  top: 56px;
+  bottom:0;
+  position:fixed;
+  overflow-y:scroll;
+  overflow-x:hidden;
 }
 
+// -webkit-scrollbar-thumb {
+//   border-radius: 10px;
+//   -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+// }
 .subject-container button {
   border: 1px solid black;
+}
+
+.subject-header {
+  position: fixed;
+  background: #f5f5f5;
+  z-index: 2;
+  width: calc(30% - 4px);
+  font-size: 12px;
+  border-right: 3px solid #ccc;
+  border-bottom: 3px solid #ccc;
+  -webkit-box-shadow: 0px -6px 25px 1px rgba(0,0,0,0.64);
+  -moz-box-shadow: 0px -6px 25px 1px rgba(0,0,0,0.64);
+  box-shadow: 0px -6px 25px 1px rgba(0,0,0,0.64);
+  border-radius: 4px;
+}
+
+.subject-title {
+  padding: 15px 10px;
+}
+
+.subject-list {
+  position: relative;
+  top: 57px;
+  background: #f5f5f5;
+  font-size: 12px;
+  border-right: 3px solid #ccc;
+}
+
+.subject-item {
+  background: #f5f5f5;
+  border-bottom: 1px solid #ccc;
+  padding: 10px;
+  color: #29a5dc;
+  cursor: pointer;
+}
+
+.subject-item:hover {
+  background-color: #eee;
+}
+
+.subject-item button {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 2px;
+}
+
+.subject-item button:hover {
+  border: 1px solid #aaa;
+}
+
+.subject-item h2 {
 }
