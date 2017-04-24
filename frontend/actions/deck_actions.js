@@ -3,7 +3,7 @@ import { hashHistory } from 'react-router';
 
 export const RECEIVE_DECKS = "RECEIVE_DECKS";
 export const RECEIVE_DECK = "RECEIVE_DECK";
-// export const REMOVE_SUBJECT = "REMOVE_SUBJECT";
+export const REMOVE_DECK = "REMOVE_DECK";
 // export const RECEIVE_SUBJECT_ERRORS = "RECEIVE_SUBJECT_ERRORS";
 
 export const fetchDecks = subjectId => dispatch => (
@@ -28,11 +28,11 @@ export const createDeck = deck => dispatch => (
 //             errors => dispatch(receiveSubjectErrors(errors.responseJSON)))
 // );
 //
-// export const deleteSubject = subject => dispatch => (
-//   APIUtil.deleteSubject(subject)
-//          .then(subject => dispatch(removeSubject(subject)),
-//                errors => dispatch(receiveSubjectErrors(errors.responseJSON)))
-// );
+export const deleteDeck = deck => dispatch => (
+  APIUtil.deleteDeck(deck)
+         .then(deck => dispatch(removeDeck(deck)))
+              //  errors => dispatch(receiveDeckErrors(errors.responseJSON)))
+);
 
 export const receiveDecks = decks => ({
   type: RECEIVE_DECKS,
@@ -44,10 +44,10 @@ export const receiveDeck = deck => ({
   deck
 });
 
-// export const removeSubject = subject => ({
-//   type: REMOVE_SUBJECT,
-//   subject
-// });
+export const removeDeck = deck => ({
+  type: REMOVE_DECK,
+  deck
+});
 //
 // export const receiveSubjectErrors = errors => ({
 //   type: RECEIVE_SUBJECT_ERRORS,

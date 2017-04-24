@@ -7,6 +7,7 @@ class Deck extends React.Component {
     super(props);
     this.state = {name: "", subject_id: this.props.currentSubjectId};
     this.createDeck = this.createDeck.bind(this);
+    this.deleteDeck = this.deleteDeck.bind(this);
     this.currentSubject = this.currentSubject.bind(this);
   }
 
@@ -39,6 +40,7 @@ class Deck extends React.Component {
   }
 
   createDeck(){
+    this.setState({subject_id: this.props.currentSubjectId})
     this.props.createDeck(this.state)
     this.setState({name: ""})
   }
@@ -54,6 +56,11 @@ class Deck extends React.Component {
     //   return <h3>Pick a Subject!</h3>
     // }
   }
+
+  deleteDeck(deck){
+    this.props.deleteDeck(deck).then(()=>this.props.fetchDecks(this.props.currentSubjectId))
+  }
+
   render () {
     return(
       <div className="deck-container">
@@ -66,6 +73,7 @@ class Deck extends React.Component {
             this.props.decks.map( deck => (
               <li key={deck.id} className="deck-item">
                 <h4>{deck.name}</h4>
+                <button onClick={() => this.deleteDeck(deck)}>delete</button>
               </li>
             ))
           }

@@ -26,9 +26,9 @@ export const createDeck = (deck) => {
 //   });
 // };
 //
-// export const deleteSubject = (subject) => {
-//   return $.ajax({
-//     method: 'DELETE',
-//     url: `/api/subjects/${subject.id}`
-//   });
-// };
+export const deleteDeck = (deck) => {
+  return $.ajax({
+    method: 'DELETE',
+    url: `/api/decks/${deck.id}`
+  });
+};

@@ -26,14 +26,14 @@ class Api::DecksController < ApplicationController
   #   end
   # end
   #
-  # def destroy
-  #   @subject = Subject.find(params[:id])
-  #   if @subject.destroy
-  #     render :show
-  #   else
-  #     render json: ["Error deleting"], status: 404
-  #   end
-  # end
+  def destroy
+    @deck = Deck.find(params[:id])
+    if @deck.destroy
+      render :show
+    else
+      render json: ["Error deleting"], status: 404
+    end
+  end
   #
   def deck_params
     params.require(:deck).permit(:name, :subject_id)
