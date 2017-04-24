@@ -3,9 +3,9 @@ import { fetchDecks, fetchDeck, createDeck, deleteDeck } from '../../actions/dec
 import Deck from './deck';
 
 
-const mapStateToProps = (state, ownProps ) => {
-
+const mapStateToProps = (state, { currentSubjectId } ) => {
   return {
+    subject: state.subject[currentSubjectId],
     decks: Object.keys(state.deck).map(id => state.deck[id])
   };
 };

@@ -51,11 +51,11 @@ class Deck extends React.Component {
   }
 
   currentSubject(){
-    // if (this.subjectName) {
-    //   return <h3>{this.subjectName}</h3>
-    // } else {
-    //   return <h3>Pick a Subject!</h3>
-    // }
+    if (this.props.subject) {
+      return <h3>{`Study ${this.props.subject.name}`}</h3>
+    } else {
+      return <h3>Pick a Subject!</h3>
+    }
   }
 
   deleteDeck(deck){
@@ -66,7 +66,7 @@ class Deck extends React.Component {
     return(
       <div className="deck-container">
         <div className="deck-header">
-          <h3>{`Subject ${this.props.currentSubjectId}`}</h3>
+          {this.currentSubject()}
           <h4>Decks</h4>
         </div>
         <ul className="deck-list">
