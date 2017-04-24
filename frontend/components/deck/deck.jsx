@@ -31,7 +31,7 @@ class Deck extends React.Component {
             value={this.state.name}
             onChange={this.update("name")}
             />
-          <input type="submit" value="save"/>
+          <input type="submit" value="Save"/>
         </form>
       </li>
     )
@@ -49,12 +49,15 @@ class Deck extends React.Component {
   render () {
     return(
       <div className="deck-container">
-        <h3>{`deck for subject ${this.props.currentSubjectId}`}</h3>
-        <ul>
+        <div className="deck-header">
+          <h3>{`Subject ${this.props.currentSubjectId}`}</h3>
+          <h4>Decks</h4>
+        </div>
+        <ul className="deck-list">
           {
             this.props.decks.map( deck => (
-              <li key={deck.id}>
-                <h2>{deck.name}</h2>
+              <li key={deck.id} className="deck-item">
+                <h4>{deck.name}</h4>
               </li>
             ))
           }

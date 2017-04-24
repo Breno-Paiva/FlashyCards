@@ -43,6 +43,11 @@ class Subject extends React.Component {
     return e => this.setState({ [field]: e.currentTarget.value });
   }
 
+  reccomended(name){
+    if (name === "Civics and History") {
+      return <h3>reccomended</h3>
+    }
+  }
   render() {
     return(
       <div className="subject-container">
@@ -54,6 +59,7 @@ class Subject extends React.Component {
             this.props.subjects.map( subject => (
               <li key={subject.id} onClick={() => hashHistory.push(`library/${subject.id}`)} className="subject-item">
                 <h2>{subject.name}</h2>
+                { this.reccomended(subject.name)}
                 <button onClick={() => this.deleteSubject(subject)}>delete</button>
               </li>
             ))
