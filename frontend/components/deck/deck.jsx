@@ -11,12 +11,12 @@ class Deck extends React.Component {
     this.currentSubject = this.currentSubject.bind(this);
   }
 
-  componentWillMount(){
+  componentDidMount(){
     if (this.props.currentSubjectId) {
       this.props.fetchDecks(this.props.currentSubjectId)
     }
   }
-  //
+
   componentDidUpdate(prevProps){
     if (this.props.currentSubjectId != prevProps.currentSubjectId) {
       this.props.fetchDecks(this.props.currentSubjectId)
@@ -40,9 +40,10 @@ class Deck extends React.Component {
   }
 
   createDeck(){
-    this.setState({subject_id: this.props.currentSubjectId})
-    this.props.createDeck(this.state)
-    this.setState({name: ""})
+    this.setState({subject_id: this.props.currentSubjectId}, () => {
+      this.props.createDeck(this.state)
+      .then(()=>this.setState({name: ""}))
+    })
   }
 
   update(field) {

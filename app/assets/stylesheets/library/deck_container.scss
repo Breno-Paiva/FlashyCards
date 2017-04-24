@@ -46,8 +46,14 @@
   opacity: 0.8;
 }
 
-.deck-header {
-  // background: lightgreen;
+.deck-item button {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 2px;
+}
+
+.deck-item button:hover {
+  border: 1px solid #aaa;
 }
 
 .deck-header h3 {
