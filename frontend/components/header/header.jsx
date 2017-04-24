@@ -84,7 +84,7 @@ class Header extends React.Component {
           <Link to="/library">
             <h3>{`${this.props.currentUser.username}`}</h3>
           </Link>
-          <button onClick={this.props.logout}>LOGOUT</button>
+          <button className="logout" onClick={this.props.logout}>LOGOUT</button>
         </div>
       );
     }else{
