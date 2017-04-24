@@ -5,7 +5,7 @@ import Deck from './deck';
 
 const mapStateToProps = (state, { currentSubjectId } ) => {
   return {
-    subject: state.subject[currentSubjectId],
+    // subjectName: state.subject[currentSubjectId].name,
     decks: Object.keys(state.deck).map(id => state.deck[id]) ,
     currentSubjectId
   };

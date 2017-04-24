@@ -44,7 +44,7 @@ class Subject extends React.Component {
   }
 
   reccomended(name){
-    if (name === "Civics and History") {
+    if (name === "Civics and History" || name === "World History") {
       return <h3>reccomended</h3>
     }
   }
