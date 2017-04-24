@@ -3,6 +3,12 @@ import { Link } from 'react-router';
 
 class Deck extends React.Component {
 
+  constructor(props){
+    super(props);
+    this.state = {name: "", subject_id: this.props.currentSubjectId};
+    this.createDeck = this.createDeck.bind(this);
+  }
+
   componentWillMount(){
     if (this.props.currentSubjectId) {
       this.props.fetchDecks(this.props.currentSubjectId)
@@ -15,19 +21,32 @@ class Deck extends React.Component {
     }
   }
 
-  // constructor() {
-  //   super(props);
-  //   this.renderDecks = this.renderDecks.bind(this)
-  // }
-  //
-  // renderDecks() {
-  //   this.props.fetchDecks(this.props.currentSubjectId)
-  // }
+  deckForm(){
+    return (
+      <li className="deck-form">
+        New Deck
+        <form onSubmit={this.createDeck}>
+          <input placeholder=" Deck Name"
+            type="text"
+            value={this.state.name}
+            onChange={this.update("name")}
+            />
+          <input type="submit" value="save"/>
+        </form>
+      </li>
+    )
+  }
 
+  createDeck(){
+    this.props.createDeck(this.state)
+    this.setState({name: ""})
+  }
 
+  update(field) {
+    return e => this.setState({ [field]: e.currentTarget.value });
+  }
 
   render () {
-    // debugger
     return(
       <div>
         <h3>{`deck for subject ${this.props.currentSubjectId}`}</h3>
@@ -39,6 +58,7 @@ class Deck extends React.Component {
               </li>
             ))
           }
+          {this.deckForm()}
         </ul>
       </div>
     )

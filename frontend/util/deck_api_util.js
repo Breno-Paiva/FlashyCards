@@ -10,13 +10,13 @@ export const fetchDeck = (deck) => {
   });
 };
 
-// export const createSubject = (subject) => {
-//   return $.ajax({
-//     method: 'POST',
-//     url: '/api/subjects',
-//     data: {subject}
-//   });
-// };
+export const createDeck = (deck) => {
+  return $.ajax({
+    method: 'POST',
+    url: `/api/decks`,
+    data: {deck}
+  });
+};
 //
 // export const updateSubject = (subject) => {
 //   return $.ajax({
