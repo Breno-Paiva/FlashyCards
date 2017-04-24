@@ -7,6 +7,7 @@ class Deck extends React.Component {
     super(props);
     this.state = {name: "", subject_id: this.props.currentSubjectId};
     this.createDeck = this.createDeck.bind(this);
+    this.currentSubject = this.currentSubject.bind(this);
   }
 
   componentWillMount(){
@@ -26,7 +27,7 @@ class Deck extends React.Component {
       <li className="deck-form">
         New Deck
         <form onSubmit={this.createDeck}>
-          <input placeholder=" Deck Name"
+          <input placeholder=" e.g. Chapter 1"
             type="text"
             value={this.state.name}
             onChange={this.update("name")}
@@ -46,6 +47,13 @@ class Deck extends React.Component {
     return e => this.setState({ [field]: e.currentTarget.value });
   }
 
+  currentSubject(){
+    // if (this.subjectName) {
+    //   return <h3>{this.subjectName}</h3>
+    // } else {
+    //   return <h3>Pick a Subject!</h3>
+    // }
+  }
   render () {
     return(
       <div className="deck-container">
