@@ -5,6 +5,9 @@
 }
 
 .main-content {
-  float: right;
-  width: 70%;
+  float: left;
+  width: 75%;
+  display: block;
+  position: relative;
+  left: 25%;
 }

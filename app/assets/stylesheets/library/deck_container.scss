@@ -3,9 +3,10 @@
   // background: lightblue;
   // border: 3px solid black;
   float: left;
-  width: 65%;
+  width: calc(75% - 60px);
   display: block;
-  margin: 10px;
+  margin: 0 10px;
+  position: relative;
 }
 
 .deck-form {

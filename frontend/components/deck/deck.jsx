@@ -24,19 +24,21 @@ class Deck extends React.Component {
   }
 
   deckForm(){
-    return (
-      <li className="deck-form">
-        New Deck
-        <form onSubmit={this.createDeck}>
-          <input placeholder=" e.g. Chapter 1"
-            type="text"
-            value={this.state.name}
-            onChange={this.update("name")}
-            />
-          <input type="submit" value="Save"/>
-        </form>
-      </li>
-    )
+    if (this.props.currentSubjectId) {
+      return (
+        <li className="deck-form">
+          New Deck
+          <form onSubmit={this.createDeck}>
+            <input placeholder=" e.g. Chapter 1"
+              type="text"
+              value={this.state.name}
+              onChange={this.update("name")}
+              />
+            <input type="submit" value="Save"/>
+          </form>
+        </li>
+      )
+    }
   }
 
   createDeck(){
@@ -54,7 +56,7 @@ class Deck extends React.Component {
     if (this.props.subject) {
       return <h3>{`Study ${this.props.subject.name}`}</h3>
     } else {
-      return <h3>Pick a Subject!</h3>
+      return <h3>Pick a Subject to Study!</h3>
     }
   }
 
