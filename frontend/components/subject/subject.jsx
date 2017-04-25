@@ -6,7 +6,7 @@ class Subject extends React.Component {
   constructor(props){
     super(props);
     this.deleteSubject = this.deleteSubject.bind(this);
-    this.state = {name: ""};
+    this.state = {name: "", formShow: true};
     this.createSubject = this.createSubject.bind(this);
     this.selectSubject = this.selectSubject.bind(this);
     this.isSelected = this.isSelected.bind(this);
@@ -17,27 +17,30 @@ class Subject extends React.Component {
   }
 
   deleteSubject(subject){
-    this.props.deleteSubject(subject).then(()=>this.props.fetchSubjects())
+    this.props.deleteSubject(subject).then(()=>this.props.fetchSubjects()).then(()=>hashHistory.push("/library"))
   }
 
+
   subjectForm(){
-    return (
-      <li className="subject-form">
-        New Subject
-        <form onSubmit={this.createSubject}>
-          <input placeholder=" e.g. Classy Stuff"
-            type="text"
-            value={this.state.name}
-            onChange={this.update("name")}
-            />
-          <input type="submit" value="Save"/>
-        </form>
-      </li>
-    )
+    if (this.state.formShow){
+      return (
+        <li className="subject-form">
+          New Subject
+          <form onSubmit={this.createSubject}>
+            <input placeholder=" e.g. Classy Stuff"
+              type="text"
+              value={this.state.name}
+              onChange={this.update("name")}
+              />
+            <input type="submit" value="Save"/>
+          </form>
+        </li>
+      )
+    }
   }
 
   createSubject(){
-    this.props.createSubject({name: this.state.name})
+    this.props.createSubject({name: this.state.name}).then(()=>hashHistory.push("/library"))
     this.setState({name: ""})
   }
 
@@ -63,10 +66,19 @@ class Subject extends React.Component {
     }
   }
 
+  // blackOut () {
+  //   if (this.state.formShow) {
+  //     return (<div className="black-out"
+  //     ></div>);
+  //   }
+  // }
+  // onClick={this.setState({formShow: false})}
+  // <button onClick={() => this.setState({formShow: true})}>+ Create</button>
+
   render() {
     return(
       <div className="subject-container">
-        <div className="subject-header">
+        <div className="subject-header group">
           <h2 className="subject-title">Subjects</h2>
         </div>
         <ul className="subject-list">

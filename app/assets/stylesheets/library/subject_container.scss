@@ -65,8 +65,26 @@
   border-radius: 4px;
 }
 
+.subject-header button {
+  background: #5cb85c;
+  float: right;
+  margin: 10px 20px;
+  padding: 5px 10px;
+  border-radius: 4px;
+  color: white;
+  border: 1px solid transparent;
+  font-weight: bold;
+  font-size: 12px;
+}
+
+.subject-header button:hover {
+  background: #449d44;
+  border-color: #4cae4c;
+}
+
 .subject-title {
   padding: 15px 10px;
+  float: left;
 }
 
 .subject-list {

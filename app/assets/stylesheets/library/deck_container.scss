@@ -81,5 +81,22 @@
 .deck-item h4:hover {
   // font-size: 14px;
   text-decoration: underline;
+  color: #1a769f;
   cursor: pointer;
+}
+
+.deck-item h4 {
+  float: left;
+}
+
+.deck-buttons {
+  float: right;
+}
+
+.deck-buttons button {
+  margin: 10px;
+}
+
+.deck-study {
+  
 }

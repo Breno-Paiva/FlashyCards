@@ -65,25 +65,39 @@ class Deck extends React.Component {
   }
 
   render () {
-    return(
-      <div className="deck-container">
-        <div className="deck-header">
-          {this.currentSubject()}
-          <h4>Decks</h4>
+    if (this.props.currentSubjectId){
+      return(
+        <div className="deck-container">
+          <div className="deck-header">
+            {this.currentSubject()}
+            <h4>Decks</h4>
+          </div>
+          <ul className="deck-list">
+            {
+              this.props.decks.map( deck => (
+                <li key={deck.id} className="deck-item group">
+                  <h4>{deck.name}</h4>
+                  <div className="deck-buttons">
+                    <button className="deck-study">study</button>
+                    <button className="edit-cards">edit cards</button>
+                    <button onClick={() => this.deleteDeck(deck)}>delete</button>
+                  </div>
+                </li>
+              ))
+            }
+            {this.deckForm()}
+          </ul>
         </div>
-        <ul className="deck-list">
-          {
-            this.props.decks.map( deck => (
-              <li key={deck.id} className="deck-item">
-                <h4>{deck.name}</h4>
-                <button onClick={() => this.deleteDeck(deck)}>delete</button>
-              </li>
-            ))
-          }
-          {this.deckForm()}
-        </ul>
-      </div>
-    )
+      )
+    }else{
+      return(
+        <div className="deck-container">
+          <div className="deck-header">
+            {this.currentSubject()}
+          </div>
+        </div>
+      )
+    }
   }
 }
 
