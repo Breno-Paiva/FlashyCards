@@ -5,7 +5,7 @@
 }
 
 .card-header {
-  background: red;
+  border: 1px solid red;
   border-bottom: 1px solid #ccc;
 }
 
@@ -15,6 +15,8 @@
 }
 
 .card-header ul li {
+  font-size: 14px;
+  font-weight: bolder;
   width: 10%;
   background: orange;
 }
@@ -31,7 +33,7 @@
 }
 
 .card-list {
-  background: blue;
+  // background: blue;
 }
 
 .card-list li {
@@ -39,7 +41,9 @@
   justify-content: space-around;
   padding: 10px 0;
   margin: 10px 0;
-  background: purple;
+  // background: purple;
+  // border: 1px solid purple;
+  border-bottom: 1px solid #ccc;
 }
 
 ol {
@@ -56,10 +60,34 @@ ol li:before {
 
 #question-item, #answer-item {
   width: 35%;
-  background: orange;
+  // background: orange;
 }
 
 #x-card-item {
   width: 10%;
   background: red;
+}
+
+.card-buttons {
+  border: 3px solid orange;
+  display: flex;
+  justify-content: space-around;
+  
+}
+
+.card-list textarea {
+  margin-top: 7px;
+  display: block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 6px;
+  width: 95%;
+  font-size: 14px;
+}
+
+.card-list textarea:focus {
+  border: 1px solid #29a5dc;
+  -webkit-box-shadow: 0px 0px 10px 1px rgba(41,166,220,0.54);
+  -moz-box-shadow: 0px 0px 10px 1px rgba(41,166,220,0.54);
+  box-shadow: 0px 0px 10px 1px rgba(41,166,220,0.54);
 }
