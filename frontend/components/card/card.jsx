@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router';
+import { Link, hashHistory } from 'react-router';
 import update from 'react-addons-update';
 
 class Card extends React.Component {
@@ -67,8 +67,13 @@ class Card extends React.Component {
 
 
   resetForm(){
+    this.props.fetchCards(this.props.params.deckId)
+    .then(() => this.setState({existingCards: this.props.cardObjects, cardsToUpdate: this.props.cardObjects}))
     // this should reload page instead
-    this.setState({cardsToUpdate: this.state.existingCards})
+    // debugger
+    // this.props.router.refresh()
+    // hashHistory.push(`/decks/${this.props.params.deckId}/cards`)
+    // this.setState({cardsToUpdate: this.state.existingCards})
   }
 
   renderNewCards(newCard){
@@ -120,8 +125,7 @@ class Card extends React.Component {
             { this.state.newCards.map(newCard => this.renderNewCards(newCard)) }
           </ol>
           <div className="card-buttons group">
-            <button
-              onClick={()=>this.resetForm()}>Reset</button>
+            <button onClick={()=>this.resetForm()}>Reset</button>
             <button
               onClick={()=>this.saveCards()}>Save this Deck</button>
             <button>Start studying</button>
