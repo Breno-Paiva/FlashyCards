@@ -18,7 +18,7 @@ const mapDispatchToProps = (dispatch) => {
     fetchCard: card => dispatch(fetchCard(card)),
     updateCard: card => dispatch(updateCard(card)),
     createCard: card => dispatch(createCard(card)),
-    deleteCard: card => dispatch(deleteCard(card))
+    deleteCard: id => dispatch(deleteCard(id))
   };
 };
 

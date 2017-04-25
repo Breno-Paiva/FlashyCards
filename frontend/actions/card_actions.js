@@ -29,9 +29,9 @@ export const updateCard = card => dispatch => (
             errors => dispatch(receiveCardErrors(errors.responseJSON)))
 );
 //
-export const deleteCard = card => dispatch => (
-  APIUtil.deleteCard(card)
-         .then(card => dispatch(REMOVE_CARD(card)))
+export const deleteCard = id => dispatch => (
+  APIUtil.deleteCard(id)
+         .then(card => dispatch(removeCard(card)))
               //  errors => dispatch(receiveCardErrors(errors.responseJSON)))
 );
 

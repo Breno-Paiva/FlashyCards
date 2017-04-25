@@ -6,7 +6,7 @@ class Card extends React.Component {
 
   constructor(props){
     super(props);
-    this.state={existingCards: {}, cardsToUpdate: {}, newCards: [{question: "new question", answer: "new answer"}] };
+    this.state={existingCards: {}, cardsToUpdate: {}, cardsToDelete: {}, cardsToCreate: {1: {question: "new question", answer: "new answer", deck_id: `${this.props.params.deckId}`}} };
     this.renderCardsToUpdate = this.renderCardsToUpdate.bind(this);
     this.resetForm = this.resetForm.bind(this);
   }
@@ -54,13 +54,7 @@ class Card extends React.Component {
 
   remove(id) {
     return e => {
-      var newState = update(this.state, {
-        cardsToUpdate: {
-          [id]: {
-            $set: null
-          }
-        }
-      });
+      var newState = update(this.state, { cardsToUpdate: { [id]: { $set: null } }, cardsToDelete: {[id]: {$set: id}} });
       this.setState(newState);
     }
   }
@@ -69,11 +63,6 @@ class Card extends React.Component {
   resetForm(){
     this.props.fetchCards(this.props.params.deckId)
     .then(() => this.setState({existingCards: this.props.cardObjects, cardsToUpdate: this.props.cardObjects}))
-    // this should reload page instead
-    // debugger
-    // this.props.router.refresh()
-    // hashHistory.push(`/decks/${this.props.params.deckId}/cards`)
-    // this.setState({cardsToUpdate: this.state.existingCards})
   }
 
   renderNewCards(newCard){
@@ -93,20 +82,29 @@ class Card extends React.Component {
     )
   }
 
-  // saveCards(){
-  //   this.props.updateCard(this.state.cardsToUpdate[1])
-  // }
-
   saveCards(){
+    for (var key in this.state.cardsToDelete) {
+      if (this.state.cardsToDelete.hasOwnProperty(key)) {
+        this.props.deleteCard(key);
+      }
+    }
+
     for (var key in this.state.cardsToUpdate) {
       if (this.state.cardsToUpdate.hasOwnProperty(key)) {
-        console.log(key + " -> " + this.state.cardsToUpdate[key]);
         this.props.updateCard(this.state.cardsToUpdate[key]);
       }
     }
+
+    for (var key in this.state.cardsToCreate) {
+      if (this.state.cardsToCreate.hasOwnProperty(key)) {
+        this.props.createCard(this.state.cardsToCreate[key]);
+      }
+    }
+
   }
 
   render () {
+
     return (
       <div className="card-container">
         <div className="card-header">
@@ -122,12 +120,12 @@ class Card extends React.Component {
         <div className="card-list">
           <ol>
             { this.props.cards.map(card => this.renderCardsToUpdate(card)) }
-            { this.state.newCards.map(newCard => this.renderNewCards(newCard)) }
           </ol>
           <div className="card-buttons group">
             <button onClick={()=>this.resetForm()}>Reset</button>
             <button
               onClick={()=>this.saveCards()}>Save this Deck</button>
+            <button>New Card</button>
             <button>Start studying</button>
           </div>
         </div>
@@ -137,3 +135,7 @@ class Card extends React.Component {
 }
 
 export default Card;
+
+
+
+// { this.state.cardsToCreate.map(newCard => this.renderNewCards(newCard)) }
