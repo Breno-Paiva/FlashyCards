@@ -82,6 +82,12 @@ ol li:before {
   justify-content: space-around;
 }
 
+.card-buttons button {
+  padding: 5px;
+  margin: 5px;
+  border: 1px solid black;
+}
+
 .card-list textarea {
   margin-top: 7px;
   display: block;
@@ -93,10 +99,10 @@ ol li:before {
   // background: purple;
   resize: none;
 }
-//
-// .card-list textarea:focus {
-//   border: 1px solid #29a5dc;
-//   -webkit-box-shadow: 0px 0px 10px 1px rgba(41,166,220,0.54);
-//   -moz-box-shadow: 0px 0px 10px 1px rgba(41,166,220,0.54);
-//   box-shadow: 0px 0px 10px 1px rgba(41,166,220,0.54);
-// }
+
+.card-list textarea:focus {
+  border: 1px solid #29a5dc;
+  -webkit-box-shadow: 0px 0px 10px 1px rgba(41,166,220,0.54);
+  -moz-box-shadow: 0px 0px 10px 1px rgba(41,166,220,0.54);
+  box-shadow: 0px 0px 10px 1px rgba(41,166,220,0.54);
+}
