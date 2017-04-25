@@ -27,7 +27,6 @@ export const updateCard = (card) => {
 };
 
 export const deleteCard = (id) => {
-  debugger
   return $.ajax({
     method: 'DELETE',
     url: `/api/cards/${id}`
