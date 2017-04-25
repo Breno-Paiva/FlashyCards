@@ -5,8 +5,13 @@ class Card extends React.Component {
 
   constructor(props){
     super(props);
+    this.state={existingCards: {} }
   }
 
+  componentWillMount(){
+    this.props.fetchCards(this.props.params.deckId)
+    .then(() => this.setState({existingCards: this.props.cardObjects}))
+}
 
   render () {
     return (
@@ -23,36 +28,19 @@ class Card extends React.Component {
 
         <div className="card-list">
           <ol>
-            <li>
-              <textarea id="question-item">first question</textarea>
-              <textarea id="answer-item">first answer</textarea>
-              <h4 id="x-card-item">x</h4>
-            </li>
-            <li>
-              <textarea id="question-item">first question</textarea>
-              <textarea id="answer-item">first answer</textarea>
-              <h4 id="x-card-item">x</h4>
-            </li>
-            <li>
-              <textarea id="question-item">second question</textarea>
-              <textarea id="answer-item">second answer</textarea>
-              <h4 id="x-card-item">x</h4>
-            </li>
-            <li>
-              <textarea id="question-item">third question</textarea>
-              <textarea id="answer-item">third answer</textarea>
-              <h4 id="x-card-item">x</h4>
-            </li>
-            <li>
-              <textarea id="question-item">fourth question</textarea>
-              <textarea id="answer-item">fourth answer</textarea>
-              <h4 id="x-card-item">x</h4>
-            </li>
-            <li>
-              <textarea id="question-item">fifth question</textarea>
-              <textarea id="answer-item">fifth answer</textarea>
-              <h4 id="x-card-item">x</h4>
-            </li>
+            {
+              this.props.cards.map(card => {
+                return(
+                  <li>
+                    <textarea id="question-item" value={card.question}></textarea>
+                    <textarea id="answer-item" value={card.answer}></textarea>
+                    <div id="x-card-item">
+                      <button>x</button>
+                    </div>
+                  </li>
+                )
+              })
+            }
           </ol>
           <div className="card-buttons group">
             <button>Reset</button>

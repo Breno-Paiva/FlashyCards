@@ -5,6 +5,8 @@ import Card from './card';
 
 const mapStateToProps = (state) => {
   return {
+    cardObjects: state.card,
+    cards: Object.keys(state.card).map(id => state.card[id])
     // subject: state.subject[currentSubjectId],
     // decks: Object.keys(state.deck).map(id => state.deck[id])
   };
