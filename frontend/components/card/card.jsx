@@ -6,7 +6,7 @@ class Card extends React.Component {
 
   constructor(props){
     super(props);
-    this.state={existingCards: {}, cardsToUpdate: {} };
+    this.state={existingCards: {}, cardsToUpdate: {}, newCards: [{question: "new question", answer: "new answer"}] };
     this.renderCardsToUpdate = this.renderCardsToUpdate.bind(this);
     this.resetForm = this.resetForm.bind(this);
   }
@@ -66,7 +66,24 @@ class Card extends React.Component {
   }
 
   resetForm(){
-    this.setState({cardsToUpdate: this.state.existingCards})
+    this.setState({cardsToUpdate: this.state.existingCards, newCards: {}})
+  }
+
+  renderNewCards(newCard){
+    return (
+      <li>
+        <textarea id="question-item"
+          value={newCard.question}
+          ></textarea>
+        <textarea id="answer-item"
+          value={newCard.answer}
+          ></textarea>
+        <div id="x-card-item">
+          <button
+            >x</button>
+        </div>
+      </li>
+    )
   }
 
   render () {
@@ -85,6 +102,7 @@ class Card extends React.Component {
         <div className="card-list">
           <ol>
             { this.props.cards.map(card => this.renderCardsToUpdate(card)) }
+            { this.state.newCards.map(newCard => this.renderNewCards(newCard)) }
           </ol>
           <div className="card-buttons group">
             <button
