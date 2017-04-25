@@ -65,8 +65,10 @@ class Card extends React.Component {
     }
   }
 
+
   resetForm(){
-    this.setState({cardsToUpdate: this.state.existingCards, newCards: {}})
+    // this should reload page instead
+    this.setState({cardsToUpdate: this.state.existingCards})
   }
 
   renderNewCards(newCard){
@@ -84,6 +86,19 @@ class Card extends React.Component {
         </div>
       </li>
     )
+  }
+
+  // saveCards(){
+  //   this.props.updateCard(this.state.cardsToUpdate[1])
+  // }
+
+  saveCards(){
+    for (var key in this.state.cardsToUpdate) {
+      if (this.state.cardsToUpdate.hasOwnProperty(key)) {
+        console.log(key + " -> " + this.state.cardsToUpdate[key]);
+        this.props.updateCard(this.state.cardsToUpdate[key]);
+      }
+    }
   }
 
   render () {
@@ -107,7 +122,8 @@ class Card extends React.Component {
           <div className="card-buttons group">
             <button
               onClick={()=>this.resetForm()}>Reset</button>
-            <button>Save this Deck</button>
+            <button
+              onClick={()=>this.saveCards()}>Save this Deck</button>
             <button>Start studying</button>
           </div>
         </div>
