@@ -1,17 +1,52 @@
 import React from 'react';
 import { Link } from 'react-router';
+import update from 'react-addons-update';
 
 class Card extends React.Component {
 
   constructor(props){
     super(props);
-    this.state={existingCards: {} }
+    this.state={existingCards: {}, cardsToUpdate: {} };
+    this.renderCardsToUpdate = this.renderCardsToUpdate.bind(this);
   }
 
   componentWillMount(){
     this.props.fetchCards(this.props.params.deckId)
-    .then(() => this.setState({existingCards: this.props.cardObjects}))
-}
+    .then(() => this.setState({existingCards: this.props.cardObjects, cardsToUpdate: this.props.cardObjects}))
+  }
+
+  renderCardsToUpdate(card){
+    if (this.state.cardsToUpdate[card.id]) {
+      return(
+        <li key={card.id}>
+          <textarea id="question-item"
+            value={this.state.cardsToUpdate[card.id].question}
+            onChange={this.update("question", card.id)}
+            ></textarea>
+          <textarea id="answer-item"
+            value={this.state.cardsToUpdate[card.id].answer}
+            ></textarea>
+          <div id="x-card-item">
+            <button>x</button>
+          </div>
+        </li>
+      )}
+  }
+
+  update(field, id) {
+    return e => {
+      var newState = update(this.state, {
+        cardsToUpdate: {
+          [id]: {
+            [field]: {
+              $set: e.currentTarget.value
+            }
+          }
+        }
+      });
+      this.setState(newState);
+    }
+  }
 
   render () {
     return (
@@ -28,19 +63,7 @@ class Card extends React.Component {
 
         <div className="card-list">
           <ol>
-            {
-              this.props.cards.map(card => {
-                return(
-                  <li>
-                    <textarea id="question-item" value={card.question}></textarea>
-                    <textarea id="answer-item" value={card.answer}></textarea>
-                    <div id="x-card-item">
-                      <button>x</button>
-                    </div>
-                  </li>
-                )
-              })
-            }
+            { this.props.cards.map(card => this.renderCardsToUpdate(card)) }
           </ol>
           <div className="card-buttons group">
             <button>Reset</button>
