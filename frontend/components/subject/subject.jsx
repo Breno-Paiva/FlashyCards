@@ -8,6 +8,8 @@ class Subject extends React.Component {
     this.deleteSubject = this.deleteSubject.bind(this);
     this.state = {name: ""};
     this.createSubject = this.createSubject.bind(this);
+    this.selectSubject = this.selectSubject.bind(this);
+    this.isSelected = this.isSelected.bind(this);
   }
 
   componentDidMount(){
@@ -35,7 +37,7 @@ class Subject extends React.Component {
   }
 
   createSubject(){
-    this.props.createSubject(this.state)
+    this.props.createSubject({name: this.state.name})
     this.setState({name: ""})
   }
 
@@ -48,6 +50,19 @@ class Subject extends React.Component {
       return <h3>reccomended</h3>
     }
   }
+
+  selectSubject(subject){
+    hashHistory.push(`library/${subject.id}`);
+  }
+
+  isSelected(subject){
+    if (parseInt(this.props.currentSubjectId) === subject.id) {
+      return "selected-subject"
+    }else {
+      return ""
+    }
+  }
+
   render() {
     return(
       <div className="subject-container">
@@ -57,7 +72,11 @@ class Subject extends React.Component {
         <ul className="subject-list">
           {
             this.props.subjects.map( subject => (
-              <li key={subject.id} onClick={() => hashHistory.push(`library/${subject.id}`)} className="subject-item">
+              <li key={subject.id}
+                onClick={() => this.selectSubject(subject)}
+                className="subject-item"
+                id={this.isSelected(subject)}
+                >
                 <h2>{subject.name}</h2>
                 { this.reccomended(subject.name)}
                 <button onClick={() => this.deleteSubject(subject)}>delete</button>
