@@ -5,7 +5,7 @@
 }
 
 .card-header {
-  border: 1px solid red;
+  // border: 1px solid red;
   border-bottom: 1px solid #ccc;
 }
 
@@ -18,18 +18,18 @@
   font-size: 14px;
   font-weight: bolder;
   width: 10%;
-  background: orange;
+  // background: orange;
 }
 
 #answer-list, #question-list {
-  background: yellow;
+  // background: yellow;
   width: 35%;
 }
 
 .card-header h2 {
   color: #ff8a47;
   font-size: 26px;
-  padding: 0 40px 20px;
+  padding: 0 0 20px;
 }
 
 .card-list {
@@ -52,10 +52,10 @@ ol {
 }
 ol li:before {
   width: 10%;
-  background: red;
+  // background: red;
   content: counter(i);
   counter-increment: i;
-  color: green;
+  // color: green;
 }
 
 #question-item, #answer-item {
@@ -65,14 +65,21 @@ ol li:before {
 
 #x-card-item {
   width: 10%;
-  background: red;
+  // background: red;
+}
+
+#x-card-item button {
+  display: block;
+  margin: 10px auto 0;
+  border: 2px solid black;
+  padding: 5px;
+  border-radius: 4px;
 }
 
 .card-buttons {
   border: 3px solid orange;
   display: flex;
   justify-content: space-around;
-  
 }
 
 .card-list textarea {
@@ -83,11 +90,13 @@ ol li:before {
   padding: 6px;
   width: 95%;
   font-size: 14px;
+  // background: purple;
+  resize: none;
 }
-
-.card-list textarea:focus {
-  border: 1px solid #29a5dc;
-  -webkit-box-shadow: 0px 0px 10px 1px rgba(41,166,220,0.54);
-  -moz-box-shadow: 0px 0px 10px 1px rgba(41,166,220,0.54);
-  box-shadow: 0px 0px 10px 1px rgba(41,166,220,0.54);
-}
+//
+// .card-list textarea:focus {
+//   border: 1px solid #29a5dc;
+//   -webkit-box-shadow: 0px 0px 10px 1px rgba(41,166,220,0.54);
+//   -moz-box-shadow: 0px 0px 10px 1px rgba(41,166,220,0.54);
+//   box-shadow: 0px 0px 10px 1px rgba(41,166,220,0.54);
+// }
