@@ -79,7 +79,9 @@ class Deck extends React.Component {
                   <h4>{deck.name}</h4>
                   <div className="deck-buttons">
                     <button className="deck-study">study</button>
-                    <button className="edit-cards">edit cards</button>
+                    <Link to={`/decks/${deck.id}/cards`}>
+                      <button className="edit-cards">edit cards</button>
+                    </Link>
                     <button onClick={() => this.deleteDeck(deck)}>delete</button>
                   </div>
                 </li>

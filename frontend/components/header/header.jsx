@@ -54,15 +54,15 @@ class Header extends React.Component {
     }
   }
 
+  // <img src={require('../../../app/assets/images/flashy-cards-home.jpg')}></img>
   // Business graphic by <a href="http://www.flaticon.com/authors/freepik">Freepik</a> from <a href="http://www.flaticon.com/">Flaticon</a> is licensed under <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0">CC BY 3.0</a>. Made with <a href="http://logomakr.com" title="Logo Maker">Logo Maker</a>
-  // <img src={require('../../../app/assets/images/Logomakr_8yalAw.jpg')}></img>
   leftHeader () {
     return (
       <div className="left-header">
-        <h3>~logo~</h3>
+        <div className="logo"></div>
         <i className="fa fa-lightbulb-o"></i>
         <Link to="/library">
-          <h3>Flashy Cards</h3>
+          <h3>FLASHYcards</h3>
         </Link>
       </div>
     )
