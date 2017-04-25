@@ -73,7 +73,7 @@ class Card extends React.Component {
     let arr
 
     for (var key in this.state.cardsToCreate) {
-      
+
       if (this.state.cardsToCreate.hasOwnProperty(key)) {
         // this.props.createCard(this.state.cardsToCreate[key]);
 
@@ -131,7 +131,7 @@ class Card extends React.Component {
               <li>#</li>
               <li id="question-list">Question</li>
               <li id="answer-list">Answer</li>
-              <li>x</li>
+              <li></li>
             </ul>
         </div>
 
@@ -140,13 +140,15 @@ class Card extends React.Component {
             { this.props.cards.map(card => this.renderCardsToUpdate(card)) }
             {  this.renderNewCards() }
           </ol>
-          <div className="card-buttons group">
-            <button onClick={()=>this.resetForm()}>Reset</button>
-            <button
-              onClick={()=>this.saveCards()}>Save this Deck</button>
-            <button
-              onClick={()=>this.addCard()}>New Card</button>
-            <button>Start studying</button>
+          <div className="card-buttons">
+            <div className="card-buttons-left">
+              <button className="new-card-button" onClick={()=>this.addCard()}>Add Card</button>
+            </div>
+            <div className="card-buttons-right">
+              <button className="card-reset" onClick={()=>this.resetForm()}>Reset</button>
+              <button className="card-save" onClick={()=>this.saveCards()}>Save this Deck</button>
+              <button className="card-form-study">Start studying</button>
+            </div>
           </div>
         </div>
       </div>

@@ -1,12 +1,15 @@
 .card-container {
   position: relative;
   top: 100px;
-  margin: 0 20px;
+  margin: 0 auto;
+  max-width: 1200px;
+  width: 95%
 }
 
 .card-header {
   // border: 1px solid red;
-  border-bottom: 1px solid #ccc;
+  border-bottom: 3px solid #ccc;
+  padding-bottom: 10px;
 }
 
 .card-header ul {
@@ -17,19 +20,21 @@
 .card-header ul li {
   font-size: 14px;
   font-weight: bolder;
-  width: 10%;
+  width: 20px;
   // background: orange;
 }
 
 #answer-list, #question-list {
   // background: yellow;
-  width: 35%;
+  width: 45%;
+  margin-left: 10px;
 }
 
 .card-header h2 {
   color: #ff8a47;
   font-size: 26px;
   padding: 0 0 20px;
+  letter-spacing: 1px;
 }
 
 .card-list {
@@ -51,41 +56,55 @@ ol {
   -webkit-padding-start: 0;
 }
 ol li:before {
-  width: 10%;
+  width: 10px;
   // background: red;
   content: counter(i);
   counter-increment: i;
+  margin: 0 15px;
   // color: green;
 }
 
 #question-item, #answer-item {
-  width: 35%;
+  width: 45%;
+  margin: 0 20px;
   // background: orange;
 }
 
+
+
 #x-card-item {
-  width: 10%;
+  width: 20px;
+  margin-right: 15px;
   // background: red;
 }
 
 #x-card-item button {
   display: block;
   margin: 10px auto 0;
-  border: 2px solid black;
-  padding: 5px;
+  // border: 2px solid black;
+  padding: 5px 10px;
   border-radius: 4px;
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+  background: #d9534f;
+  border: 1px solid #d43f3a;
+}
+
+#x-card-item button:hover {
+  background: #c9302c;
+  border: 1px solid #ac2925;
 }
 
 .card-buttons {
-  border: 3px solid orange;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
+  flex-flow: row;
 }
 
 .card-buttons button {
   padding: 5px;
   margin: 5px;
-  border: 1px solid black;
 }
 
 .card-list textarea {
@@ -93,10 +112,9 @@ ol li:before {
   display: block;
   border: 1px solid #ccc;
   border-radius: 4px;
-  padding: 6px;
-  width: 95%;
-  font-size: 14px;
-  // background: purple;
+  padding: 10px 10px 0;
+  width: 100%;
+  font-size: 16px;
   resize: none;
 }
 
@@ -106,3 +124,52 @@ ol li:before {
   -moz-box-shadow: 0px 0px 10px 1px rgba(41,166,220,0.54);
   box-shadow: 0px 0px 10px 1px rgba(41,166,220,0.54);
 }
+
+.card-buttons-right button {
+  border-radius: 4px;
+  padding: 7px 10px;
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+.card-save {
+  background-color: #29a5dc;
+  color: white;
+  border: 1 px solid #2196ca;
+  // border: 1px solid #ccc;
+}
+
+.card-save:hover {
+  background-color: #1e86b4;
+  border-color: #186f96
+}
+
+.card-form-study {
+  color: white;
+  background-color: #5cb85c;
+  border: 1px solid #4cae4c;
+}
+
+.card-form-study:hover {
+  background-color: #449d44;
+  border-color: #398439
+}
+
+.card-reset {
+  border: 1px solid #ccc;
+}
+
+.card-reset:hover {
+  background-color: #e6e6e6;
+}
+
+.new-card-button {
+  padding: 7px 10px;
+  margin-top: 10px;
+  font-size: 14px;
+  color: #29a5dc;
+}
+ .new-card-button:hover {
+   color: #1a769f;
+   text-decoration: underline;
+ }
