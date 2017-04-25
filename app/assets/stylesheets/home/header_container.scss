@@ -32,7 +32,18 @@
 }
 
 .left-header h3 {
+  font-family: 'Josefin Sans', sans-serif;
+  letter-spacing: 2px;
   padding: 10px;
+}
+.logo {
+  background-image: asset-url("Logomakr_8yalAw.png");
+  padding: 10px;
+  height:20px;
+  width: 8px;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: left top;
 }
 
 @keyframes blackOutBackground {

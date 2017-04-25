@@ -6,6 +6,7 @@ import App from './app';
 import HomeContainer from './home/home_container';
 import LibraryContainer from './library/library_container';
 import DeckContainer from './deck/deck_container';
+import CardContainer from './card/card_container';
 
 const Root = ({ store }) => {
 
@@ -25,7 +26,7 @@ const Root = ({ store }) => {
           <Route path="/library" component={LibraryContainer} onEnter={_ensureLoggedIn}>
             <Route path=":subjectId" />
           </Route>
-          <Route path="/decks/:deckId/cards" />
+          <Route path="/decks/:deckId/cards" component={CardContainer} />
         </Route>
       </Router>
     </Provider>
