@@ -11,8 +11,17 @@
 
 .card-header ul {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
+}
 
+.card-header ul li {
+  width: 10%;
+  background: orange;
+}
+
+#answer-list, #question-list {
+  background: yellow;
+  width: 35%;
 }
 
 .card-header h2 {
@@ -25,15 +34,32 @@
   background: blue;
 }
 
-
+.card-list li {
+  display: flex;
+  justify-content: space-around;
+  padding: 10px 0;
+  margin: 10px 0;
+  background: purple;
+}
 
 ol {
   counter-reset: i 0;
+  -webkit-padding-start: 0;
 }
 ol li:before {
+  width: 10%;
+  background: red;
   content: counter(i);
   counter-increment: i;
-  padding-right: 10px;
-  margin-right: 50px;
   color: green;
+}
+
+#question-item, #answer-item {
+  width: 35%;
+  background: orange;
+}
+
+#x-card-item {
+  width: 10%;
+  background: red;
 }
