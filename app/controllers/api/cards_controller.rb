@@ -27,6 +27,7 @@ class Api::CardsController < ApplicationController
   end
 
   def destroy
+    debugger
     @card = Card.find(params[:id])
     if @card.destroy
       render :show
