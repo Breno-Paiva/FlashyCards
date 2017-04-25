@@ -8,6 +8,7 @@ class Card extends React.Component {
     super(props);
     this.state={existingCards: {}, cardsToUpdate: {} };
     this.renderCardsToUpdate = this.renderCardsToUpdate.bind(this);
+    this.resetForm = this.resetForm.bind(this);
   }
 
   componentWillMount(){
@@ -25,9 +26,12 @@ class Card extends React.Component {
             ></textarea>
           <textarea id="answer-item"
             value={this.state.cardsToUpdate[card.id].answer}
+            onChange={this.update("answer", card.id)}
             ></textarea>
           <div id="x-card-item">
-            <button>x</button>
+            <button
+              onClick={this.remove(card.id)}
+              >x</button>
           </div>
         </li>
       )}
@@ -48,6 +52,23 @@ class Card extends React.Component {
     }
   }
 
+  remove(id) {
+    return e => {
+      var newState = update(this.state, {
+        cardsToUpdate: {
+          [id]: {
+            $set: null
+          }
+        }
+      });
+      this.setState(newState);
+    }
+  }
+
+  resetForm(){
+    this.setState({cardsToUpdate: this.state.existingCards})
+  }
+
   render () {
     return (
       <div className="card-container">
@@ -66,7 +87,8 @@ class Card extends React.Component {
             { this.props.cards.map(card => this.renderCardsToUpdate(card)) }
           </ol>
           <div className="card-buttons group">
-            <button>Reset</button>
+            <button
+              onClick={()=>this.resetForm()}>Reset</button>
             <button>Save this Deck</button>
             <button>Start studying</button>
           </div>
