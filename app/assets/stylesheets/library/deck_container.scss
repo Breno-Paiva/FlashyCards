@@ -28,10 +28,11 @@
 
 .deck-form input[type=text]:focus {
   border: 1px solid #29a5dc;
-  -webkit-box-shadow: 0px 0px 7px 1px rgba(0,0,0,0.43);
-  -moz-box-shadow: 0px 0px 7px 1px rgba(0,0,0,0.43);
-  box-shadow: 0px 0px 7px 1px rgba(0,0,0,0.43);
+  -webkit-box-shadow: 0px 0px 10px 1px rgba(41,166,220,0.54);
+  -moz-box-shadow: 0px 0px 10px 1px rgba(41,166,220,0.54);
+  box-shadow: 0px 0px 10px 1px rgba(41,166,220,0.54);
 }
+
 .deck-form input[type=submit] {
   background-color: #29a5dc;
   color: white;

@@ -11,7 +11,7 @@ class Library extends React.Component {
   render() {
     return(
       <div className="library-container group">
-        <Subject />
+        <Subject currentSubjectId={this.props.currentSubjectId}/>
         <div className="main-content">
           <Deck currentSubjectId={this.props.currentSubjectId} />
           <CurrentLearners />
