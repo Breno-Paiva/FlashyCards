@@ -6,10 +6,14 @@ class Card extends React.Component {
 
   constructor(props){
     super(props);
-    this.state={existingCards: {}, cardsToUpdate: {}, cardsToDelete: {}, cardsToCreate: {1: {question: "new question", answer: "new answer", deck_id: `${this.props.params.deckId}`}} };
+    this.state={existingCards: {}, cardsToUpdate: {}, cardsToDelete: {}, cardsToCreate: {} };
     this.renderCardsToUpdate = this.renderCardsToUpdate.bind(this);
     this.resetForm = this.resetForm.bind(this);
+    this.renderNewCards = this.renderNewCards.bind(this);
+    this.newCardId = 0
   }
+
+  // cardsToCreate: {1: {question: "new question", answer: "new answer", deck_id: `${this.props.params.deckId}`}}
 
   componentWillMount(){
     this.props.fetchCards(this.props.params.deckId)
@@ -59,27 +63,41 @@ class Card extends React.Component {
     }
   }
 
-
   resetForm(){
     this.props.fetchCards(this.props.params.deckId)
     .then(() => this.setState({existingCards: this.props.cardObjects, cardsToUpdate: this.props.cardObjects}))
   }
 
-  renderNewCards(newCard){
-    return (
-      <li>
-        <textarea id="question-item"
-          value={newCard.question}
-          ></textarea>
-        <textarea id="answer-item"
-          value={newCard.answer}
-          ></textarea>
-        <div id="x-card-item">
-          <button
-            >x</button>
-        </div>
-      </li>
-    )
+  renderNewCards(){
+    this.props.cardsToCreate
+    let arr
+
+    for (var key in this.state.cardsToCreate) {
+      
+      if (this.state.cardsToCreate.hasOwnProperty(key)) {
+        // this.props.createCard(this.state.cardsToCreate[key]);
+
+          <li>
+            <textarea id="question-item"
+              value={this.state.cardsToCreate[key].question}
+              ></textarea>
+            <textarea id="answer-item"
+              value={this.state.cardsToCreate[key].answer}
+              ></textarea>
+            <div id="x-card-item">
+              <button>x</button>
+            </div>
+          </li>
+
+      }
+    }
+  }
+
+  addCard() {
+    this.newCardId += 1
+      var newState = update(this.state, {
+        cardsToCreate: { [this.newCardId]: {$set: { question: "", answer: "", deck_id: `${this.props.params.deckId}` }}}})
+    this.setState(newState);
   }
 
   saveCards(){
@@ -120,12 +138,14 @@ class Card extends React.Component {
         <div className="card-list">
           <ol>
             { this.props.cards.map(card => this.renderCardsToUpdate(card)) }
+            {  this.renderNewCards() }
           </ol>
           <div className="card-buttons group">
             <button onClick={()=>this.resetForm()}>Reset</button>
             <button
               onClick={()=>this.saveCards()}>Save this Deck</button>
-            <button>New Card</button>
+            <button
+              onClick={()=>this.addCard()}>New Card</button>
             <button>Start studying</button>
           </div>
         </div>
