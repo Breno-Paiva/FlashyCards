@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { fetchCards, fetchCard, createCard, deleteCard } from '../../actions/card_actions';
+import { fetchCards, fetchCard, createCard, deleteCard, updateCard } from '../../actions/card_actions';
 import Card from './card';
 
 
@@ -16,6 +16,7 @@ const mapDispatchToProps = (dispatch) => {
   return {
     fetchCards: deckId => dispatch(fetchCards(deckId)),
     fetchCard: card => dispatch(fetchCard(card)),
+    updateCard: card => dispatch(updateCard(card)),
     createCard: card => dispatch(createCard(card)),
     deleteCard: card => dispatch(deleteCard(card))
   };

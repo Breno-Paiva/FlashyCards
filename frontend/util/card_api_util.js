@@ -17,15 +17,15 @@ export const createCard = (card) => {
     data: {card}
   });
 };
-//
-// export const updateSubject = (subject) => {
-//   return $.ajax({
-//     method: 'PATCH',
-//     url: `/api/subjects/${subject.id}`,
-//     data: {subject}
-//   });
-// };
-//
+
+export const updateCard = (card) => {
+  return $.ajax({
+    method: 'PATCH',
+    url: `/api/cards/${card.id}`,
+    data: {card}
+  });
+};
+
 export const deleteCard = (card) => {
   return $.ajax({
     method: 'DELETE',

@@ -4,6 +4,7 @@ import { hashHistory } from 'react-router';
 export const RECEIVE_CARDS = "RECEIVE_CARDS";
 export const RECEIVE_CARD = "RECEIVE_CARD";
 export const REMOVE_CARD = "REMOVE_CARD";
+export const UPDATE_CARD = "UPDATE_CARD";
 // export const RECEIVE_SUBJECT_ERRORS = "RECEIVE_SUBJECT_ERRORS";
 
 export const fetchCards = deckId => dispatch => (
@@ -22,11 +23,11 @@ export const createCard = card => dispatch => (
                errors => dispatch(receiveCardErrors(errors.responseJSON)))
 );
 //
-// export const updateSubject = deck => dispatch => (
-//   APIUtil.updateSubject(subject)
-//       .then(subject => dispatch(receiveSubject(subject)),
-//             errors => dispatch(receiveSubjectErrors(errors.responseJSON)))
-// );
+export const updateCard = card => dispatch => (
+  APIUtil.updateCard(card)
+      .then(subject => dispatch(receiveCard(card)),
+            errors => dispatch(receiveCardErrors(errors.responseJSON)))
+);
 //
 export const deleteCard = card => dispatch => (
   APIUtil.deleteCard(card)
