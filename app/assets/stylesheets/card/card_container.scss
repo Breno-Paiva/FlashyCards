@@ -1,0 +1,39 @@
+.card-container {
+  position: relative;
+  top: 100px;
+  margin: 0 20px;
+}
+
+.card-header {
+  background: red;
+  border-bottom: 1px solid #ccc;
+}
+
+.card-header ul {
+  display: flex;
+  justify-content: space-between;
+
+}
+
+.card-header h2 {
+  color: #ff8a47;
+  font-size: 26px;
+  padding: 0 40px 20px;
+}
+
+.card-list {
+  background: blue;
+}
+
+
+
+ol {
+  counter-reset: i 0;
+}
+ol li:before {
+  content: counter(i);
+  counter-increment: i;
+  padding-right: 10px;
+  margin-right: 50px;
+  color: green;
+}

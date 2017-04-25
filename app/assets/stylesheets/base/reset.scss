@@ -17,8 +17,8 @@ span, article, footer, time, small, h4, h3 {
   background: transparent;
 }
 
-ul {
-  list-style: none;
+ul, ol {
+  list-style: none outside none;
 }
 
 img {

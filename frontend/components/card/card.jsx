@@ -10,15 +10,25 @@ class Card extends React.Component {
 
   render () {
     return (
-      <div>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <div>{`............these are cards for deck #${this.props.params.deckId} `}</div>
+      <div className="card-container">
+        <div className="card-header">
+            <h2>{`these are cards for deck #${this.props.params.deckId} `}</h2>
+            <ul>
+              <li>#</li>
+              <li>question</li>
+              <li>answer</li>
+            </ul>
+        </div>
+
+        <div className="card-list">
+          <ol>
+            <li>first</li>
+            <li>second</li>
+            <li>third</li>
+            <li>fourth</li>
+            <li>fifth</li>
+          </ol>
+        </div>
       </div>
     )
   }
