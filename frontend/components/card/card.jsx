@@ -189,7 +189,9 @@ class Card extends React.Component {
             <div className="card-buttons-right">
               <button className="card-reset" onClick={()=>this.resetForm()}>Reset</button>
               <button className="card-save" onClick={()=>this.saveCards()}>Save this Deck</button>
-              <button className="card-form-study">Start studying</button>
+              <Link to={`/study/${this.props.params.deckId}`}>
+                <button className="card-form-study">Start studying</button>
+              </Link>
             </div>
           </div>
         </div>
@@ -197,5 +199,7 @@ class Card extends React.Component {
     )
   }
 }
-
+// <Link to={`/study/${deck.id}`}>
+//   <button className="card-form-study">Start studying</button>
+// </Link>
 export default Card;
