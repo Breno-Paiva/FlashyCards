@@ -9,11 +9,10 @@ class Card extends React.Component {
     this.state={existingCards: {}, cardsToUpdate: {}, cardsToDelete: {}, cardsToCreate: {} };
     this.renderCardsToUpdate = this.renderCardsToUpdate.bind(this);
     this.resetForm = this.resetForm.bind(this);
-    this.renderNewCards = this.renderNewCards.bind(this);
+    this.renderCardsToCreate = this.renderCardsToCreate.bind(this);
+    this.removeNewCard = this.removeNewCard.bind(this);
     this.newCardId = 0
   }
-
-  // cardsToCreate: {1: {question: "new question", answer: "new answer", deck_id: `${this.props.params.deckId}`}}
 
   componentWillMount(){
     this.props.fetchCards(this.props.params.deckId)
@@ -65,39 +64,62 @@ class Card extends React.Component {
 
   resetForm(){
     this.props.fetchCards(this.props.params.deckId)
-    .then(() => this.setState({existingCards: this.props.cardObjects, cardsToUpdate: this.props.cardObjects}))
+    .then(() => this.setState({existingCards: this.props.cardObjects, cardsToUpdate: this.props.cardObjects, cardsToCreate: {}}))
   }
 
-  renderNewCards(){
-    this.props.cardsToCreate
-    let arr
-
-    for (var key in this.state.cardsToCreate) {
-
-      if (this.state.cardsToCreate.hasOwnProperty(key)) {
-        // this.props.createCard(this.state.cardsToCreate[key]);
-
-          <li>
-            <textarea id="question-item"
-              value={this.state.cardsToCreate[key].question}
-              ></textarea>
-            <textarea id="answer-item"
-              value={this.state.cardsToCreate[key].answer}
-              ></textarea>
-            <div id="x-card-item">
-              <button>x</button>
-            </div>
-          </li>
-
-      }
-    }
+  renderCardsToCreate(){
+    return(
+      Object.keys(this.state.cardsToCreate).map((key)=> {
+        if (this.state.cardsToCreate[key]) {
+          return(
+            <li key={`new-${key}`}>
+              <textarea id="question-item"
+                value={this.state.cardsToCreate[key].question}
+                onChange={this.updateNewCard("question", key)}
+                ></textarea>
+              <textarea id="answer-item"
+                value={this.state.cardsToCreate[key].answer}
+                onChange={this.updateNewCard("answer", key)}
+                ></textarea>
+              <div id="x-card-item">
+                <button
+                  onClick={this.removeNewCard(key)}
+                  >x</button>
+              </div>
+            </li>
+          )
+        }
+      })
+    )
   }
 
   addCard() {
     this.newCardId += 1
       var newState = update(this.state, {
-        cardsToCreate: { [this.newCardId]: {$set: { question: "", answer: "", deck_id: `${this.props.params.deckId}` }}}})
+        cardsToCreate: {$merge: {[this.newCardId]: {question: "", answer:"", deck_id: this.props.params.deckId}}  }})
     this.setState(newState);
+  }
+
+  removeNewCard(id) {
+    return e => {
+      var newState = update(this.state, { cardsToCreate: { [id]: { $set: null } } });
+      this.setState(newState);
+    }
+  }
+
+  updateNewCard(field, id) {
+    return e => {
+      var newState = update(this.state, {
+        cardsToCreate: {
+          [id]: {
+            [field]: {
+              $set: e.currentTarget.value
+            }
+          }
+        }
+      });
+      this.setState(newState);
+    }
   }
 
   saveCards(){
@@ -138,11 +160,11 @@ class Card extends React.Component {
         <div className="card-list">
           <ol>
             { this.props.cards.map(card => this.renderCardsToUpdate(card)) }
-            {  this.renderNewCards() }
+            { this.renderCardsToCreate() }
           </ol>
           <div className="card-buttons">
             <div className="card-buttons-left">
-              <button className="new-card-button" onClick={()=>this.addCard()}>Add Card</button>
+              <button className="new-card-button" onClick={()=>this.addCard()}>+ Add Card</button>
             </div>
             <div className="card-buttons-right">
               <button className="card-reset" onClick={()=>this.resetForm()}>Reset</button>
@@ -157,7 +179,3 @@ class Card extends React.Component {
 }
 
 export default Card;
-
-
-
-// { this.state.cardsToCreate.map(newCard => this.renderNewCards(newCard)) }
