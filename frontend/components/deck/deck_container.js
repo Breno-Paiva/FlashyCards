@@ -13,7 +13,7 @@ const mapStateToProps = (state, { currentSubjectId } ) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     fetchDecks: subjectId => dispatch(fetchDecks(subjectId)),
-    fetchDeck: deck => dispatch(fetchDeck(deck)),
+    fetchDeck: id => dispatch(fetchDeck(id)),
     createDeck: deck => dispatch(createDeck(deck)),
     deleteDeck: deck => dispatch(deleteDeck(deck))
   };

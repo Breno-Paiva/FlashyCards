@@ -15,6 +15,7 @@ class Card extends React.Component {
   }
 
   componentWillMount(){
+    this.props.fetchDeck(this.props.params.deckId)
     this.props.fetchCards(this.props.params.deckId)
     .then(() => this.setState({existingCards: this.props.cardObjects, cardsToUpdate: this.props.cardObjects}))
   }
@@ -137,18 +138,37 @@ class Card extends React.Component {
 
     for (var key in this.state.cardsToCreate) {
       if (this.state.cardsToCreate.hasOwnProperty(key)) {
-        this.props.createCard(this.state.cardsToCreate[key]);
+        this.props.createCard(this.state.cardsToCreate[key])
       }
     }
-
   }
+  //
+  // saveCards(){
+  //   for (var key in this.state.cardsToDelete) {
+  //     if (this.state.cardsToDelete.hasOwnProperty(key)) {
+  //       this.props.deleteCard(key);
+  //     }
+  //   }
+  //
+  //   for (var key in this.state.cardsToUpdate) {
+  //     if (this.state.cardsToUpdate.hasOwnProperty(key)) {
+  //       this.props.updateCard(this.state.cardsToUpdate[key]);
+  //     }
+  //   }
+  //
+  //   for (var key in this.state.cardsToCreate) {
+  //     if (this.state.cardsToCreate.hasOwnProperty(key)) {
+  //       this.props.createCard(this.state.cardsToCreate[key])
+  //       .then(this.removeNewCard(key));
+  //     }
+  //   }
+  // }
 
   render () {
-
     return (
       <div className="card-container">
         <div className="card-header">
-            <h2>{`These are cards for deck #${this.props.params.deckId} `}</h2>
+            <h2>{`Flashcards in ${this.props.deckName} `}</h2>
             <ul>
               <li>#</li>
               <li id="question-list">Question</li>
