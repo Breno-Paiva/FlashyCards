@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, hashHistory } from 'react-router';
-import update from 'react-addons-update';
+import update from 'immutability-helper';
 
 class Card extends React.Component {
 
