@@ -76,9 +76,13 @@ class Deck extends React.Component {
             {
               this.props.decks.map( deck => (
                 <li key={deck.id} className="deck-item group">
-                  <h4>{deck.name}</h4>
+                  <Link to={`/study/${deck.id}`}>
+                    <h4>{deck.name}</h4>
+                  </Link>
                   <div className="deck-buttons">
-                    <button className="deck-study">study</button>
+                    <Link to={`/study/${deck.id}`}>
+                      <button className="deck-study">study</button>
+                    </Link>
                     <Link to={`/decks/${deck.id}/cards`}>
                       <button className="edit-cards">edit cards</button>
                     </Link>
