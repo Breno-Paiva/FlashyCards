@@ -8,10 +8,23 @@ class Study extends React.Component {
     super(props);
   }
 
+  componentWillMount(){
+    this.props.fetchCards(this.props.params.deckId)
+  }
+
   render () {
     return (
       <div className="study-container">
         let's study
+        <ul>
+          {
+            this.props.cards.map(card=>(
+              <li>
+                {card.score}
+              </li>
+            ))
+          }
+        </ul>
       </div>
     )
   }
