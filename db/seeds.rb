@@ -10,6 +10,7 @@ Subject.delete_all
 User.delete_all
 Deck.delete_all
 Card.delete_all
+Score.delete_all
 
 User.create!(username: "flashyUser", password: "friskyb")
 
@@ -112,6 +113,25 @@ Subject.create!(name: "Civics and History")
     Card.create!(question: "Why does the flag have 13 stripes?", answer:"because there were 13 original colonies", deck_id: Deck.find_by_name("Geography").id)
     Card.create!(question: " Why does the flag have 50 stars?", answer:"because there are 50 states", deck_id: Deck.find_by_name("Geography").id)
     Card.create!(question: "What is the name of the national anthem?", answer:"The Star-Spangled Banner", deck_id: Deck.find_by_name("Geography").id)
+
+
+ Subject.create!(name: "BETA Subject")
+    Deck.create!(name: "BETA Deck", subject_id: Subject.find_by_name("BETA Subject").id)
+
+      Card.create!(question: "BETA Q1", answer:"BETA A1", deck_id: Deck.find_by_name("BETA Deck").id)
+      Card.create!(question: "BETA Q2", answer:"BETA A2", deck_id: Deck.find_by_name("BETA Deck").id)
+      Card.create!(question: "BETA Q3", answer:"BETA A3", deck_id: Deck.find_by_name("BETA Deck").id)
+      Card.create!(question: "BETA Q4", answer:"BETA A4", deck_id: Deck.find_by_name("BETA Deck").id)
+      Card.create!(question: "BETA Q5", answer:"BETA A5", deck_id: Deck.find_by_name("BETA Deck").id)
+      Card.create!(question: "BETA Q6", answer:"BETA A6", deck_id: Deck.find_by_name("BETA Deck").id)
+      Card.create!(question: "BETA Q7", answer:"BETA A7", deck_id: Deck.find_by_name("BETA Deck").id)
+        Score.create!(user_id: User.find_by_username("flashyUser").id, card_id: Card.find_by_question("BETA Q1").id, score: 1)
+        Score.create!(user_id: User.find_by_username("flashyUser").id, card_id: Card.find_by_question("BETA Q2").id, score: 2)
+        Score.create!(user_id: User.find_by_username("flashyUser").id, card_id: Card.find_by_question("BETA Q3").id, score: 3)
+        Score.create!(user_id: User.find_by_username("flashyUser").id, card_id: Card.find_by_question("BETA Q4").id, score: 4)
+        Score.create!(user_id: User.find_by_username("flashyUser").id, card_id: Card.find_by_question("BETA Q5").id, score: 5)
+        Score.create!(user_id: User.find_by_username("flashyUser").id, card_id: Card.find_by_question("BETA Q6").id)
+        Score.create!(user_id: User.find_by_username("flashyUser").id, card_id: Card.find_by_question("BETA Q7").id)
 
 
     Subject.create!(name: "Music History")
