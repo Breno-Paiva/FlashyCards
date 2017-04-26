@@ -4,9 +4,9 @@ export const fetchDecks = (subjectId) => {
   });
 };
 
-export const fetchDeck = (deck) => {
+export const fetchDeck = (id) => {
   return $.ajax({
-    url: `/api/decks/${deck.id}`
+    url: `/api/decks/${id}`
   });
 };
 

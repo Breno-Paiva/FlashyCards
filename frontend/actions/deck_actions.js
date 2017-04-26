@@ -11,8 +11,8 @@ export const fetchDecks = subjectId => dispatch => (
          .then(decks => dispatch(receiveDecks(decks)))
 );
 
-export const fetchDeck = deck => dispatch => {
-  APIUtil.fetchDeck(deck)
+export const fetchDeck = id => dispatch => {
+  APIUtil.fetchDeck(id)
          .then(deck => dispatch(receiveDeck(deck)))
 };
 
