@@ -14,6 +14,7 @@ class Study extends React.Component {
     this.nextRandomCardIdx = this.nextRandomCardIdx.bind(this);
     this.switchCardView = this.switchCardView.bind(this);
     this.giveScore = this.giveScore.bind(this);
+    this.barStyle = this.barStyle.bind(this);
   }
 
   componentWillMount(){
@@ -23,12 +24,6 @@ class Study extends React.Component {
   }
 
   renderProgress(){
-    const progressStyle ={
-      WebkitTransition: 'all',
-      msTransition: 'all',
-      background: 'blue',
-      width: `${this.numberof(1)}`
-    }
     return(
       <div className="study-progress">
         <div className="progress-title">
@@ -36,7 +31,7 @@ class Study extends React.Component {
           <h2>{this.props.deckName}</h2>
         </div>
         <div className="progress-done">
-          <button>Done</button>
+          <Link to={`/library`}><button>Done</button></Link>
         </div>
         <div className="progress-percent">percent</div>
         <div className="progress-mastered">
@@ -59,13 +54,49 @@ class Study extends React.Component {
   renderProgressBars(){
     return(
       <div className="progress-bars">
-        <div className="score-5">{`5--${this.numberof(5)}`}</div>
-        <div className="score-4">{`4--${this.numberof(4)}`}</div>
-        <div className="score-3">{`3--${this.numberof(3)}`}</div>
-        <div className="score-2">{`2--${this.numberof(2)}`}</div>
-        <div className="score-1">{`1--${this.numberof(1)}`}</div>
+        <div className="score-bar">
+          <h4>{this.countOf(1)}</h4>
+          <div className="bar" >
+            <div style={this.barStyle(1, '#aa0080')}>&nbsp;</div>
+          </div>
+        </div>
+        <div className="score-bar">
+          <h4>{this.countOf(2)}</h4>
+          <div className="bar" >
+            <div style={this.barStyle(2, '#ff8a47')}>&nbsp;</div>
+          </div>
+        </div>
+        <div className="score-bar">
+          <h4>{this.countOf(3)}</h4>
+          <div className="bar" >
+            <div style={this.barStyle(3, '#ffdd00')}>&nbsp;</div>
+          </div>
+        </div>
+        <div className="score-bar">
+          <h4>{this.countOf(4)}</h4>
+          <div className="bar" >
+            <div style={this.barStyle(4, '#7fae2e')}>&nbsp;</div>
+          </div>
+        </div>
+        <div className="score-bar">
+          <h4>{this.countOf(5)}</h4>
+          <div className="bar" >
+            <div style={this.barStyle(5, '#00a8d7')}>&nbsp;</div>
+          </div>
+        </div>
       </div>
     )
+  }
+
+   barStyle(num, color){
+
+     return {
+       WebkitTransition: 'all',
+       msTransition: 'all',
+       background: color,
+       borderRadius: '4px',
+       width: `${this.numberof(num)}`
+     }
   }
 
   countOf(score){
