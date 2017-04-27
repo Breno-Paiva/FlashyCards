@@ -1,6 +1,3 @@
-# debugger
-# json.extract! card, :id, :question, :answer, :scores
-
   json.id card.id
   json.question card.question
   json.answer card.answer
