@@ -4,11 +4,16 @@ import Study from './study';
 import { createScore, updateScore } from '../../actions/score_actions.js'
 
 const mapStateToProps = (state) => {
+  var scores = Object.keys(state.card).map(id => {
+    if (state.card[id].score){
+      return (state.card[id].score)
+    }else{
+      return (0)
+    }
+  })
   return {
-    // cardObjects: state.card,
-    cards: Object.keys(state.card).map(id => state.card[id])
-    // // subject: state.subject[currentSubjectId],
-    // // decks: Object.keys(state.deck).map(id => state.deck[id])
+    cards: Object.keys(state.card).map(id => state.card[id]),
+    scores: scores
   };
 };
 

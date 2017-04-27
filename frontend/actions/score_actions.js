@@ -7,5 +7,5 @@ export const createScore = score => dispatch => (
 );
 
 export const updateScore = score => dispatch => (
-  APIUtil.updateScore(score).then(subject => dispatch(receiveCard(card)))
+  APIUtil.updateScore(score).then(card => dispatch(receiveCard(card)))
 );
