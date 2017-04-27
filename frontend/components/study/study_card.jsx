@@ -9,9 +9,10 @@ class StudyCard extends React.Component {
   }
 
   render () {
-
     return (
-      <div className="study-card-container">
+      <div className="study-card-container" onClick={this.props.nextRandomCardIdx}>
+        <h1>This is a card</h1>
+        <h1>{this.props.card.question}</h1>
       </div>
     )
   }
