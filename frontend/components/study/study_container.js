@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { fetchCards } from '../../actions/card_actions';
 import Study from './study';
-
+import { createScore, updateScore } from '../../actions/score_actions.js'
 
 const mapStateToProps = (state) => {
   return {
@@ -14,7 +14,9 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    fetchCards: deckId => dispatch(fetchCards(deckId))
+    fetchCards: deckId => dispatch(fetchCards(deckId)),
+    createScore: score => dispatch(createScore(score)),
+    updateScore: score => dispatch(updateScore(score))
   };
 };
 

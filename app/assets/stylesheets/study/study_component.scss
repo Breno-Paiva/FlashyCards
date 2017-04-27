@@ -1,0 +1,70 @@
+.study-container {
+  display: block;
+  justify-content: flex-start;
+  background-color: green;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  position: fixed;
+
+}
+
+.study-header {
+  float: left;
+  // background-color: yellow;
+  width: 30px;
+  height: 100%;
+  background: #0d0d0d;
+}
+
+.study-progress {
+  display: block;
+  float: left;
+  // background-color: red;
+  width: calc(20% - 15px);
+  height: 100%;
+  background: #333333;
+  color: white;
+}
+
+.study-flash {
+  float: left;
+  // display: block;
+  // background-color: purple;
+  background: #f2f2f2;
+  width: calc(80% - 15px);
+  height: 100%;
+}
+// .study-container {
+//   display: flex;
+//   // flex-direction: row;
+//   justify-content: flex-start;
+//   flex: 2%;
+//   background-color: green;
+//
+// }
+//
+// .study-header {
+//   // display: block;
+//   background-color: yellow;
+//   // width: 15px;
+//   flex :0 0 20px;
+//   // height: 100%;
+// }
+//
+// .study-progress {
+//   display: block;
+//   background-color: red;
+//   flex :2 0 20px;
+//   // width: 20%;
+//     // height: 100%;
+// }
+//
+// .study-flash {
+//   display: block;
+//   background-color: purple;
+//   flex :5 0 20px;
+//   // width: 80%
+//     // height: 100%;
+// }
