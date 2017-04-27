@@ -147,14 +147,14 @@
 .progress-done {
   display: flex;
   justify-content: center;
-  height: 80px;
+  align-items: center;
+  height: 70px;
   // background: orange;
 
 }
 
 .progress-done button {
   background: #29a5dc;
-  margin: 15px auto;
   height: 40px;
   font-size: 18px;
   color: white;
@@ -162,6 +162,9 @@
   width: 85px;
   letter-spacing: 1px;
   text-align: center;
+  -webkit-box-shadow: 0px 4px 4px rgba(0,0,0,0.25);
+  -moz-box-shadow: 0px 4px 4px rgba(0,0,0,0.25);
+  box-shadow: 0px 4px 4px rgba(0,0,0,0.25);
 }
 
 .progress-done button:hover {
@@ -170,24 +173,23 @@
 
 .progress-percent {
   // background: red;
-  display: block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   height: 200px;
 }
 .progress-radial {
-  float: left;
-  margin-right: 30px;
   position: relative;
-  width: 100px;
-  height: 100px;
+  width: 140px;
+  height: 140px;
   border-radius: 50%;
-  // border: 2px solid green;
   background-color: #29a5dc;
 }
 
 .progress-radial .overlay{
   position: absolute;
-  width: 80px;
-  height: 80px;
+  width: 120px;
+  height: 120px;
   background-color: #333333;
   border-radius: 50%;
   margin-left: 10px;
@@ -195,6 +197,38 @@
   text-align: center;
   line-height: 80px;
   font-size: 16px;
+  // display: flex;
+  // flex-flow: column;
+  // justify-content: center;
+  // align-items: center;
+}
+
+.score-percent {
+  position: relative;
+  top: -90px;
+  right: 5px;
+  width: 100%;
+  height: 70%;
+  font-weight: lighter;
+  // background: red;
+}
+
+.score-percent h5 {
+  position: relative;
+  font-size: 60px;
+}
+
+.score-percent h6 {
+  position: relative;
+  top: -190px;
+  left: 45px;
+  font-size: 18px;
+}
+
+.mastery {
+  position: relative;
+  top: -135px;
+  // background: orange;
 }
 
 .progress-mastered {
@@ -231,7 +265,7 @@
 .progress-bars {
   // background: lightblue;
   display: block;
-  height: calc(100% - 515px);
+  height: calc(100% - 500px);
   margin-top: 10px;
   display: flex;
   justify-content: space-around;
