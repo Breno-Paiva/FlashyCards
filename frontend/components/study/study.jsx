@@ -24,6 +24,11 @@ class Study extends React.Component {
   }
 
   renderProgress(){
+
+    const circleStyle = {
+      backgroundImage: "linear-gradient(90deg, #4a4a4a 50%, transparent 50%, transparent), linear-gradient(220deg, #29a5dc 50%, #4a4a4a 50%, #4a4a4a)"
+    }
+
     return(
       <div className="study-progress">
         <div className="progress-title">
@@ -33,7 +38,13 @@ class Study extends React.Component {
         <div className="progress-done">
           <Link to={`/library`}><button>Done</button></Link>
         </div>
-        <div className="progress-percent">percent</div>
+        <div className="progress-percent">
+          <div className="progress-radial" style={this.circleStyle(this.scoreAverage())}>
+            <div className="overlay">
+              {this.scoreAverage()}%
+            </div>
+          </div>
+        </div>
         <div className="progress-mastered">
           <div className="mastered">
             <h2>{`${this.countOf(5)}`}</h2>
@@ -47,9 +58,20 @@ class Study extends React.Component {
       </div>
     )
   }
-  // <div className="test">
-  //   <div style={progressStyle}>{`1--${this.numberof(1)}`}</div>
-  // </div>
+
+  circleStyle(percent) {
+    if (percent <= 50 ){
+      const x = 3.6 * percent
+      return {
+        backgroundImage: `linear-gradient(90deg, #4a4a4a 50%, transparent 50%, transparent), linear-gradient(${90+x}deg, #29a5dc 50%, #4a4a4a 50%, #4a4a4a)`
+      }
+    }else{
+      const x = 3.6 * (percent - 50)
+      return{
+        backgroundImage: `linear-gradient(${(-90+x)}deg, #29a5dc 50%, transparent 50%, transparent), linear-gradient(270deg, #29a5dc 50%, #4a4a4a 50%, #4a4a4a)`
+      }
+    }
+  }
 
   renderProgressBars(){
     return(
@@ -126,7 +148,7 @@ class Study extends React.Component {
       sum += parseInt( this.props.scores[i]);
     }
     var avg = sum/(this.props.scores.length*5)*100;
-    return `${Math.round(avg)}%`
+    return Math.round(avg)
   }
 
   renderStudyCard() {
