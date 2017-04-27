@@ -10,6 +10,7 @@ class Study extends React.Component {
     this.state={cardIdx: 0, cardView: "question"}
     this.renderStudyCard = this.renderStudyCard.bind(this);
     this.renderFeedbackBar = this.renderFeedbackBar.bind(this);
+    this.renderProgress = this.renderProgress.bind(this);
     this.nextRandomCardIdx = this.nextRandomCardIdx.bind(this);
     this.switchCardView = this.switchCardView.bind(this);
     this.giveScore = this.giveScore.bind(this);
@@ -21,10 +22,32 @@ class Study extends React.Component {
   }
 
   renderProgress(){
+    const progressStyle ={
+      WebkitTransition: 'all',
+      msTransition: 'all',
+      background: 'blue',
+      width: `${this.numberof(1)}`
+    }
     return(
-      <div>
-        <h1>progress</h1>
-        {this.scoreAverage()}
+      <div className="study-progress">
+        <div className="progress-title">
+          <h2 id="studying">Studying:</h2>
+          <h2>subject</h2>
+        </div>
+        <div className="progress-done">done</div>
+        <div className="progress-percent">percent</div>
+        <div className="progress-mastered">mastered</div>
+        {this.renderProgressBars()}
+      </div>
+    )
+  }
+  // <div className="test">
+  //   <div style={progressStyle}>{`1--${this.numberof(1)}`}</div>
+  // </div>
+
+  renderProgressBars(){
+    return(
+      <div className="progress-bars">
         <div className="score-5">{`5--${this.numberof(5)}`}</div>
         <div className="score-4">{`4--${this.numberof(4)}`}</div>
         <div className="score-3">{`3--${this.numberof(3)}`}</div>
@@ -59,14 +82,14 @@ class Study extends React.Component {
       if(this.state.cardView === "question"){
         return (
           <div className="study-card-container" onClick={this.switchCardView}>
-            <h1>This is a card</h1>
+            <h1>Q.</h1>
             <h1>{this.props.cards[this.state.cardIdx].question}</h1>
           </div>
         )
       }else{
         return(
           <div className="study-card-container" onClick={this.switchCardView}>
-            <h1>This is a card</h1>
+            <h1>A.</h1>
             <h1>{this.props.cards[this.state.cardIdx].answer}</h1>
           </div>
         )
@@ -94,37 +117,42 @@ class Study extends React.Component {
     var card = this.props.cards[this.state.cardIdx];
     if(this.state.cardView === "question"){
       return (
-        <div className="study-card-reveal feedback" onClick={this.switchCardView}>
-          <h1>Reveal Card</h1>
+        <div className="feedback"
+          onClick={this.switchCardView}>
+            <h4>&nbsp;</h4>
+            <h3 className="study-card-reveal">Reveal Answer</h3>
         </div>
       )
     }else{
       return(
-        <div className="study-card-answer feedback">
-          <button
-            className="give-1 give-button"
-            onClick={(event)=> {this.nextRandomCardIdx(); this.giveScore(card, 1)}}
-            >1</button>
-          <br/>
-          <button
-            className="give-2 give-button"
-            onClick={(event)=> {this.nextRandomCardIdx(); this.giveScore(card, 2)}}
-            >2</button>
-          <br/>
-          <button
-            className="give-3 give-button"
-            onClick={(event)=> {this.nextRandomCardIdx(); this.giveScore(card, 3)}}
-            >3</button>
-          <br/>
-          <button
-            className="give-4 give-button"
-            onClick={(event)=> {this.nextRandomCardIdx(); this.giveScore(card, 4)}}
-            >4</button>
-          <br/>
-          <button
-            className="give-5 give-button"
-            onClick={(event)=> {this.nextRandomCardIdx(); this.giveScore(card, 5)}}
-            >5</button>
+        <div className="feedback">
+          <h4>How well did you know this?</h4>
+          <div className="study-card-answer">
+            <button
+              className="give-1 give-button"
+              onClick={(event)=> {this.nextRandomCardIdx(); this.giveScore(card, 1)}}
+              >1</button>
+            <br/>
+            <button
+              className="give-2 give-button"
+              onClick={(event)=> {this.nextRandomCardIdx(); this.giveScore(card, 2)}}
+              >2</button>
+            <br/>
+            <button
+              className="give-3 give-button"
+              onClick={(event)=> {this.nextRandomCardIdx(); this.giveScore(card, 3)}}
+              >3</button>
+            <br/>
+            <button
+              className="give-4 give-button"
+              onClick={(event)=> {this.nextRandomCardIdx(); this.giveScore(card, 4)}}
+              >4</button>
+            <br/>
+            <button
+              className="give-5 give-button"
+              onClick={(event)=> {this.nextRandomCardIdx(); this.giveScore(card, 5)}}
+              >5</button>
+          </div>
         </div>
       )
     }
@@ -142,11 +170,12 @@ class Study extends React.Component {
     return (
       <div className="study-container group">
         <div className="study-header">header</div>
-        <div className="study-progress">
-          {this.renderProgress()}
-        </div>
+        {this.renderProgress()}
         <div className="study-flash">
-          {this.renderStudyCard()}
+          <div className="card">
+            <h4>{`${this.state.cardIdx + 1} of ${this.props.cards.length}`}</h4>
+            {this.renderStudyCard()}
+          </div>
           {this.renderFeedbackBar()}
         </div>
       </div>
