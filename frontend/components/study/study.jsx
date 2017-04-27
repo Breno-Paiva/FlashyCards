@@ -7,9 +7,10 @@ class Study extends React.Component {
 
   constructor(props){
     super(props);
-    this.state={cardIdx: 0}
+    this.state={cardIdx: 0, cardView: "question"}
     this.renderStudyCard = this.renderStudyCard.bind(this);
     this.nextRandomCardIdx = this.nextRandomCardIdx.bind(this);
+    this.switchCardView = this.switchCardView.bind(this);
   }
 
   componentWillMount(){
@@ -19,13 +20,21 @@ class Study extends React.Component {
 
   renderStudyCard() {
     if (this.props.cards.length >= 1){
-      return (
-        <StudyCard
-          card={this.props.cards[this.state.cardIdx]}
-          createScore={this.props.createScore}
-          updateScore={this.props.updateScore}
-          nextRandomCardIdx={this.nextRandomCardIdx}/>
-      )
+      if(this.state.cardView === "question"){
+        return (
+          <div className="study-card-container" onClick={this.switchCardView}>
+            <h1>This is a card</h1>
+            <h1>{this.props.cards[this.state.cardIdx].question}</h1>
+          </div>
+        )
+      }else{
+        return(
+          <div className="study-card-container" onClick={this.switchCardView}>
+            <h1>This is a card</h1>
+            <h1>{this.props.cards[this.state.cardIdx].answer}</h1>
+          </div>
+        )
+      }
     }
   }
 
@@ -34,9 +43,32 @@ class Study extends React.Component {
     while (Idx === this.state.cardIdx){
       Idx = Math.floor(Math.random() * this.props.cards.length)
     }
-    this.setState({cardIdx: Idx})
+    this.setState({cardIdx: Idx, cardView: "question"})
   }
 
+  switchCardView(){
+    if(this.state.cardView === "question"){
+      this.setState({cardView: "answer"})
+    }else{
+      this.setState({cardView: "question"})
+    }
+  }
+
+  renderFeedbackBar(){
+    if(this.state.cardView === "question"){
+      return (
+        <div className="study-card-feedback" onClick={this.switchCardView}>
+          <h1>Reveal Card</h1>
+        </div>
+      )
+    }else{
+      return(
+        <div className="study-card-feedback" onClick={this.nextRandomCardIdx}>
+          <h1>Give score, show next card</h1>
+        </div>
+      )
+    }
+  }
 
   render () {
     return (
@@ -45,13 +77,11 @@ class Study extends React.Component {
         <div className="study-progress">progress</div>
         <div className="study-flash">
           {this.renderStudyCard()}
-          <button onClick={this.nextRandomCardIdx}>next card</button>
+          {this.renderFeedbackBar()}
         </div>
       </div>
     )
   }
 }
-// <h1>let's study</h1>
-// { this.renderStudyCard(this.props.cards[0])}
 
 export default Study;
