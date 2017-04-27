@@ -41,7 +41,13 @@ class Study extends React.Component {
         <div className="progress-percent">
           <div className="progress-radial" style={this.circleStyle(this.scoreAverage())}>
             <div className="overlay">
-              {this.scoreAverage()}%
+              <div className="score-percent">
+                <h5>{this.scoreAverage()}</h5>
+                <h6>%</h6>
+              </div>
+              <div className="mastery">
+                mastery
+              </div>
             </div>
           </div>
         </div>
