@@ -133,7 +133,7 @@
 }
 
 .progress-title h2 {
-  font-size: 18px;
+  font-size: 16px;
   display: inline-block;
   padding: 15px 3px 15px;
 }
@@ -180,7 +180,7 @@
 }
 
 .mastered {
-  width: 90%;
+  width: 87%;
   background: #4a4a4a;
   border-radius: 4px;
   display: flex;
@@ -205,5 +205,27 @@
 }
 
 .progress-bars {
-  background: blue;
+  // background: lightblue;
+  display: block;
+  height: calc(100% - 515px);
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  padding: 25px;
+}
+
+.score-bar {
+  display: flex;
+  flex-flow: row;
+}
+
+.score-bar h4{
+  padding-right: 15px;
+}
+
+.bar {
+  width: 100%;
+  background-color: #4a4a4a;
+  border-radius: 4px;
 }
