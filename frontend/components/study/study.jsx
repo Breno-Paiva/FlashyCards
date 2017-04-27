@@ -17,6 +17,7 @@ class Study extends React.Component {
   }
 
   componentWillMount(){
+    this.props.fetchDeck(this.props.params.deckId)
     this.props.fetchCards(this.props.params.deckId)
     .then(()=>this.nextRandomCardIdx());
   }
@@ -32,11 +33,21 @@ class Study extends React.Component {
       <div className="study-progress">
         <div className="progress-title">
           <h2 id="studying">Studying:</h2>
-          <h2>subject</h2>
+          <h2>{this.props.deckName}</h2>
         </div>
-        <div className="progress-done">done</div>
+        <div className="progress-done">
+          <button>Done</button>
+        </div>
         <div className="progress-percent">percent</div>
-        <div className="progress-mastered">mastered</div>
+        <div className="progress-mastered">
+          <div className="mastered">
+            <h2>{`${this.countOf(5)}`}</h2>
+            <h3>Cards Mastered</h3>
+            <h4>/</h4>
+            <h2>{`${this.props.cards.length}`}</h2>
+            <h3>Total Cards</h3>
+          </div>
+        </div>
         {this.renderProgressBars()}
       </div>
     )
@@ -55,6 +66,16 @@ class Study extends React.Component {
         <div className="score-1">{`1--${this.numberof(1)}`}</div>
       </div>
     )
+  }
+
+  countOf(score){
+    var count = 0
+    for( var i = 0; i < this.props.scores.length; i++ ){
+      if (this.props.scores[i] === score){
+        count += 1
+      }
+    }
+    return count
   }
 
   numberof(score){
