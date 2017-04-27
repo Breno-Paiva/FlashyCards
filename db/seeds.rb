@@ -130,9 +130,6 @@ Subject.create!(name: "Civics and History")
         Score.create!(user_id: User.find_by_username("flashyUser").id, card_id: Card.find_by_question("BETA Q3").id, score: 3)
         Score.create!(user_id: User.find_by_username("flashyUser").id, card_id: Card.find_by_question("BETA Q4").id, score: 4)
         Score.create!(user_id: User.find_by_username("flashyUser").id, card_id: Card.find_by_question("BETA Q5").id, score: 5)
-        Score.create!(user_id: User.find_by_username("flashyUser").id, card_id: Card.find_by_question("BETA Q6").id)
-        Score.create!(user_id: User.find_by_username("flashyUser").id, card_id: Card.find_by_question("BETA Q7").id)
-
 
     Subject.create!(name: "Music History")
     Subject.create!(name: "Portuguese")

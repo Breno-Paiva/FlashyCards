@@ -3,7 +3,6 @@ class Api::ScoresController < ApplicationController
     @score = Score.new(score_params)
     @score.user_id = current_user.id
     if @score.save!
-      debugger
       @card = Card.find(score_params[:card_id])
       render "api/cards/show"
     else
