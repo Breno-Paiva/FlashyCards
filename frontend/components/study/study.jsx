@@ -46,7 +46,7 @@ class Study extends React.Component {
                 <h6>%</h6>
               </div>
               <div className="mastery">
-                mastery
+                Mastery
               </div>
             </div>
           </div>
@@ -162,14 +162,14 @@ class Study extends React.Component {
       if(this.state.cardView === "question"){
         return (
           <div className="study-card-container" onClick={this.switchCardView}>
-            <h1>Q.</h1>
+            <h2>Q.</h2>
             <h1>{this.props.cards[this.state.cardIdx].question}</h1>
           </div>
         )
       }else{
         return(
           <div className="study-card-container" onClick={this.switchCardView}>
-            <h1>A.</h1>
+            <h2>A.</h2>
             <h1>{this.props.cards[this.state.cardIdx].answer}</h1>
           </div>
         )
@@ -200,7 +200,9 @@ class Study extends React.Component {
         <div className="feedback"
           onClick={this.switchCardView}>
             <h4>&nbsp;</h4>
-            <h3 className="study-card-reveal">Reveal Answer</h3>
+            <div className="study-card-reveal">
+              <h3>Reveal Answer</h3>
+            </div>
         </div>
       )
     }else{

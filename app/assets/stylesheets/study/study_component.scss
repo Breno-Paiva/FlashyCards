@@ -42,7 +42,6 @@
 }
 
 .card {
-  // background: #f2f2f2;
   height: 70%;
   width: 85%;
   margin: 0 auto;
@@ -57,6 +56,21 @@
   -webkit-box-shadow: 0px 5px 11px 1px rgba(0,0,0,0.16);
   -moz-box-shadow: 0px 5px 11px 1px rgba(0,0,0,0.16);
   box-shadow: 0px 5px 11px 1px rgba(0,0,0,0.16);
+  padding: 15px;
+  display: flex;
+  flex-flow: row;
+}
+
+.study-card-container h2 {
+  color: gray;
+  width: 80px;
+  font-size: 20px;
+}
+.study-card-container h1 {
+  display: flex;
+  vertical-align: middle;
+  align-items: center;
+  letter-spacing: 1px;
 }
 
 .feedback {
@@ -75,11 +89,13 @@
 
 .study-card-reveal {
   height: 100%;
-  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background: #7fae2e;
   border-radius: 4px;
   -webkit-box-shadow: 0px 5px 11px 1px rgba(0,0,0,0.16);
-  -moz-box-shadow: 0px 5px 11px 1px rgba(0,0,0,0.16);
+  -moz-bo-shadow: 0px 5px 11px 1px rgba(0,0,0,0.16);
   box-shadow: 0px 5px 11px 1px rgba(0,0,0,0.16);
   color: white;
   font-size: 22px;
