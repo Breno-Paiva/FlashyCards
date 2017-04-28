@@ -18,9 +18,16 @@ class Study extends React.Component {
   }
 
   componentWillMount(){
-    this.props.fetchDeck(this.props.params.deckId)
     this.props.fetchCards(this.props.params.deckId)
+    .then(()=>this.props.fetchDeck(this.props.params.deckId))
     .then(()=>this.nextRandomCardIdx());
+  }
+
+  componentWillReceiveProps(nextProps){
+    // debugger
+    if (nextProps.cards.length === 0){
+      hashHistory.push("/library")
+    }
   }
 
   renderProgress(){
@@ -178,11 +185,13 @@ class Study extends React.Component {
   }
 
   nextRandomCardIdx(){
-    let Idx = Math.floor(Math.random() * this.props.cards.length)
-    while (Idx === this.state.cardIdx){
-      Idx = Math.floor(Math.random() * this.props.cards.length)
+    if (this.props.cards.length > 1){
+      let Idx = Math.floor(Math.random() * this.props.cards.length)
+      while (Idx === this.state.cardIdx){
+        Idx = Math.floor(Math.random() * this.props.cards.length)
+      }
+      this.setState({cardIdx: Idx, cardView: "question"})
     }
-    this.setState({cardIdx: Idx, cardView: "question"})
   }
 
   switchCardView(){
@@ -249,6 +258,7 @@ class Study extends React.Component {
   }
 
   render () {
+    // debugger
     return (
       <div className="study-container group">
         <div className="study-header">header</div>
