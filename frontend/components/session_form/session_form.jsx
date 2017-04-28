@@ -66,7 +66,7 @@ class SessionForm extends React.Component {
   render() {
     return(
       <div className={`session-form-container ${this.props.className}`}>
-        <cls id="session-form-close" onClick={this.props.switchFormShow}>x</cls>
+        <cls id="session-form-close" onClick={this.props.switchFormShow}><i className="fa fa-times" aria-hidden="true"></i></cls>
         <h4>{this.props.formType}</h4>
         <form onSubmit={this.handleSubmit}>
           {this.renderErrors()}

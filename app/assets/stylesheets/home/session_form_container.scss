@@ -78,7 +78,7 @@
 
 @keyframes slideInFromTop {
     0% {
-        transform: translatey(-20%);
+        transform: translatey(-40%);
     }
     100% {
         transform: translate(0);
@@ -91,9 +91,8 @@
   position: absolute;
   margin: auto;
   top: 0; left: 0; bottom: 0; right: 0;
-  transition: top 1s;
   z-index: 1000;
-  animation: .05s ease-out 0s 1 slideInFromTop;
+  animation: .4s ease-out 0s 1 slideInFromTop;
 }
 
 .form-off {
@@ -124,7 +123,7 @@
   width: 18px;
   text-align: center;
   cursor: pointer;
-  transition: .25s border;
+  transition: .1s border;
 }
 
 #session-form-close:hover {

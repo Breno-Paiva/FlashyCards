@@ -35,7 +35,7 @@ class Card extends React.Component {
           <div id="x-card-item">
             <button
               onClick={this.remove(card.id)}
-              >x</button>
+              ><i className="fa fa-times" aria-hidden="true"></i></button>
           </div>
         </li>
       )}
@@ -184,7 +184,7 @@ class Card extends React.Component {
           </ol>
           <div className="card-buttons">
             <div className="card-buttons-left">
-              <button className="new-card-button" onClick={()=>this.addCard()}>+ Add Card</button>
+              <button className="new-card-button" onClick={()=>this.addCard()}><i className="fa fa-plus-circle" aria-hidden="true"></i> Add Card</button>
             </div>
             <div className="card-buttons-right">
               <button className="card-reset" onClick={()=>this.resetForm()}>Reset</button>
