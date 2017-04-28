@@ -24,7 +24,6 @@ class Study extends React.Component {
   }
 
   componentWillReceiveProps(nextProps){
-    // debugger
     if (nextProps.cards.length === 0){
       hashHistory.push("/library")
     }
@@ -168,14 +167,14 @@ class Study extends React.Component {
     if (this.props.cards.length >= 1){
       if(this.state.cardView === "question"){
         return (
-          <div className="study-card-container" onClick={this.switchCardView}>
+          <div id="study-question" className="study-card-container" onClick={this.switchCardView}>
             <h2>Q.</h2>
             <h1>{this.props.cards[this.state.cardIdx].question}</h1>
           </div>
         )
       }else{
         return(
-          <div className="study-card-container" onClick={this.switchCardView}>
+          <div id="study-answer" className="study-card-container" onClick={this.switchCardView}>
             <h2>A.</h2>
             <h1>{this.props.cards[this.state.cardIdx].answer}</h1>
           </div>
@@ -258,10 +257,19 @@ class Study extends React.Component {
   }
 
   render () {
-    // debugger
     return (
       <div className="study-container group">
-        <div className="study-header">header</div>
+        <div className="study-header">
+          <Link to={"/library"}>
+            <div id="study-logo" className="logo"></div>
+          </Link>
+          <Link to={"/library"}>
+            <i className="fa fa-home fa-lg" aria-hidden="true"></i>
+          </Link>
+          <Link to={"/library"}>
+            <i className="fa fa-th fa-lg" aria-hidden="true"></i>
+          </Link>
+        </div>
         {this.renderProgress()}
         <div className="study-flash">
           <div className="card">

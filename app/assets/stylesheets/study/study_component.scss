@@ -49,6 +49,24 @@
   flex-direction: column;
 }
 
+
+@keyframes flipQuestion {
+  50% {
+    background: #f2f2f2;
+  }
+  0%, 100% {
+    background: white;
+  }
+}
+@keyframes flipAnswer {
+  50% {
+    background: #f2f2f2;
+  }
+  0%, 100% {
+    background: white;
+  }
+}
+
 .study-card-container {
   background: white;
   height: 100%;
@@ -59,6 +77,15 @@
   padding: 15px;
   display: flex;
   flex-flow: row;
+  // animation: .1s ease-out 0s 1 flipCard;
+}
+
+#study-question{
+  animation: .25s ease-out 0s 1 flipQuestion;
+}
+
+#study-answer{
+  animation: .25s ease-out 0s 1 flipAnswer;
 }
 
 .study-card-container h2 {
@@ -88,6 +115,7 @@
 }
 
 .study-card-reveal {
+  cursor: pointer;
   height: 100%;
   display: flex;
   align-items: center;
@@ -302,4 +330,25 @@
   width: 100%;
   background-color: #4a4a4a;
   border-radius: 4px;
+}
+
+.fa-home {
+  color: #29a5dc;
+  position: relative;
+  top: 25px;
+  left: 4px;
+}
+
+.fa-th {
+  color: #29a5dc;
+  position: relative;
+  top: 50px;
+  left: 4px;
+}
+
+#study-logo {
+  position: relative;
+  top: 10px;
+  left: 3px;
+  width: 3px;;
 }

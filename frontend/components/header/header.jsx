@@ -60,7 +60,6 @@ class Header extends React.Component {
     return (
       <div className="left-header">
         <div className="logo"></div>
-        <i className="fa fa-lightbulb-o"></i>
         <Link to="/library">
           <h3>FLASHYcards</h3>
         </Link>
