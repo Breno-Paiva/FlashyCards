@@ -131,6 +131,21 @@ Subject.create!(name: "Civics and History")
         Score.create!(user_id: User.find_by_username("flashyUser").id, card_id: Card.find_by_question("BETA Q4").id, score: 4)
         Score.create!(user_id: User.find_by_username("flashyUser").id, card_id: Card.find_by_question("BETA Q5").id, score: 5)
 
+
+ Subject.create!(name: "Random Trivia")
+    Deck.create!(name: "Trivia Pack 1", subject_id: Subject.find_by_name("Random Trivia").id)
+      Card.create!(question: "What is the world's longest River", answer:"Amazon", deck_id: Deck.find_by_name("Trivia Pack 1").id)
+      Card.create!(question: "How many valves does a trumpet have?", answer:"Three", deck_id: Deck.find_by_name("Trivia Pack 1").id)
+      Card.create!(question: "In the TV series 'Pokemon', what was Ash's second Pokemon?", answer:"Caterpie", deck_id: Deck.find_by_name("Trivia Pack 1").id)
+      Card.create!(question: "What band has a song called 'Under the Bridge'", answer:"Red Hot Chili Peppers", deck_id: Deck.find_by_name("Trivia Pack 1").id)
+      Card.create!(question: "What was the last movie ever rented by Blockbuster?", answer:"This Is The End", deck_id: Deck.find_by_name("Trivia Pack 1").id)
+      Card.create!(question: "What three notes make a C Major chord?", answer:"C, E, G", deck_id: Deck.find_by_name("Trivia Pack 1").id)
+      Card.create!(question: "Lorem Ipsum?", answer:"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum", deck_id: Deck.find_by_name("Trivia Pack 1").id)
+      Card.create!(question: "In what year was app academy founded?", answer:"2012", deck_id: Deck.find_by_name("Trivia Pack 1").id)
+      Card.create!(question: "How much wood would a woodchuck chuck if a woodchuck could chuck wood?", answer:"700 pounds", deck_id: Deck.find_by_name("Trivia Pack 1").id)
+
+
+
     Subject.create!(name: "Music History")
     Subject.create!(name: "Portuguese")
     Subject.create!(name: "Astronomy")
