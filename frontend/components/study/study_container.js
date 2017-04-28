@@ -5,10 +5,11 @@ import { createScore, updateScore } from '../../actions/score_actions.js'
 import { fetchDeck } from '../../actions/deck_actions';
 
 const mapStateToProps = (state, ownProps) => {
+
   let deckName =""
-  if(state.deck[ownProps.params.deckId]) {
-    deckName = state.deck[ownProps.params.deckId].name
-  }
+  if(state.deck[ownProps.params.deckId]) { deckName = state.deck[ownProps.params.deckId].name }
+
+  if(state.card) 
   var scores = Object.keys(state.card).map(id => {
     if (state.card[id].score){
       return (state.card[id].score)
@@ -16,6 +17,7 @@ const mapStateToProps = (state, ownProps) => {
       return (0)
     }
   })
+
   return {
     deckName,
     cards: Object.keys(state.card).map(id => state.card[id]),
