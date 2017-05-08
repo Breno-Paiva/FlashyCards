@@ -32,6 +32,6 @@ The main feature of the app is the ability to study cards and keep track of the 
 
 [flashycards]: http://www.flashycards.club/
 [login_pic]: ./docs/screenshots/login_code_pic.png
-[manage_decks_pic]: ./docs/screenshots/manage_decks_picg.png
+[manage_decks_pic]: ./docs/screenshots/manage_decks_pic.png
 [edit_card_pic]: ./docs/screenshots/edit_card_pic.png
 [study_pic]: ./docs/screenshots/study_pic.png
