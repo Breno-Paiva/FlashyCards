@@ -5,19 +5,15 @@ import RootReducer from '../reducers/root_reducer';
 
 const logger = createLogger();
 
+const middlewares = [thunk];
+
+if (process.env.NODE_ENV === `development`) {
+  const { logger } = require(`redux-logger`);
+    middlewares.push(logger);
+  }
+
 const configureStore = (preloadedState = {}) => (
-  createStore(RootReducer, preloadedState, applyMiddleware(thunk, logger))
+  createStore(RootReducer, preloadedState, applyMiddleware(...middlewares))
 );
 
 export default configureStore;
-
-// const middlewares = [thunk];
-//
-// if (process.env.NODE_ENV === `development`) {
-//   const { logger } = require(`redux-logger`);
-//     middlewares.push(logger);
-//   }
-//
-// const configureStore = (preloadedState = {}) => (
-//   createStore(RootReducer, preloadedState, applyMiddleware(...middlewares))
-// );
