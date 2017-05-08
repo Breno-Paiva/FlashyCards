@@ -14,7 +14,7 @@ Users can create accounts with a username and password.  This password is then h
 
 #### Create and Browse Subjects/decks
 
-![manage decks pic][./docs/screenshots/manage_decks_pic.png]
+![manage decks pic][./docs/screenshots/manage_decks_picg.png]
 
 Upon signing in, Users are directed to the library page where they are shown all the available subkects to study.  Subsequently, each subject can have multiple decks of cards to study.  The user is able to delete, or create new subjects or decks to their liking.
 
