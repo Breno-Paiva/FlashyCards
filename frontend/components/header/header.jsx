@@ -1,18 +1,27 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router';
 import SessionForm from '../session_form/session_form_container';
+import Modal from 'react-modal';
 
 class Header extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = { formType: 'login', formClass: "form-off"};
+    this.state = { formType: 'login',
+                   formClass: "form-off",
+                   logoutModalIsOpen: false};
     this.setFormLogin = this.setFormLogin.bind(this);
     this.setFormSignup = this.setFormSignup.bind(this);
     this.switchFormType = this.switchFormType.bind(this);
     this.switchFormShow = this.switchFormShow.bind(this);
     this.blackOut = this.blackOut.bind(this);
+    this.toggleLogout = this.toggleLogout.bind(this);
+    this.renderLogout = this.renderLogout.bind(this);
   }
+
+  componentWillMount() {
+    Modal.setAppElement('body');
+ }
 
   sessionForm() {
     return(
@@ -78,12 +87,17 @@ class Header extends React.Component {
   userInfo () {
     if (this.props.currentUser) {
       this.state.formClass = "form-off";
+
+      // <Modal isOpen={this.state.logoutModalIsOpen} contentLabel="Modal" className="logout-modal" overlayClassName="logout-overlay">
+      //   <button className="logout" onClick={this.props.logout}>LOGOUT</button>
+      // </Modal>
       return (
-        <div>
+        <div className="user-info">
+          {this.renderLogout()}
           <Link to="/library">
-            <h3>{`Hi, ${this.props.currentUser.username}`}</h3>
+            <h3>{`Hi,  ${this.props.currentUser.username}`}</h3>
           </Link>
-          <button className="logout" onClick={this.props.logout}>LOGOUT</button>
+          <i className="fa fa-chevron-circle-down" aria-hidden="true" onClick={this.toggleLogout}></i>
         </div>
       );
     }else{
@@ -98,6 +112,20 @@ class Header extends React.Component {
             >Get Started</button>
         </div>
       );
+    }
+  }
+
+  toggleLogout(){
+    if (this.state.logoutModalIsOpen){
+      this.setState({logoutModalIsOpen: false})
+    }else{
+      this.setState({logoutModalIsOpen: true})
+    }
+  }
+
+  renderLogout(){
+    if (this.state.logoutModalIsOpen){
+      return <button className="logout" onClick={this.props.logout}>LOGOUT</button>
     }
   }
 
