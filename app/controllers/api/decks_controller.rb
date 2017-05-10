@@ -1,7 +1,7 @@
 class Api::DecksController < ApplicationController
 
   def index
-    @decks = Deck.where(subject_id: params[:subject_id])
+    @decks = Deck.where(subject_id: params[:subject_id]).includes(:cards)
   end
 
   def show

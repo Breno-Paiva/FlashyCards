@@ -48,14 +48,8 @@
   opacity: 0.8;
 }
 
-.deck-item button {
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  padding: 2px;
-}
-
-.deck-item button:hover {
-  border: 1px solid #aaa;
+.deck-item:nth-child(odd) {
+  background: #f9f9f9;
 }
 
 .deck-header h3 {
@@ -74,9 +68,12 @@
 }
 
 .deck-item {
-  border-bottom: 1px solid #ccc;
-  padding: 8px 0 8px 20px;
+  border-bottom: 1px solid #ddd;
+  padding: 10px 0 10px 20px;
   color: #29a5dc;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .deck-item h4:hover {
@@ -100,4 +97,78 @@
 
 .deck-study {
 
+}
+
+.manage-deck-buttons {
+  background: red;
+  border: 1px solid #2196ca;
+  border-radius: 4px;
+  width: 100px;
+  height: 30px;
+  display: flex;
+  color: white;
+}
+
+.study-button {
+  background: #29a5dc;
+  border-radius: 3px 0 0 3px;
+  width: 70px;
+  padding-top: 4px;
+  padding-bottom: 6px;
+}
+
+.study-button i {
+  padding-right: 6px;
+  padding-left: 6px;
+}
+
+
+.study-button:hover {
+  background: #1e86b4;
+}
+
+.deck-settings {
+  background: #5bc0de;
+  border-radius: 0 3px 3px 0;
+  width: 30px;
+  overflow: hidden;
+}
+
+.deck-settings i {
+  padding: 7px;
+}
+
+.deck-settings:hover {
+  background: #31b0d5;;
+}
+
+.card-count {
+  color: #9f9f9f;
+  font-size: 13px;
+}
+
+.manage-add-buttons {
+  background: red;
+  border: 1px solid #2196ca;
+  border-radius: 4px;
+  width: 125px;
+  height: 30px;
+  display: flex;
+  color: white;
+}
+
+.add-card-button {
+  background: #5cb85c;
+  padding-top: 4px;
+  padding-bottom: 6px;
+  width: 95px;
+}
+
+.add-card-button:hover {
+  background: #449d44;
+}
+
+.add-card-button i {
+  padding-right: 6px;
+  padding-left: 6px;
 }
