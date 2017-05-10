@@ -33,16 +33,17 @@
     "babel-loader": "^6.4.1",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
+    "immutability-helper ": "2.1.2",
     "lodash": "^4.17.4",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
+    "react-modal": "^1.7.7",
     "react-redux": "^5.0.4",
     "react-router": "2.4.*",
     "redux": "^3.6.0",
     "redux-thunk": "^2.1.0",
     "webpack": "2.4.1",
-    "webpack-dev-server": "2.4.1",
-    "immutability-helper ": "2.1.2"
+    "webpack-dev-server": "2.4.1"
   },
   "devDependencies": {
     "redux-logger": "^2.10.2",
