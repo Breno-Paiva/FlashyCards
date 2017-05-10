@@ -9,6 +9,10 @@ class Deck extends React.Component {
     this.createDeck = this.createDeck.bind(this);
     this.deleteDeck = this.deleteDeck.bind(this);
     this.currentSubject = this.currentSubject.bind(this);
+    this.studyButton = this.studyButton.bind(this);
+    this.renderDeckButton = this.renderDeckButton.bind(this);
+    this.addCardButton = this.addCardButton.bind(this);
+
   }
 
   componentDidMount(){
@@ -64,6 +68,47 @@ class Deck extends React.Component {
     this.props.deleteDeck(deck).then(()=>this.props.fetchDecks(this.props.currentSubjectId))
   }
 
+  studyButton(deck){
+    return (
+      <div className="manage-deck-buttons">
+        <Link to={`/study/${deck.id}`}>
+          <div className="study-button">
+            <i className="fa fa-play-circle-o" aria-hidden="true"></i>
+            Study
+          </div>
+        </Link>
+        <div className="deck-settings">
+          <i className="fa fa-cog" aria-hidden="true"></i>
+        </div>
+      </div>
+    )
+  }
+
+  addCardButton(deck){
+    return(
+      <div className="manage-add-buttons">
+        <Link to={`/decks/${deck.id}/cards`}>
+          <div className="add-card-button">
+            <i className="fa fa-plus" aria-hidden="true"></i>
+            Add Cards
+          </div>
+        </Link>
+        <div className="deck-settings">
+          <i className="fa fa-cog" aria-hidden="true"></i>
+        </div>
+      </div>
+    )
+  }
+
+  renderDeckButton(deck){
+    if(deck.card_amount === 0){
+      return this.addCardButton(deck)
+    }else{
+      return this.studyButton(deck)
+    }
+  }
+
+
   render () {
     if (this.props.currentSubjectId){
       return(
@@ -75,18 +120,16 @@ class Deck extends React.Component {
           <ul className="deck-list">
             {
               this.props.decks.map( deck => (
-                <li key={deck.id} className="deck-item group">
-                  <Link to={`/study/${deck.id}`}>
-                    <h4>{deck.name}</h4>
-                  </Link>
-                  <div className="deck-buttons">
+                <li key={deck.id} className="deck-item">
+                  <div>
                     <Link to={`/study/${deck.id}`}>
-                      <button className="deck-study">study</button>
+                      <h4>{deck.name}</h4>
                     </Link>
-                    <Link to={`/decks/${deck.id}/cards`}>
-                      <button className="edit-cards">edit cards</button>
-                    </Link>
-                    <button onClick={() => this.deleteDeck(deck)}>delete</button>
+                    <br/>
+                    <h4 className="card-count">{`cards: ${deck.card_amount}`}</h4>
+                  </div>
+                  <div className="deck-buttons">
+                    {this.renderDeckButton(deck)}
                   </div>
                 </li>
               ))
@@ -108,3 +151,21 @@ class Deck extends React.Component {
 }
 
 export default Deck;
+
+
+
+// <div className="manage-deck-buttons">
+//   <div className="studyy">
+//     study
+//   </div>
+//   <div className="sett">
+//     set
+//   </div>
+// </div>
+// <Link to={`/study/${deck.id}`}>
+//   <button className="deck-study">study</button>
+// </Link>
+// <Link to={`/decks/${deck.id}/cards`}>
+//   <button className="edit-cards">edit cards</button>
+// </Link>
+// <button onClick={() => this.deleteDeck(deck)}>delete</button>
