@@ -27,8 +27,13 @@
 }
 
 .user-info i {
-  margin-left: 8px;
+  margin-left: 10px;
   margin-top: 6px;
+  cursor: pointer;
+}
+
+.user-info i:hover {
+  color: #29a5dc;
 }
 
 .right-header {

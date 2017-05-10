@@ -12,6 +12,7 @@ class Deck extends React.Component {
     this.studyButton = this.studyButton.bind(this);
     this.renderDeckButton = this.renderDeckButton.bind(this);
     this.addCardButton = this.addCardButton.bind(this);
+    this.deleteSubject = this.deleteSubject.bind(this);
 
   }
 
@@ -58,10 +59,20 @@ class Deck extends React.Component {
 
   currentSubject(){
     if (this.props.subject) {
-      return <h3>{`Study ${this.props.subject.name}`}</h3>
+      return <h3>
+               {`Study ${this.props.subject.name}`}
+               <i className="fa fa-trash"
+                 aria-hidden="true"
+                 onClick={() => this.deleteSubject(this.props.subject)}
+                 ></i>
+             </h3>
     } else {
       return <h3>Pick a Subject to Study!</h3>
     }
+  }
+
+  deleteSubject(subject){
+    this.props.deleteSubject(subject).then(()=>this.props.fetchSubjects())
   }
 
   deleteDeck(deck){

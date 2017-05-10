@@ -5,7 +5,6 @@ class Subject extends React.Component {
 
   constructor(props){
     super(props);
-    this.deleteSubject = this.deleteSubject.bind(this);
     this.state = {name: "", formShow: true};
     this.createSubject = this.createSubject.bind(this);
     this.selectSubject = this.selectSubject.bind(this);
@@ -15,11 +14,6 @@ class Subject extends React.Component {
   componentDidMount(){
     this.props.fetchSubjects();
   }
-
-  deleteSubject(subject){
-    this.props.deleteSubject(subject).then(()=>this.props.fetchSubjects()).then(()=>hashHistory.push("/library"))
-  }
-
 
   subjectForm(){
     if (this.state.formShow){
@@ -91,7 +85,6 @@ class Subject extends React.Component {
                 >
                 <h2>{subject.name}</h2>
                 { this.reccomended(subject.name)}
-                <button onClick={() => this.deleteSubject(subject)}>delete</button>
               </li>
             ))
           }
