@@ -1,6 +1,6 @@
 .current-learners-container {
   border: 2px solid #ccc;
-  height: 250px;
+  height: 100px;
   padding: 20px;
   margin-right: 10px;
   display: block;
@@ -10,4 +10,11 @@
   font-weight: bold;
   width: calc(24% - 50px);
   position: relative;
+  display: flex;
+  border-radius: 5px;
+}
+
+.current-learners-container i {
+  margin-top: 3px;
+  margin-right: 13px;
 }
