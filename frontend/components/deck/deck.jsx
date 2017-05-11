@@ -154,8 +154,15 @@ class Deck extends React.Component {
   }
 
   renderDeckScore(deck){
+    let score
+    if (deck.total_score === 0){
+      score = 0
+    }else{
+       score = Math.round(deck.total_score/deck.card_amount*20)
+    }
+
     let scoreColor
-    switch (Math.floor(deck.avg_score/20)) {
+    switch (Math.floor(score/25)) {
       case 0: scoreColor = "#aa0080"
         break;
       case 1: scoreColor = "#ff8a47"
@@ -166,7 +173,7 @@ class Deck extends React.Component {
         break;
       default: scoreColor = "#00a8d"
     }
-    return <h4 className="deck-score" style={{color: scoreColor}}>{`${deck.avg_score}%`}</h4>
+    return <h4 className="deck-score" style={{color: scoreColor}}>{`${score}%`}</h4>
   }
 
 
@@ -215,21 +222,3 @@ class Deck extends React.Component {
 }
 
 export default Deck;
-
-
-
-// <div className="manage-deck-buttons">
-//   <div className="studyy">
-//     study
-//   </div>
-//   <div className="sett">
-//     set
-//   </div>
-// </div>
-// <Link to={`/study/${deck.id}`}>
-//   <button className="deck-study">study</button>
-// </Link>
-// <Link to={`/decks/${deck.id}/cards`}>
-//   <button className="edit-cards">edit cards</button>
-// </Link>
-// <button onClick={() => this.deleteDeck(deck)}>delete</button>

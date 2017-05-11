@@ -10,7 +10,4 @@ deck.cards.each do |card|
     end
   end
 end
-if total_score != 0
-  total_score = total_score/card_amount*20
-end
-json.avg_score  total_score
+json.total_score  total_score
