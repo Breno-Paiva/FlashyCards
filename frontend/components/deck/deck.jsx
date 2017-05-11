@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router';
 import Scroll from 'react-scroll';
 
-var ScrollLink       = Scroll.Link;
+var ScrollLink  = Scroll.Link;
 var Element    = Scroll.Element;
 var Events     = Scroll.Events;
 var scroll     = Scroll.animateScroll;
@@ -16,7 +16,6 @@ class Deck extends React.Component {
       modalIsOpen: false,
       modalId: null,
       createDeckModalIsOpen: false
-
     };
     this.createDeck = this.createDeck.bind(this);
     this.deleteDeck = this.deleteDeck.bind(this);
