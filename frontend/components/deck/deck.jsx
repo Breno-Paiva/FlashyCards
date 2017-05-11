@@ -153,6 +153,22 @@ class Deck extends React.Component {
     }
   }
 
+  renderDeckScore(deck){
+    let scoreColor
+    switch (Math.floor(deck.avg_score/20)) {
+      case 0: scoreColor = "#aa0080"
+        break;
+      case 1: scoreColor = "#ff8a47"
+        break;
+      case 2: scoreColor = "#ffdd00"
+        break;
+      case 3: scoreColor = "#7fae2e"
+        break;
+      default: scoreColor = "#00a8d"
+    }
+    return <h4 className="deck-score" style={{color: scoreColor}}>{`${deck.avg_score}%`}</h4>
+  }
+
 
   render () {
     if (this.props.currentSubjectId){
@@ -166,12 +182,15 @@ class Deck extends React.Component {
             {
               this.props.decks.map( deck => (
                 <li key={deck.id} className="deck-item">
-                  <div>
-                    <Link to={`/study/${deck.id}`}>
-                      <h4>{deck.name}</h4>
-                    </Link>
-                    <br/>
-                    <h4 className="card-count">{`cards: ${deck.card_amount}`}</h4>
+                  <div className="left-deck-item">
+                    {this.renderDeckScore(deck)}
+                    <div>
+                      <Link to={`/study/${deck.id}`}>
+                        <h4>{deck.name}</h4>
+                      </Link>
+                      <br/>
+                      <h4 className="card-count">{`cards: ${deck.card_amount}`}</h4>
+                    </div>
                   </div>
                   <div className="deck-buttons">
                     {this.renderDeckButton(deck)}

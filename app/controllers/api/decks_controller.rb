@@ -1,7 +1,8 @@
 class Api::DecksController < ApplicationController
 
   def index
-    @decks = Deck.where(subject_id: params[:subject_id]).includes(:cards)
+    @current_user_id = current_user.id
+    @decks = Deck.where(subject_id: params[:subject_id]).includes(cards: :scores)
   end
 
   def show
