@@ -11,8 +11,8 @@
 
 .deck-form {
   color: black;
-  border: 2px solid #ff8a47;
-  border-radius: 4px;
+  border: 3px solid #ff8a47;
+  border-radius: 8px;
   padding: 20px 20px 10px;
   font-size: 14px;
 }
@@ -44,6 +44,20 @@
   font-size: 12px;
 }
 
+.deck-form button {
+  background-color: white;
+  color: black;
+  border-radius: 4px;
+  padding: 5px 10px;
+  border: 1px solid #ccc;
+  margin-top: 10px;
+  font-size: 12px;
+}
+
+.deck-form button:hover {
+  background: #ddd;
+}
+
 .deck-form input[type=submit]:hover {
   opacity: 0.8;
 }
@@ -64,7 +78,13 @@
   color: black;
   font-size: 14px;
   font-weight: bold;
+}
+
+.deck-header div {
   border-bottom: 3px solid #ccc;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .deck-item {

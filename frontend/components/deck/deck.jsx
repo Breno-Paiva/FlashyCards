@@ -1,11 +1,23 @@
 import React from 'react';
 import { Link } from 'react-router';
+import Scroll from 'react-scroll';
+
+var ScrollLink       = Scroll.Link;
+var Element    = Scroll.Element;
+var Events     = Scroll.Events;
+var scroll     = Scroll.animateScroll;
+var scrollSpy  = Scroll.scrollSpy;
 
 class Deck extends React.Component {
 
   constructor(props){
     super(props);
-    this.state = {name: "", subject_id: this.props.currentSubjectId, modalIsOpen: false, modalId: null};
+    this.state = {name: "", subject_id: this.props.currentSubjectId,
+      modalIsOpen: false,
+      modalId: null,
+      createDeckModalIsOpen: false
+
+    };
     this.createDeck = this.createDeck.bind(this);
     this.deleteDeck = this.deleteDeck.bind(this);
     this.currentSubject = this.currentSubject.bind(this);
@@ -16,13 +28,25 @@ class Deck extends React.Component {
     this.renderCogModal = this.renderCogModal.bind(this);
     this.toggleCog = this.toggleCog.bind(this);
     this.removeCog = this.removeCog.bind(this);
-
+    this.toggleCreateDeck = this.toggleCreateDeck.bind(this);
   }
 
   componentDidMount(){
     if (this.props.currentSubjectId) {
       this.props.fetchDecks(this.props.currentSubjectId)
     }
+
+
+    // Events.scrollEvent.register('begin', function(to, element) {
+    //   console.log("begin", arguments);
+    // });
+    //
+    // Events.scrollEvent.register('end', function(to, element) {
+    //   console.log("end", arguments);
+    // });
+    //
+    // scrollSpy.update();
+
   }
 
   componentDidUpdate(prevProps){
@@ -31,8 +55,13 @@ class Deck extends React.Component {
     }
   }
 
+  componentWillUnmount() {
+    Events.scrollEvent.remove('begin');
+    Events.scrollEvent.remove('end');
+  }
+
   deckForm(){
-    if (this.props.currentSubjectId) {
+    if (this.state.createDeckModalIsOpen) {
       return (
         <li className="deck-form">
           New Deck
@@ -42,6 +71,7 @@ class Deck extends React.Component {
               value={this.state.name}
               onChange={this.update("name")}
               />
+            <button onClick={this.toggleCreateDeck}>Cancel</button>
             <input type="submit" value="Save"/>
           </form>
         </li>
@@ -104,6 +134,13 @@ class Deck extends React.Component {
       this.setState({modalId: null})
     }else{
       this.setState({modalId: deck.id})
+    }
+  }
+  toggleCreateDeck(){
+    if (this.state.createDeckModalIsOpen){
+      this.setState({createDeckModalIsOpen: false})
+    }else{
+      this.setState({createDeckModalIsOpen: true})
     }
   }
 
@@ -176,14 +213,18 @@ class Deck extends React.Component {
     return <h4 className="deck-score" style={{color: scoreColor}}>{`${score}%`}</h4>
   }
 
-
   render () {
     if (this.props.currentSubjectId){
       return(
         <div className="deck-container">
           <div className="deck-header">
             {this.currentSubject()}
-            <h4>Decks</h4>
+            <div>
+              <h4>Decks</h4>
+              <ScrollLink activeClass="active" to="newDeck" smooth={true} duration={750}>
+                <button className="new-card-button" onClick={this.toggleCreateDeck}><i className="fa fa-plus-circle" aria-hidden="true"></i> Add Deck</button>
+              </ScrollLink>
+            </div>
           </div>
           <ul className="deck-list">
             {
@@ -207,6 +248,7 @@ class Deck extends React.Component {
             }
             {this.deckForm()}
           </ul>
+          <Element name="newDeck" className="element"></Element>
         </div>
       )
     }else{
