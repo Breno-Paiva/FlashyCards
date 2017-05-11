@@ -5,18 +5,32 @@ class Subject extends React.Component {
 
   constructor(props){
     super(props);
-    this.state = {name: "", formShow: true};
+    this.state = {name: "", formShow: true, createSubjectModalIsOpen: false};
     this.createSubject = this.createSubject.bind(this);
     this.selectSubject = this.selectSubject.bind(this);
     this.isSelected = this.isSelected.bind(this);
+    this.toggleCreateSubject = this.toggleCreateSubject.bind(this);
   }
 
   componentDidMount(){
     this.props.fetchSubjects();
   }
 
+  componentWillUnmount() {
+    Events.scrollEvent.remove('begin');
+    Events.scrollEvent.remove('end');
+  }
+
+  toggleCreateSubject(){
+    if (this.state.createSubjectModalIsOpen){
+      this.setState({createSubjectModalIsOpen: false})
+    }else{
+      this.setState({createSubjectModalIsOpen: true})
+    }
+  }
+
   subjectForm(){
-    if (this.state.formShow){
+    if (this.state.createSubjectModalIsOpen){
       return (
         <li className="subject-form">
           New Subject
@@ -26,6 +40,7 @@ class Subject extends React.Component {
               value={this.state.name}
               onChange={this.update("name")}
               />
+            <button onClick={this.toggleCreateSubject}>Cancel</button>
             <input type="submit" value="Save"/>
           </form>
         </li>
@@ -74,8 +89,10 @@ class Subject extends React.Component {
       <div className="subject-container">
         <div className="subject-header group">
           <h2 className="subject-title">Subjects</h2>
+          <button onClick={this.toggleCreateSubject}><i className="fa fa-plus" aria-hidden="true"></i>Create</button>
         </div>
         <ul className="subject-list">
+          {this.subjectForm()}
           {
             this.props.subjects.map( subject => (
               <li key={subject.id}
@@ -88,7 +105,6 @@ class Subject extends React.Component {
               </li>
             ))
           }
-          {this.subjectForm()}
         </ul>
       </div>
     )

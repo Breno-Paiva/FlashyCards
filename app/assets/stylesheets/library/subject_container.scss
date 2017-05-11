@@ -12,8 +12,24 @@
 .subject-form {
   border: 2px solid #ff8a47;
   border-radius: 4px;
-  padding: 20px 20px 10px;
+  padding: 25px 20px 10px;
   font-size: 14px;
+  margin-top: -10px;
+  background: white;
+}
+
+.subject-form button {
+  background-color: white;
+  color: black;
+  border-radius: 4px;
+  padding: 5px 10px;
+  border: 1px solid #ccc;
+  margin-top: 10px;
+  font-size: 12px;
+}
+
+.subject-form button:hover {
+  background: #ddd;
 }
 
 .subject-form input[type=text] {
@@ -48,7 +64,7 @@
 
 
 .subject-container button {
-  border: 1px solid black;
+  border: 1px solid #ccc;
 }
 
 .subject-header {
@@ -74,7 +90,7 @@
   color: white;
   border: 1px solid transparent;
   font-weight: bold;
-  font-size: 12px;
+  font-size: 13px;
 }
 
 .subject-header button:hover {
@@ -131,4 +147,8 @@
   -webkit-box-shadow: inset 0px 0px 10px 1px rgba(41,166,220,0.54);
   -moz-box-shadow: inset 0px 0px 10px 1px rgba(41,166,220,0.54);
   box-shadow: inset 0px 0px 10px 1px rgba(41,166,220,0.54);
+}
+
+.subject-header i {
+  padding-right: 5px;
 }
