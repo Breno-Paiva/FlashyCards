@@ -97,7 +97,7 @@ class Header extends React.Component {
           <Link to="/library">
             <h3>{`Hi,  ${this.props.currentUser.username}`}</h3>
           </Link>
-          <i className="fa fa-chevron-circle-down" aria-hidden="true" onClick={this.toggleLogout}></i>
+          <i className="fa fa-chevron-circle-down" aria-hidden="true" onMouseOver={this.toggleLogout}></i>
         </div>
       );
     }else{
@@ -125,7 +125,7 @@ class Header extends React.Component {
 
   renderLogout(){
     if (this.state.logoutModalIsOpen){
-      return <button className="logout" onClick={this.props.logout}>LOGOUT</button>
+      return <button className="logout" onClick={this.props.logout} onMouseOut={this.toggleLogout}>LOGOUT</button>
     }
   }
 
