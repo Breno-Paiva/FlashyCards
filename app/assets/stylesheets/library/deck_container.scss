@@ -100,7 +100,7 @@
 }
 
 .manage-deck-buttons {
-  background: red;
+  background: #5bc0de;
   border: 1px solid #2196ca;
   border-radius: 4px;
   width: 100px;
@@ -148,7 +148,7 @@
 }
 
 .manage-add-buttons {
-  background: red;
+  background: #5bc0de;
   border: 1px solid #2196ca;
   border-radius: 4px;
   width: 125px;
@@ -181,4 +181,43 @@
 
 .fa-trash:hover {
   color: red;
+}
+
+.deck-cog {
+  background: #f9f9f9;;
+  position: relative;
+  color: black;
+  left: 0px;
+  // border: 20px solid transparent;
+  margin-left: 31px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 80px;
+  height: 54px;
+  z-index: 50;
+  border-radius: 4px;
+}
+
+.deck-cog li {
+  cursor: pointer;
+  border: 1px solid #ccc;
+  font-size: 12px;
+  width: 64px;
+  padding: 5px 2px;
+}
+
+.deck-cog i {
+  padding-right: 3px;
+  padding-left: 2px;
+}
+
+.deck-cog li:first-child {
+  border-radius: 3px 3px 0 0;
+}
+.deck-cog li:last-child {
+  border-radius: 0 0 3px 3px;
+}
+
+.deck-cog li:hover {
+  background: #ddd;
 }
