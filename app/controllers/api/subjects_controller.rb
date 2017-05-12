@@ -1,7 +1,7 @@
 class Api::SubjectsController < ApplicationController
 
   def index
-    @subjects = Subject.all
+    @subjects = Subject.all.includes(decks: [{cards: :scores}])
   end
 
   def show

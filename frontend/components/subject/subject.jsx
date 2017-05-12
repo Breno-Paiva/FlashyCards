@@ -101,6 +101,7 @@ class Subject extends React.Component {
                 id={this.isSelected(subject)}
                 >
                 <h2>{subject.name}</h2>
+                <h2>{`${subject.scores}%`}</h2>
                 { this.reccomended(subject.name)}
               </li>
             ))
