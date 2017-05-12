@@ -59,7 +59,7 @@ class Subject extends React.Component {
 
   reccomended(name){
     if (name === "Civics and History" || name === "World History") {
-      return <h3>reccomended</h3>
+      return <h3>Flashy Reccomended</h3>
     }
   }
 
@@ -84,6 +84,18 @@ class Subject extends React.Component {
   // onClick={this.setState({formShow: false})}
   // <button onClick={() => this.setState({formShow: true})}>+ Create</button>
 
+  barStyle(scores){
+
+    return {
+      WebkitTransition: 'all',
+      msTransition: 'all',
+      background: "#aca",
+      borderRadius: '4px',
+      height: "10px",
+      width: `${scores}%`
+    }
+ }
+
   render() {
     return(
       <div className="subject-container">
@@ -100,9 +112,15 @@ class Subject extends React.Component {
                 className="subject-item"
                 id={this.isSelected(subject)}
                 >
-                <h2>{subject.name}</h2>
-                <h2>{`${subject.scores}%`}</h2>
-                { this.reccomended(subject.name)}
+                <div className="subject-combo">
+                  <h2>{subject.name}</h2>
+                  { this.reccomended(subject.name)}
+                </div>
+                <div className="score-bar">
+                  <div id="subject-score" className="bar" >
+                    <div style={this.barStyle(subject.scores)}>&nbsp;</div>
+                  </div>
+                </div>
               </li>
             ))
           }
