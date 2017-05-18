@@ -34,18 +34,6 @@ class Deck extends React.Component {
     if (this.props.currentSubjectId) {
       this.props.fetchDecks(this.props.currentSubjectId)
     }
-
-
-    // Events.scrollEvent.register('begin', function(to, element) {
-    //   console.log("begin", arguments);
-    // });
-    //
-    // Events.scrollEvent.register('end', function(to, element) {
-    //   console.log("end", arguments);
-    // });
-    //
-    // scrollSpy.update();
-
   }
 
   componentDidUpdate(prevProps){
@@ -233,7 +221,7 @@ class Deck extends React.Component {
                     {this.renderDeckScore(deck)}
                     <div>
                       <Link to={`/study/${deck.id}`}>
-                        <h4>{deck.name}</h4>
+                        <h4 id="deck-name">{deck.name}</h4>
                       </Link>
                       <br/>
                       <h4 className="card-count">{`cards: ${deck.card_amount}`}</h4>
