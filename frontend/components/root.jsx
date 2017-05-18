@@ -35,10 +35,4 @@ const Root = ({ store }) => {
   );
 };
 
-// <Route path="/library" component={LibraryContainer} onEnter={_ensureLoggedIn}>
-//   <Route path="/:subjectId" />
-// </Route>
-
-// at '/'  redirect to either home or library...
-// at library redirect to home unless logged in
 export default Root;

@@ -88,9 +88,6 @@ class Header extends React.Component {
     if (this.props.currentUser) {
       this.state.formClass = "form-off";
 
-      // <Modal isOpen={this.state.logoutModalIsOpen} contentLabel="Modal" className="logout-modal" overlayClassName="logout-overlay">
-      //   <button className="logout" onClick={this.props.logout}>LOGOUT</button>
-      // </Modal>
       return (
         <div className="user-info">
           {this.renderLogout()}

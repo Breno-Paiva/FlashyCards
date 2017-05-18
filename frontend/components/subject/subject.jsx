@@ -58,7 +58,7 @@ class Subject extends React.Component {
   }
 
   reccomended(name){
-    if (name === "Civics and History" || name === "World History") {
+    if (name === "Civics and History" || name === "World History" || name === "Random Trivia") {
       return <h3>Flashy Reccomended</h3>
     }
   }
