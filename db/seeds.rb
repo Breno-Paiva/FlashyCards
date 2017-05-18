@@ -114,22 +114,22 @@ Subject.create!(name: "Civics and History")
     Card.create!(question: " Why does the flag have 50 stars?", answer:"because there are 50 states", deck_id: Deck.find_by_name("Geography").id)
     Card.create!(question: "What is the name of the national anthem?", answer:"The Star-Spangled Banner", deck_id: Deck.find_by_name("Geography").id)
 
-
- Subject.create!(name: "BETA Subject")
-    Deck.create!(name: "BETA Deck", subject_id: Subject.find_by_name("BETA Subject").id)
-
-      Card.create!(question: "BETA Q1", answer:"BETA A1", deck_id: Deck.find_by_name("BETA Deck").id)
-      Card.create!(question: "BETA Q2", answer:"BETA A2", deck_id: Deck.find_by_name("BETA Deck").id)
-      Card.create!(question: "BETA Q3", answer:"BETA A3", deck_id: Deck.find_by_name("BETA Deck").id)
-      Card.create!(question: "BETA Q4", answer:"BETA A4", deck_id: Deck.find_by_name("BETA Deck").id)
-      Card.create!(question: "BETA Q5", answer:"BETA A5", deck_id: Deck.find_by_name("BETA Deck").id)
-      Card.create!(question: "BETA Q6", answer:"BETA A6", deck_id: Deck.find_by_name("BETA Deck").id)
-      Card.create!(question: "BETA Q7", answer:"BETA A7", deck_id: Deck.find_by_name("BETA Deck").id)
-        Score.create!(user_id: User.find_by_username("flashyUser").id, card_id: Card.find_by_question("BETA Q1").id, score: 1)
-        Score.create!(user_id: User.find_by_username("flashyUser").id, card_id: Card.find_by_question("BETA Q2").id, score: 2)
-        Score.create!(user_id: User.find_by_username("flashyUser").id, card_id: Card.find_by_question("BETA Q3").id, score: 3)
-        Score.create!(user_id: User.find_by_username("flashyUser").id, card_id: Card.find_by_question("BETA Q4").id, score: 4)
-        Score.create!(user_id: User.find_by_username("flashyUser").id, card_id: Card.find_by_question("BETA Q5").id, score: 5)
+ # 
+ # Subject.create!(name: "BETA Subject")
+ #    Deck.create!(name: "BETA Deck", subject_id: Subject.find_by_name("BETA Subject").id)
+ #
+ #      Card.create!(question: "BETA Q1", answer:"BETA A1", deck_id: Deck.find_by_name("BETA Deck").id)
+ #      Card.create!(question: "BETA Q2", answer:"BETA A2", deck_id: Deck.find_by_name("BETA Deck").id)
+ #      Card.create!(question: "BETA Q3", answer:"BETA A3", deck_id: Deck.find_by_name("BETA Deck").id)
+ #      Card.create!(question: "BETA Q4", answer:"BETA A4", deck_id: Deck.find_by_name("BETA Deck").id)
+ #      Card.create!(question: "BETA Q5", answer:"BETA A5", deck_id: Deck.find_by_name("BETA Deck").id)
+ #      Card.create!(question: "BETA Q6", answer:"BETA A6", deck_id: Deck.find_by_name("BETA Deck").id)
+ #      Card.create!(question: "BETA Q7", answer:"BETA A7", deck_id: Deck.find_by_name("BETA Deck").id)
+ #        Score.create!(user_id: User.find_by_username("flashyUser").id, card_id: Card.find_by_question("BETA Q1").id, score: 1)
+ #        Score.create!(user_id: User.find_by_username("flashyUser").id, card_id: Card.find_by_question("BETA Q2").id, score: 2)
+ #        Score.create!(user_id: User.find_by_username("flashyUser").id, card_id: Card.find_by_question("BETA Q3").id, score: 3)
+ #        Score.create!(user_id: User.find_by_username("flashyUser").id, card_id: Card.find_by_question("BETA Q4").id, score: 4)
+ #        Score.create!(user_id: User.find_by_username("flashyUser").id, card_id: Card.find_by_question("BETA Q5").id, score: 5)
 
 
  Subject.create!(name: "Random Trivia")
@@ -188,20 +188,47 @@ Subject.create!(name: "Civics and History")
       Deck.create!(name: "Pluto?", subject_id: Subject.find_by_name("Astronomy").id)
 
     Subject.create!(name: "World History")
-    Subject.create!(name: "Vocabulary")
-    Subject.create!(name: "Music History")
-    Subject.create!(name: "CSS")
-    Subject.create!(name: "International Law")
-    Subject.create!(name: "Genetics")
-    Subject.create!(name: "Nutrition")
-    Subject.create!(name: "Spanish")
-    Subject.create!(name: "Personal Finance")
-    Subject.create!(name: "Anatomy")
-    Subject.create!(name: "Cooking")
-    Subject.create!(name: "Algebra")
-    Subject.create!(name: "Statistics")
-    Subject.create!(name: "Horticulture")
-    Subject.create!(name: "Architecture")
+    # Subject.create!(name: "Vocabulary")
+    # Subject.create!(name: "Music History")
+    # Subject.create!(name: "CSS")
+    # Subject.create!(name: "International Law")
+    # Subject.create!(name: "Genetics")
+    # Subject.create!(name: "Nutrition")
+    # Subject.create!(name: "Spanish")
+    # Subject.create!(name: "Personal Finance")
+    # Subject.create!(name: "Anatomy")
+    # Subject.create!(name: "Cooking")
+    # Subject.create!(name: "Algebra")
+    # Subject.create!(name: "Statistics")
+    # Subject.create!(name: "Horticulture")
+    # Subject.create!(name: "Architecture")
+
+    i = 0
+    j = 0
+    k = 0
+
+    while i < 8
+      sub = Faker::Hipster.words(Random.rand(2)+1).join(" ")
+      Subject.create!(name: sub)
+      while j < 12
+        dek = Faker::Hipster.words(Random.rand(2)+1).join(" ")
+        Deck.create!(name: dek, subject_id: Subject.find_by_name(sub).id)
+        while k < 14
+          car_q = Faker::Hipster.words(Random.rand(4)+1).join(" ")
+          car_a = Faker::Hipster.sentence(1)
+          Card.create!(question: car_q, answer: car_a, deck_id: Deck.find_by_name(dek).id)
+          k += 1
+        end
+        k = 0
+        j+=1
+      end
+      j=0
+      i+=1
+    end
+
+
+
+
     #
     Deck.create!(name: "1990s", subject_id: Subject.find_by_name("World History").id)
     Deck.create!(name: "1980s", subject_id: Subject.find_by_name("World History").id)
