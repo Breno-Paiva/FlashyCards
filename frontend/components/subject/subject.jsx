@@ -17,8 +17,6 @@ class Subject extends React.Component {
   }
 
   componentWillUnmount() {
-    Events.scrollEvent.remove('begin');
-    Events.scrollEvent.remove('end');
   }
 
   toggleCreateSubject(){

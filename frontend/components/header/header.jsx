@@ -72,6 +72,9 @@ class Header extends React.Component {
         <Link to="/library">
           <h3>FLASHYcards</h3>
         </Link>
+        <Link to="/search">
+          <i className="fa fa-search" aria-hidden="true"></i>
+        </Link>
       </div>
     )
   }
