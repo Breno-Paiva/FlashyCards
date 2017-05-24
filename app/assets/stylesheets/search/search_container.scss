@@ -1,0 +1,19 @@
+.search {
+  color: violet;
+  display: flex;
+  flex-direction: row;
+  background: orange;
+  position: fixed;
+  top: 54px;
+  height: 100%;
+}
+
+.search-bar {
+  background: green;
+  height: 100%;
+}
+
+.search-results {
+  background: purple;
+  height: 100%;
+}
