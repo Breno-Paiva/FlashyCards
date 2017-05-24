@@ -8,6 +8,7 @@ import LibraryContainer from './library/library_container';
 import DeckContainer from './deck/deck_container';
 import CardContainer from './card/card_container';
 import StudyContainer from './study/study_container';
+import SearchContainer from './search/search_container';
 
 const Root = ({ store }) => {
 
@@ -24,6 +25,7 @@ const Root = ({ store }) => {
         <Route path="/" component={App}>
           <IndexRedirect to="/home" />
           <Route path="/home" component={HomeContainer} />
+          <Route path="/search" component={SearchContainer} />
           <Route path="/library" component={LibraryContainer} onEnter={_ensureLoggedIn}>
             <Route path=":subjectId" />
           </Route>
