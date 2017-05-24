@@ -1,9 +1,11 @@
 import React from 'react';
+import SearchBar from './search_bar';
+import SearchResults from './search_results';
 
 class Search extends React.Component {
   render() {
     return(
-      <div>
+      <div className="search">
         <br />
         <br />
         <br />
@@ -13,11 +15,8 @@ class Search extends React.Component {
         <br />
         <br />
         <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <h1>search page</h1>
+        <SearchBar />
+        <SearchResults />
       </div>
     )
   }
