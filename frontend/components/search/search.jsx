@@ -6,15 +6,6 @@ class Search extends React.Component {
   render() {
     return(
       <div className="search">
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
         <SearchBar />
         <SearchResults />
       </div>
