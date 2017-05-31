@@ -7,15 +7,20 @@ class SearchBar extends React.Component {
     this.state = {query: ""};
     this.update = this.update.bind(this);
     this.searchForm = this.searchForm.bind(this);
+    this.searchSubject = this.searchSubject.bind(this);
   }
 
   update(){
     return e => this.setState({ query: e.currentTarget.value });
   }
 
+  searchSubject(){
+
+  }
+
   searchForm(){
     return(
-      <form>
+      <form onSubmit={this.searchSubject}>
         <i className="fa fa-search fa-lg" aria-hidden="true"></i>
         <input type="text"
                placeholder="e.g. math, english"

@@ -13,6 +13,7 @@ Rails.application.routes.draw do
     end
     resources :cards, only: [:show, :update, :destroy, :create]
     resources :scores, only: [:create, :update]
+    resources :search, only: [:show]
   end
 
 end
