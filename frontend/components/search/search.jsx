@@ -6,8 +6,8 @@ class Search extends React.Component {
   render() {
     return(
       <div className="search">
-        <SearchBar />
-        <SearchResults />
+        <SearchBar searchSubjects={this.props.searchSubjects}/>
+        <SearchResults subjects={this.props.subjects}/>
       </div>
     )
   }

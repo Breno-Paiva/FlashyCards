@@ -15,7 +15,7 @@ class SearchBar extends React.Component {
   }
 
   searchSubject(){
-
+    this.props.searchSubjects(this.state.query)
   }
 
   searchForm(){
