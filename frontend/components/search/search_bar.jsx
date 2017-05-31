@@ -4,14 +4,24 @@ class SearchBar extends React.Component {
 
   constructor(props){
     super(props);
-    this.state = {content: ""}
+    this.state = {query: ""};
+    this.update = this.update.bind(this);
+    this.searchForm = this.searchForm.bind(this);
+  }
+
+  update(){
+    return e => this.setState({ query: e.currentTarget.value });
   }
 
   searchForm(){
     return(
       <form>
         <i className="fa fa-search fa-lg" aria-hidden="true"></i>
-        <input type="text"></input>
+        <input type="text"
+               placeholder="e.g. math, english"
+               value={this.state.query}
+               onChange={this.update()}
+        ></input>
         <input type="submit" value="Search"></input>
       </form>
     )
@@ -26,6 +36,5 @@ class SearchBar extends React.Component {
     )
   }
 }
-// <img src="../../../app/assets/images/search_pic.jpeg"></img>
 
 export default SearchBar;
