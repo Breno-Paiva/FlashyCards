@@ -11,6 +11,6 @@
 class Subject < ApplicationRecord
   validates :name, presence: true
   has_many :decks
+  has_many :subscriptions
 
-  # has_many subject_subscriptions
 end
