@@ -33,12 +33,14 @@ class Deck extends React.Component {
   componentDidMount(){
     if (this.props.currentSubjectId) {
       this.props.fetchDecks(this.props.currentSubjectId)
+      this.props.fetchSubscribers(this.props.currentSubjectId)
     }
   }
 
   componentDidUpdate(prevProps){
     if (this.props.currentSubjectId != prevProps.currentSubjectId) {
       this.props.fetchDecks(this.props.currentSubjectId)
+      this.props.fetchSubscribers(this.props.currentSubjectId)
     }
   }
 
