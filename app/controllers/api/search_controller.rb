@@ -1,7 +1,9 @@
 class Api::SearchController < ApplicationController
 
   def show
-    @subjects = Subject.where("LOWER (name) LIKE ?","%#{params[:id]}%").includes(decks: :cards)
+    @subjects = Subject.joins("LEFT OUTER JOIN subscriptions ON subjects.id = subscriptions.subject_id")
+                       .where("LOWER (name) LIKE ?","%#{params[:id]}%")
+                       .includes(decks: :cards)
   end
 
   def search_params
