@@ -73,15 +73,6 @@ class Subject extends React.Component {
     }
   }
 
-  // blackOut () {
-  //   if (this.state.formShow) {
-  //     return (<div className="black-out"
-  //     ></div>);
-  //   }
-  // }
-  // onClick={this.setState({formShow: false})}
-  // <button onClick={() => this.setState({formShow: true})}>+ Create</button>
-
   barStyle(scores){
 
     return {
