@@ -114,7 +114,7 @@ Subject.create!(name: "Civics and History")
     Card.create!(question: " Why does the flag have 50 stars?", answer:"because there are 50 states", deck_id: Deck.find_by_name("Geography").id)
     Card.create!(question: "What is the name of the national anthem?", answer:"The Star-Spangled Banner", deck_id: Deck.find_by_name("Geography").id)
 
- # 
+ #
  # Subject.create!(name: "BETA Subject")
  #    Deck.create!(name: "BETA Deck", subject_id: Subject.find_by_name("BETA Subject").id)
  #
@@ -202,6 +202,10 @@ Subject.create!(name: "Civics and History")
     # Subject.create!(name: "Statistics")
     # Subject.create!(name: "Horticulture")
     # Subject.create!(name: "Architecture")
+
+    Subscription.create!(user_id: User.find_by_username("flashyUser").id, subject_id: Subject.find_by_name("Civics and History").id)
+    Subscription.create!(user_id: User.find_by_username("flashyUser").id, subject_id: Subject.find_by_name("Random Trivia").id)
+    Subscription.create!(user_id: User.find_by_username("flashyUser").id, subject_id: Subject.find_by_name("Astronomy").id)
 
     i = 0
     j = 0

@@ -14,6 +14,7 @@ Rails.application.routes.draw do
     resources :cards, only: [:show, :update, :destroy, :create]
     resources :scores, only: [:create, :update]
     resources :search, only: [:show]
+    resources :subscriptions, only: [:show, :create, :destroy]
   end
 
 end

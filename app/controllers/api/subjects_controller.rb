@@ -1,7 +1,9 @@
 class Api::SubjectsController < ApplicationController
 
   def index
-    @subjects = Subject.all.includes(decks: [{cards: :scores}])
+    @subjects = Subject.joins(:subscriptions)
+                       .where({subscriptions: {user_id: current_user.id}})
+                       .includes(decks: [{cards: :scores}])
   end
 
   def show
