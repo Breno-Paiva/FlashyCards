@@ -1,41 +1,36 @@
 .search {
+  background: orange;
   color: violet;
   display: flex;
   flex-direction: row;
-  background: orange;
+  height: 100%;
   position: fixed;
   top: 54px;
-  height: 100%;
   width: 100%;
 }
 
 .search-bar-container {
+  align-items: center;
   background: #293949;
+  display: flex;
+  flex-flow: column;
   height: 100%;
   width: 30%;
-  display: flex;
-  align-items: center;
-  flex-flow: column;
 }
 
 .search-bar-container form {
-  // border-radius: 20px;
-  // border: 2px solid white;
-  padding: 20px 0;
+  color: white;
   height: 54px;
   margin: 0 auto;
-  color: white;
-  // width: 20%;
-  // text-align: center;
+  padding: 20px 0;
 }
 
 .search-bar-container i {
-  color: #006ba2;
   background: #879199;
   border-radius: 30px 0 0 30px;
+  color: #006ba2;
   padding: 21px 5px 17px 16px;
-  // padding-right: 10px;
-  // padding-top: 21px;
+
 }
 
 .search-bar-container input[type = 'text']{
@@ -65,22 +60,24 @@
 
 .search-pic {
   background-image: asset-url("search_pic.jpg");
-  height: 100%;
-  width: 100%;
   background-size: 1300px;
   background-repeat: no-repeat;
   background-position: center center;
+  height: 100%;
+  width: 100%;
 }
 
 .search-results-container {
   background: #f2f2f2;
-  height: 100%;
+  height: calc(100% - 50px);
+  overflow-y:scroll;
+  overflow-x:hidden;
+  padding-bottom: 100px;
   width: 70%;
 }
 
 .search-item {
   background: white;
-  // border: 1px solid black;
   border-radius: 5px;
   display: flex;
   flex-direction: row;
@@ -103,13 +100,13 @@
 
 .left-search-item button {
   background: #5cb75c;
-  margin: 10px 20px;
-  padding: 5px 10px;
+  border: 1px solid transparent;
   border-radius: 4px;
   color: white;
-  border: 1px solid transparent;
   font-weight: bold;
   font-size: 13px;
+  margin-top: 10px;
+  padding: 5px 10px;
 }
 
 .left-search-item button:hover {
@@ -118,13 +115,13 @@
 }
 
 .right-search-item {
+  align-items: center;
+  color: black;
   display: flex;
   flex-direction: row;
-  color: black;
-  align-items: center;
 }
 
 .right-search-item h2 {
-  padding-left: 5px;
   font-size: 18px;
+  padding-left: 5px;
 }
