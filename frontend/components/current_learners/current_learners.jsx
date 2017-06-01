@@ -17,8 +17,18 @@ class CurrentLearners extends React.Component {
   render() {
     return(
       <div className="current-learners-container">
-        <i className="fa fa-lightbulb-o fa-lg" aria-hidden="true"></i>
-        {HINTS[this.randId()]}
+        <h2>Current Learners ( {this.props.subscribers.length} )</h2>
+        <ul className="subscribers-list">
+          {
+            this.props.subscribers.map( subscriber => (
+              <li key={subscriber.id}>
+                <div className="subscriber-item">
+                  <h3>{subscriber.username}</h3>
+                </div>
+              </li>
+            ))
+          }
+        </ul>
       </div>
     );
   }

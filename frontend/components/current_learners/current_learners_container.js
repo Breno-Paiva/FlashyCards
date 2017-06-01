@@ -1,15 +1,15 @@
 import { connect } from 'react-redux';
-// import { fetchDecks, fetchDeck, createDeck } from '../../actions/deck_actions';
+import { fetchSubscribers } from '../../actions/subscription_actions';
 import CurrentLearners from './current_learners';
 
 
-const mapStateToProps = (state, { currentSubjectId } ) => {
-  return {
-  };
+const mapStateToProps = (state) => {
+  return { subscribers: Object.keys(state.subscribers).map(id => state.subscribers[id]) };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
+    fetchSubscribers: subjectId => dispatch(fetchSubscribers(subjectId)),
   };
 };
 
