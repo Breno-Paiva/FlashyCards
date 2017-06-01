@@ -1,6 +1,7 @@
 import React from 'react';
 
 class SearchResults extends React.Component {
+
   render() {
 
     return(
@@ -12,7 +13,7 @@ class SearchResults extends React.Component {
                 <div className="search-item">
                   <div className="left-search-item">
                     <h2>{subject.name}</h2>
-                    <button>{subject.subscribed} subscribe</button>
+                    <button onClick={() => this.props.createSubscriber(subject.id)}>{subject.subscribed} subscribe</button>
                   </div>
                   <div className="right-search-item">
                     <h2>{subject.deck_count} decks</h2>
