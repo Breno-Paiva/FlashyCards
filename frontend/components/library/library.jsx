@@ -2,7 +2,7 @@ import React from 'react';
 import { Link, withRouter } from 'react-router';
 import Subject from '../subject/subject_container';
 import Deck from '../deck/deck_container';
-import CurrentLearners from '../current_learners/current_learners_container';
+import CurrentLearners from '../current_learners/current_learners';
 
 class Library extends React.Component {
 
