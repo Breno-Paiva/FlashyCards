@@ -1,6 +1,6 @@
 .current-learners-container {
-  border: 2px solid #ccc;
-  height: 100px;
+  border: 1px solid #ccc;
+  height: 100%;
   padding: 20px;
   margin-right: 10px;
   display: block;
@@ -11,10 +11,26 @@
   width: calc(24% - 50px);
   position: relative;
   display: flex;
+  flex-direction: column;
   border-radius: 5px;
 }
 
-.current-learners-container i {
-  margin-top: 3px;
-  margin-right: 13px;
+.current-learners-container h2 {
+  color: black;
+  font-size: 18px;
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.current-learners-container li {
+  font-size: 12px;
+  border-radius: 5px;
+  background: white;
+  border: 1px solid #ccc;
+  padding: 5px;
+  text-align: center;
+  margin-top: 5px;
+}
+.current-learners-container ul {
+  width: 100%;
 }
