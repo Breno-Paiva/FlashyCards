@@ -5,12 +5,22 @@ class SearchResults extends React.Component {
 
     return(
       <div className="search-results-container">
-        <ul className="subject-listttttt">
+        <ul className="search-list">
           {
             this.props.subjects.map( subject => (
               <li key={subject.id}>
-                <div className="subject-combooo">
-                  <h2>{subject.name}</h2>
+                <div className="search-item">
+                  <div className="left-search-item">
+                    <h2>{subject.name}</h2>
+                    <button>{subject.subscribed} subscribe</button>
+                  </div>
+                  <div className="right-search-item">
+                    <h2>{subject.deck_count} decks</h2>
+                    <h2>-</h2>
+                    <h2>{subject.card_count} cards</h2>
+                    <h2>-</h2>
+                    <h2>{subject.learner_count} learners</h2>
+                  </div>
                 </div>
               </li>
             ))
