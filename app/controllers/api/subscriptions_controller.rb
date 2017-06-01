@@ -1,6 +1,7 @@
 class Api::SubscriptionsController < ApplicationController
   def show
-    @subscriptions = Subscription.where({subject_id: params[:id]})
+    @users = User.joins(:subscriptions)
+                 .where(subscriptions: {subject_id: params[:id]})
   end
 
   def create
