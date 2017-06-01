@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import Search from './search';
 import { searchSubjects } from '../../actions/search_actions';
+import { createSubscriber } from '../../actions/subscription_actions';
 
 
 const mapStateToProps = state => {
@@ -8,7 +9,10 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = (dispatch) => {
-  return { searchSubjects: query => dispatch(searchSubjects(query)) };
+  return {
+    searchSubjects: query => dispatch(searchSubjects(query)),
+    createSubscriber: subject => dispatch(createSubscriber(subject))
+   };
 };
 
 export default connect(

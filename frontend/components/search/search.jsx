@@ -7,7 +7,7 @@ class Search extends React.Component {
     return(
       <div className="search">
         <SearchBar searchSubjects={this.props.searchSubjects}/>
-        <SearchResults subjects={this.props.subjects}/>
+        <SearchResults subjects={this.props.subjects} createSubscriber={this.props.createSubscriber}/>
       </div>
     )
   }

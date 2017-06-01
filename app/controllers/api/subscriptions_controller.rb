@@ -5,11 +5,12 @@ class Api::SubscriptionsController < ApplicationController
   end
 
   def create
+    # debugger
     @subscription = Subscription.new(subscription_params)
     @subscription.user_id = current_user.id
     if @subscription.save!
-      @subject = Subject.find(subscription_params)
-      render "api/subjects/show"
+      @user = current_user
+      render "api/users/show"
     else
       render json: @score.errors.full_messages, status: 422
     end
