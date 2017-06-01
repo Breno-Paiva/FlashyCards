@@ -1,19 +1,28 @@
-import { connect } from 'react-redux';
-// import { fetchDecks, fetchDeck, createDeck } from '../../actions/deck_actions';
-import CurrentLearners from './current_learners';
+import React from 'react';
 
+const HINTS = [
+  "A deck a day keeps the brain awake.",
+  "The more you study the better you'll be.",
+  "You can do it! Keep up the good work.",
+  "It's been proven that flash cards make you smarter.",
+  "Need to study a new subject? Just create some decks!"
+]
 
-const mapStateToProps = (state, { currentSubjectId } ) => {
-  return {
-  };
-};
+class CurrentLearners extends React.Component {
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-  };
-};
+  randId(){
+    return Math.floor(Math.random()*HINTS.length);
+  }
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(CurrentLearners);
+  render() {
+    return(
+      <div className="current-learners-container">
+        <i className="fa fa-lightbulb-o fa-lg" aria-hidden="true"></i>
+        {HINTS[this.randId()]}
+      </div>
+    );
+  }
+
+}
+
+export default CurrentLearners;

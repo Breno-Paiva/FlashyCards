@@ -14,6 +14,7 @@ Score.delete_all
 
 User.create!(username: "flashyUser", password: "friskyb")
 
+
 Subject.create!(name: "Civics and History")
 
   Deck.create!(name: "Principles of American Democracy", subject_id: Subject.find_by_name("Civics and History").id)
@@ -206,6 +207,13 @@ Subject.create!(name: "Civics and History")
     Subscription.create!(user_id: User.find_by_username("flashyUser").id, subject_id: Subject.find_by_name("Civics and History").id)
     Subscription.create!(user_id: User.find_by_username("flashyUser").id, subject_id: Subject.find_by_name("Random Trivia").id)
     Subscription.create!(user_id: User.find_by_username("flashyUser").id, subject_id: Subject.find_by_name("Astronomy").id)
+
+
+    20.times do
+      user_name = Faker::Internet.user_name(5..10)
+      User.create!(username: user_name, password: "cupcake99")
+      Subscription.create!(user_id: User.find_by_username(user_name).id, subject_id: Subject.find_by_name("Civics and History").id)
+    end
 
     i = 0
     j = 0
