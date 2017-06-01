@@ -25,7 +25,7 @@ const Root = ({ store }) => {
         <Route path="/" component={App}>
           <IndexRedirect to="/home" />
           <Route path="/home" component={HomeContainer} />
-          <Route path="/search" component={SearchContainer} />
+          <Route path="/search" component={SearchContainer} onEnter={_ensureLoggedIn}/>
           <Route path="/library" component={LibraryContainer} onEnter={_ensureLoggedIn}>
             <Route path=":subjectId" />
           </Route>
