@@ -2,7 +2,7 @@ import * as APIUtil from '../util/subscription_api_util';
 
 export const RECEIVE_SUBSCRIBERS = "RECEIVE_SUBSCRIBERS";
 export const RECEIVE_SUBSCRIBER = "RECEIVE_SUBSCRIBER";
-export const REMOVE_SUBSCRIPTION = "RECEIVE_SUBSCRIPTION";
+export const REMOVE_SUBSCRIBER = "REMOVE_SUBSCRIBER";
 
 export const fetchSubscribers = subjectId => dispatch => {
   APIUtil.fetchSubscribers(subjectId)
@@ -14,10 +14,10 @@ export const createSubscriber = subject => dispatch => {
          .then(subscriber => dispatch(receiveSubscriber(subscriber)))
 };
 
-// export const removeSubscription = subjectId => dispatch => {
-//   APIUtil.removeSubscription(subjectId)
-//          .then(subscriber => dispatch(receiveSubscriber(subscriber)))
-// };
+export const removeSubscription = subjectId => dispatch => {
+  APIUtil.removeSubscription(subjectId)
+         .then(subscriber => dispatch(deleteSubscriber(subscriber)))
+};
 
 export const receiveSubscribers = subscribers => ({
   type: RECEIVE_SUBSCRIBERS,
@@ -29,7 +29,7 @@ export const receiveSubscriber = subscriber => ({
   subscriber
 });
 
-// export const removeSubscription = subscriber => ({
-//   type: RECEIVE_SUBSCRIPTION,
-//   subscriber
-// });
+export const deleteSubscriber = subscriber => ({
+  type: REMOVE_SUBSCRIBER,
+  subscriber
+});
