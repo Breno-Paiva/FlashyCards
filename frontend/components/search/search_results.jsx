@@ -8,9 +8,9 @@ class SearchResults extends React.Component {
 
   renderButton(subscribed, subjectId){
     if(subscribed){
-      return(<button onClick={() => this.props.removeSubscription(subjectId)}>unsubscribe</button>)
+      return(<button className="unsubscribe" onClick={() => this.props.removeSubscription(subjectId)}>unsubscribe</button>)
     }else{
-      return(<button onClick={() => this.props.createSubscriber(subjectId)}>subscribe</button>)
+      return(<button className="subscribe" onClick={() => this.props.createSubscriber(subjectId)}>subscribe</button>)
     }
   }
 
