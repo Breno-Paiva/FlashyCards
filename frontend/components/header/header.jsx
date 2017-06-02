@@ -72,8 +72,11 @@ class Header extends React.Component {
         <Link to="/library">
           <h3>FLASHYcards</h3>
         </Link>
+        <Link to="/library">
+          <div className="library-header">My Library</div>
+        </Link>
         <Link to="/search">
-          <i className="fa fa-search" aria-hidden="true"></i>
+          <div className="search-header"><i className="fa fa-search" aria-hidden="true"></i>Flashcards</div>
         </Link>
       </div>
     )
@@ -97,7 +100,7 @@ class Header extends React.Component {
           <Link to="/library">
             <h3>{`Hi,  ${this.props.currentUser.username}`}</h3>
           </Link>
-          <i className="fa fa-chevron-circle-down" aria-hidden="true" onMouseOver={this.toggleLogout}></i>
+          <i className="fa fa-chevron-circle-down" aria-hidden="true" onClick={this.toggleLogout}></i>
         </div>
       );
     }else{
