@@ -99,7 +99,6 @@
 }
 
 .left-search-item button {
-  background: #5cb75c;
   border: 1px solid transparent;
   border-radius: 4px;
   color: white;
@@ -109,9 +108,22 @@
   padding: 5px 10px;
 }
 
-.left-search-item button:hover {
+.subscribe:hover {
   background: #449d44;
   border-color: #4cae4c;
+}
+
+.unsubscribe:hover {
+  background: #f37025;
+  border-color: #ff8a47;
+}
+
+.unsubscribe {
+  background: #ff8a47;
+}
+
+.subscribe {
+  background: #5cb75c;
 }
 
 .right-search-item {
