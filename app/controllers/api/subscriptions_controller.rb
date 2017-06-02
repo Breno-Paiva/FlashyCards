@@ -5,7 +5,6 @@ class Api::SubscriptionsController < ApplicationController
   end
 
   def create
-    # debugger
     @subscription = Subscription.new(subscription_params)
     @subscription.user_id = current_user.id
     if @subscription.save!
