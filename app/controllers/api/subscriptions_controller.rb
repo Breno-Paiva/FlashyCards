@@ -16,7 +16,13 @@ class Api::SubscriptionsController < ApplicationController
   end
 
   def destroy
-
+    @subscription = Subscription.find_by subject_id: params[:id], user_id: current_user.id
+    if @subscription.destroy
+      @user = current_user
+      render "api/users/show"
+    else
+      render json: ["Error deleting"], status: 404
+    end
   end
 
   def subscription_params

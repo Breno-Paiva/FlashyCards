@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import Search from './search';
 import { searchSubjects } from '../../actions/search_actions';
-import { createSubscriber } from '../../actions/subscription_actions';
+import { createSubscriber, removeSubscription } from '../../actions/subscription_actions';
 
 
 const mapStateToProps = state => {
@@ -11,7 +11,8 @@ const mapStateToProps = state => {
 const mapDispatchToProps = (dispatch) => {
   return {
     searchSubjects: query => dispatch(searchSubjects(query)),
-    createSubscriber: subject => dispatch(createSubscriber(subject))
+    createSubscriber: subject => dispatch(createSubscriber(subject)),
+    removeSubscription: subject => dispatch(removeSubscription(subject))
    };
 };
 
