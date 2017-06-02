@@ -10,6 +10,11 @@
 
     json.card_count card_count
     json.learner_count subject.subscriptions.length
-    json.subscribed false
+
+    subscribed = false
+    subject.subscriptions.each do |sub|
+      subscribed = true if sub.user_id == current_user.id
+    end
+    json.subscribed  subscribed
   end
 end

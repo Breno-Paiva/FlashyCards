@@ -1,6 +1,18 @@
 import React from 'react';
 
 class SearchResults extends React.Component {
+  constructor(props){
+    super(props);
+    this.renderButton = this.renderButton.bind(this)
+  }
+
+  renderButton(subscribed, subjectId){
+    if(subscribed){
+      return(<button onClick={() => this.props.createSubscriber(subjectId)}>unsubscribe</button>)
+    }else{
+      return(<button onClick={() => this.props.createSubscriber(subjectId)}>subscribe</button>)
+    }
+  }
 
   render() {
 
@@ -13,7 +25,7 @@ class SearchResults extends React.Component {
                 <div className="search-item">
                   <div className="left-search-item">
                     <h2>{subject.name}</h2>
-                    <button onClick={() => this.props.createSubscriber(subject.id)}>{subject.subscribed} subscribe</button>
+                    {this.renderButton(subject.subscribed, subject.id)}
                   </div>
                   <div className="right-search-item">
                     <h2>{subject.deck_count} decks</h2>
