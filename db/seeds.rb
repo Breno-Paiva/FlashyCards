@@ -204,28 +204,27 @@ Subject.create!(name: "Civics and History")
     # Subject.create!(name: "Horticulture")
     # Subject.create!(name: "Architecture")
 
-    Subscription.create!(user_id: User.find_by_username("flashyUser").id, subject_id: Subject.find_by_name("Civics and History").id)
-    Subscription.create!(user_id: User.find_by_username("flashyUser").id, subject_id: Subject.find_by_name("Random Trivia").id)
-    Subscription.create!(user_id: User.find_by_username("flashyUser").id, subject_id: Subject.find_by_name("Astronomy").id)
+    # Subscription.create!(user_id: User.find_by_username("flashyUser").id, subject_id: Subject.find_by_name("Civics and History").id)
+    # Subscription.create!(user_id: User.find_by_username("flashyUser").id, subject_id: Subject.find_by_name("Random Trivia").id)
+    # Subscription.create!(user_id: User.find_by_username("flashyUser").id, subject_id: Subject.find_by_name("Astronomy").id)
 
 
     20.times do
-      user_name = Faker::Internet.user_name(5..10)
+      user_name = Faker::Internet.unique.user_name(5..10)
       User.create!(username: user_name, password: "cupcake99")
-      Subscription.create!(user_id: User.find_by_username(user_name).id, subject_id: Subject.find_by_name("Civics and History").id)
     end
 
     i = 0
     j = 0
     k = 0
 
-    while i < 8
-      sub = Faker::Hipster.words(Random.rand(2)+1).join(" ")
+    while i < 12
+      sub = Faker::Hipster.unique.words(Random.rand(2)+1).join(" ")
       Subject.create!(name: sub)
-      while j < 12
+      while j < 8
         dek = Faker::Hipster.words(Random.rand(2)+1).join(" ")
         Deck.create!(name: dek, subject_id: Subject.find_by_name(sub).id)
-        while k < 14
+        while k < 12
           car_q = Faker::Hipster.words(Random.rand(4)+1).join(" ")
           car_a = Faker::Hipster.sentence(1)
           Card.create!(question: car_q, answer: car_a, deck_id: Deck.find_by_name(dek).id)
@@ -274,3 +273,11 @@ Subject.create!(name: "Civics and History")
     Deck.create!(name: "1720s", subject_id: Subject.find_by_name("World History").id)
     Deck.create!(name: "1710s", subject_id: Subject.find_by_name("World History").id)
     Deck.create!(name: "1700s", subject_id: Subject.find_by_name("World History").id)
+
+
+    User.all.each do |user|
+      Subject.all.each do |subject|
+        x = Random.rand(2)
+        Subscription.create!(user_id: user.id, subject_id: subject.id) if x == 1
+      end
+    end
