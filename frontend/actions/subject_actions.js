@@ -5,6 +5,7 @@ export const RECEIVE_SUBJECTS = "RECEIVE_SUBJECTS";
 export const RECEIVE_SUBJECT = "RECEIVE_SUBJECT";
 export const REMOVE_SUBJECT = "REMOVE_SUBJECT";
 export const RECEIVE_SUBJECT_ERRORS = "RECEIVE_SUBJECT_ERRORS";
+export const CLEAR_SUBJECTS = "CLEAR_SUBJECTS";
 
 export const fetchSubjects = () => dispatch => (
   APIUtil.fetchSubjects()
@@ -53,6 +54,12 @@ export const receiveSubjectErrors = errors => ({
   type: RECEIVE_SUBJECT_ERRORS,
   errors
 });
+
+export const clearSubjects = errors => ({
+  type: CLEAR_SUBJECTS
+});
+
+
 //
 // export const clearErrors = () => ({
 //   type: CLEAR_ERRORS
