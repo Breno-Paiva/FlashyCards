@@ -7,7 +7,7 @@ class Api::SubjectsController < ApplicationController
   end
 
   def show
-    @subject = Subject.find(params[:id])
+    @subject = Subject.find(params[:id].to_i)
   end
 
   def create
