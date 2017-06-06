@@ -6,14 +6,31 @@ class Search extends React.Component {
 
   componentWillMount(){
     this.props.clearSubjects()
+    this.state = {renderSpinner: true}
+    this.renderSpinner = this.renderSpinner.bind(this);
+  }
+
+  componentWillUpdate(){
+    if (this.state.renderSpinner){
+      this.setState({renderSpinner: false})
+    }
+  }
+
+  renderSpinner(){
+    // if (this.state.renderSpinner){
+      this.setState({renderSpinner: true})
+    // }
   }
 
   render() {
-
     return(
       <div className="search">
-        <SearchBar searchSubjects={this.props.searchSubjects}/>
-        <SearchResults subjects={this.props.subjects} createSubscriber={this.props.createSubscriber} removeSubscription={this.props.removeSubscription}/>
+        <SearchBar searchSubjects={this.props.searchSubjects}
+                   renderSpinner={this.renderSpinner}/>
+        <SearchResults subjects={this.props.subjects}
+                       createSubscriber={this.props.createSubscriber}
+                       renderSpinner={this.state.renderSpinner}
+                       removeSubscription={this.props.removeSubscription}/>
       </div>
     )
   }
