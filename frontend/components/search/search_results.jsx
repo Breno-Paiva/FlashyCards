@@ -3,10 +3,30 @@ import React from 'react';
 class SearchResults extends React.Component {
   constructor(props){
     super(props);
-    this.renderButton = this.renderButton.bind(this)
+    this.renderButton = this.renderButton.bind(this);
+    this.renderSpinner = this.renderSpinner.bind(this)
+  }
+
+  // componentWillUpdate(){
+  //   this.setState({loading: false})
+  // }
+
+  renderSpinner(){
+    if (this.props.renderSpinner){
+      return(
+        <div className="spinner">
+          <div className="rect1"></div>
+          <div className="rect2"></div>
+          <div className="rect3"></div>
+          <div className="rect4"></div>
+          <div className="rect5"></div>
+        </div>
+      )
+    }
   }
 
   renderButton(subscribed, subjectId){
+    // this.setState({loading: true})
     if(subscribed){
       return(<button className="unsubscribe" onClick={() => this.props.removeSubscription(subjectId)}>unsubscribe</button>)
     }else{
@@ -18,6 +38,7 @@ class SearchResults extends React.Component {
 
     return(
       <div className="search-results-container">
+        {this.renderSpinner()}
         <ul className="search-list">
           {
             this.props.subjects.map( subject => (

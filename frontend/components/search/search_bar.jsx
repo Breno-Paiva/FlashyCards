@@ -15,6 +15,7 @@ class SearchBar extends React.Component {
   }
 
   searchSubject(){
+    this.props.renderSpinner()
     this.props.searchSubjects(this.state.query)
   }
 
