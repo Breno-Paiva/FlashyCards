@@ -6,7 +6,7 @@ class Search extends React.Component {
 
   componentWillMount(){
     this.props.clearSubjects()
-    this.state = {renderSpinner: true}
+    this.state = {renderSpinner: false}
     this.renderSpinner = this.renderSpinner.bind(this);
   }
 
@@ -17,9 +17,7 @@ class Search extends React.Component {
   }
 
   renderSpinner(){
-    // if (this.state.renderSpinner){
-      this.setState({renderSpinner: true})
-    // }
+    this.setState({renderSpinner: true})
   }
 
   render() {

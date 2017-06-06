@@ -253,3 +253,16 @@
   display: flex;
   align-items: center;
 }
+
+.deck-sub-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.deck-sub-header .unsubscribe {
+  background: #aa0080;
+}
+.deck-sub-header .unsubscribe:hover {
+  background: #c5219d;
+  border-color: #aa0080;
+}

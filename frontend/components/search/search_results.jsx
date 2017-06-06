@@ -7,10 +7,6 @@ class SearchResults extends React.Component {
     this.renderSpinner = this.renderSpinner.bind(this)
   }
 
-  // componentWillUpdate(){
-  //   this.setState({loading: false})
-  // }
-
   renderSpinner(){
     if (this.props.renderSpinner){
       return(
@@ -26,7 +22,6 @@ class SearchResults extends React.Component {
   }
 
   renderButton(subscribed, subjectId){
-    // this.setState({loading: true})
     if(subscribed){
       return(<button className="unsubscribe" onClick={() => this.props.removeSubscription(subjectId)}>unsubscribe</button>)
     }else{

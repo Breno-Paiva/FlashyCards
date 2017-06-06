@@ -12,10 +12,12 @@ class Deck extends React.Component {
 
   constructor(props){
     super(props);
-    this.state = {name: "", subject_id: this.props.currentSubjectId,
-      modalIsOpen: false,
-      modalId: null,
-      createDeckModalIsOpen: false
+    this.state = {name: "",
+                  subject_id: this.props.currentSubjectId,
+                  modalIsOpen: false,
+                  modalId: null,
+                  createDeckModalIsOpen: false,
+                  subscribed: true
     };
     this.createDeck = this.createDeck.bind(this);
     this.deleteDeck = this.deleteDeck.bind(this);
@@ -23,11 +25,13 @@ class Deck extends React.Component {
     this.studyButton = this.studyButton.bind(this);
     this.renderDeckButton = this.renderDeckButton.bind(this);
     this.addCardButton = this.addCardButton.bind(this);
-    this.deleteSubject = this.deleteSubject.bind(this);
+    this.renderSubscribeButton = this.renderSubscribeButton.bind(this);
     this.renderCogModal = this.renderCogModal.bind(this);
     this.toggleCog = this.toggleCog.bind(this);
     this.removeCog = this.removeCog.bind(this);
     this.toggleCreateDeck = this.toggleCreateDeck.bind(this);
+    this.removeSubscription = this.removeSubscription.bind(this);
+    this.createSubscriber = this.createSubscriber.bind(this);
   }
 
   componentDidMount(){
@@ -81,20 +85,31 @@ class Deck extends React.Component {
 
   currentSubject(){
     if (this.props.subject) {
-      return <h3>
+      return <h3 className = "deck-sub-header">
                {`Study ${this.props.subject.name}`}
-               <i className="fa fa-trash"
-                 aria-hidden="true"
-                 onClick={() => this.deleteSubject(this.props.subject)}
-                 ></i>
+              {this.renderSubscribeButton(this.state.subscribed, this.props.subject.id)}
              </h3>
     } else {
       return <h3>Pick a Subject to Study!</h3>
     }
   }
 
-  deleteSubject(subject){
-    this.props.deleteSubject(subject).then(()=>this.props.fetchSubjects())
+  renderSubscribeButton(subscribed, subjectId){
+    if(subscribed){
+      return(<button className="unsubscribe" onClick={() => this.removeSubscription(subjectId)}>unsubscribe</button>)
+    }else{
+      return(<button className="subscribe" onClick={() => this.createSubscriber(subjectId)}>subscribe</button>)
+    }
+  }
+
+  removeSubscription(subjectId){
+    this.props.removeSubscription(subjectId);
+    this.setState({subscribed: false});
+  }
+
+  createSubscriber(subjectId){
+    this.props.createSubscriber(subjectId);
+    this.setState({subscribed: true});
   }
 
   deleteDeck(deck){

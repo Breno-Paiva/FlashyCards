@@ -98,15 +98,15 @@
   color: #29a5dc;
 }
 
-.left-search-item button {
-  border: 1px solid transparent;
-  border-radius: 4px;
-  color: white;
-  font-weight: bold;
-  font-size: 13px;
-  margin-top: 10px;
-  padding: 5px 10px;
-}
+// .left-search-item button {
+//   border: 1px solid transparent;
+//   border-radius: 4px;
+//   color: white;
+//   font-weight: bold;
+//   font-size: 13px;
+//   margin-top: 10px;
+//   padding: 5px 10px;
+// }
 
 .subscribe:hover {
   background: #449d44;
@@ -120,10 +120,24 @@
 
 .unsubscribe {
   background: #ff8a47;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  color: white;
+  font-weight: bold;
+  font-size: 13px;
+  margin-top: 10px;
+  padding: 5px 10px;
 }
 
 .subscribe {
   background: #5cb75c;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  color: white;
+  font-weight: bold;
+  font-size: 13px;
+  margin-top: 10px;
+  padding: 5px 10px;
 }
 
 .right-search-item {

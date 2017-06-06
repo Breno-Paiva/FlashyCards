@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { fetchDecks, fetchDeck, createDeck, deleteDeck } from '../../actions/deck_actions';
 import { fetchSubjects, deleteSubject } from '../../actions/subject_actions';
-import { fetchSubscribers } from '../../actions/subscription_actions';
+import { fetchSubscribers, removeSubscription, createSubscriber  } from '../../actions/subscription_actions';
 
 import Deck from './deck';
 
@@ -22,6 +22,8 @@ const mapDispatchToProps = (dispatch) => {
     deleteSubject: subject => dispatch(deleteSubject(subject)),
     fetchSubjects: subject => dispatch(fetchSubjects()),
     fetchSubscribers: subject => dispatch(fetchSubscribers(subject)),
+    removeSubscription: subject => dispatch(removeSubscription(subject)),
+    createSubscriber: subject => dispatch(createSubscriber(subject)),
   };
 };
 
