@@ -209,7 +209,7 @@ Subject.create!(name: "Civics and History")
     # Subscription.create!(user_id: User.find_by_username("flashyUser").id, subject_id: Subject.find_by_name("Astronomy").id)
 
 
-    20.times do
+    200.times do
       user_name = Faker::Internet.unique.user_name(5..10)
       User.create!(username: user_name, password: "cupcake99")
     end
