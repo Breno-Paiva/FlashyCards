@@ -2,23 +2,53 @@
 
 ## Overview
 
-[FlashyCards][flashycards] is a full-stack web application inspired by brainscape.  It allows users to create decks of flashcards and study them. The application keeps track of the users progress and how well they know the cards they've studied.
+[FlashyCards][flashycards] is a full-stack web application inspired by brainscape where users study subjects they subscribe to. Subjects contain decks of flash cards that have a question and answer.  Once the answer to a question is revealed, the user then rates how well they knew it.  The application tracks this information and presents it in progress bars throughout the application.
 
 ## Features
 
-#### Create and Browse Subjects/decks
+#### Subscribe or Create Subjects
 
-![manage_decks_pic]
+![library-pic]
 
-Upon signing in, Users are directed to the library page where they are shown all the available subkects to study.  Subsequently, each subject can have multiple decks of cards to study.  The user is able to delete, or create new subjects or decks to their liking.
+Upon signing in, users are directed to the library page where they are shown the subjects they are subscribed to.  If a user wants to create a subject that doesn't exist, they can do it right in the library page.  For each subject in the user's library, a list of other user's who are also subscribed to that subject is shown.
 
-#### Create, Edit and Delete cards
+### Search Subjects
+
+![search-page-pic]
+
+```ruby
+def show
+  @subjects = ActiveRecord::Base.connection.exec_query(<<-SQL)
+    SELECT
+      subjects.id,
+      subjects.name,
+      max(CASE WHEN (subscriptions.user_id = #{current_user.id}) THEN 1 ELSE 0 END) AS subscribed,
+      COUNT(DISTINCT decks.id) AS deck_count,
+      COUNT(DISTINCT cards.id) AS card_count,
+      COUNT(DISTINCT subscriptions.id) AS learner_count
+    FROM
+      subjects
+    LEFT OUTER JOIN
+      subscriptions ON subjects.id = subscriptions.subject_id
+    LEFT OUTER JOIN
+      decks ON subjects.id = decks.subject_id
+    LEFT OUTER JOIN
+      cards ON decks.id = cards.deck_id
+    WHERE
+      LOWER(subjects.name) LIKE LOWER('%#{params[:id]}%')
+    GROUP BY
+      subjects.id
+  SQL
+end
+```
+
+#### Create, Edit and Delete Cards
 
 ![edit_card_pic]
 
 Users can manage all the cards in a deck simultaneously.  The edit deck page shows all cards as questions and answers.  Users can remove cards, edit existing ones and add new ones all in the same page.  Once they click "Save Deck", all changes are then persisted to the database and the deck is updated.  If the user chooses they don't want to make the changes they began working on, they can simply click "Reset" and all the changes and canceled and the list of cards is reverted to it's original state.
 
-#### Study cards
+#### Study Cards
 
 ![study_pic]
 
@@ -35,3 +65,5 @@ Users can create accounts with a username and password.  This password is then h
 [manage_decks_pic]: ./docs/screenshots/manage_decks_pic.png
 [edit_card_pic]: ./docs/screenshots/edit_card_pic.png
 [study_pic]: ./docs/screenshots/study_pic.png
+[library-pic]: ./docs/screenshots/library-pic.png
+[search-page-pic]: ./docs/screenshots/search-page-pic.png
