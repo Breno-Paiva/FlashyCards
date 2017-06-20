@@ -6,7 +6,7 @@
 
 ## Features
 
-#### Subscribe or Create Subjects
+### Subscribe or Create Subjects
 
 Upon signing in, users are directed to the library page where they are shown the subjects they are subscribed to.  If a user wants to create a subject that doesn't exist, they can do it right in the library page.  For each subject in the user's library, a list of other user's who are also subscribed to that subject is shown.
 
@@ -46,7 +46,21 @@ def show
 end
 ```
 
-#### Create, Edit and Delete Cards
+### Study Cards
+
+The main feature of the app is the ability to study cards and keep track of the user progress.  As the user clicks through the flash cards and reveal answers, they are asked how well they knew the answer on a scale of 1-5.  The goal is to know each card in the deck at a score of 5.  Once that goal is reached, the mastery percentage is shown as 100%.  Subsequently, the number of cards for each score is also shown as a progress bar on the side.
+
+![study_pic]
+
+[flashycards]: http://www.flashycards.club/
+[login_pic]: ./docs/screenshots/login_code_pic.png
+[manage_decks_pic]: ./docs/screenshots/manage_decks_pic.png
+[edit_card_pic]: ./docs/screenshots/edit_card_pic.png
+[study_pic]: ./docs/screenshots/study_pic.png
+[library-pic]: ./docs/screenshots/library-pic.png
+[search-page-pic]: ./docs/screenshots/search-page-pic.png
+
+### Create, Edit and Delete Cards
 
 Users can manage all the cards in a deck simultaneously.  The edit deck page shows all cards as questions and answers.  Users can remove cards, edit existing ones and add new ones all in the same page.  Once they click "Save Deck", all changes are then persisted to the database and the deck is updated.  If the user chooses they don't want to make the changes they began working on, they can simply click "Reset" and all the changes are canceled and the list of cards is reverted to it's original state.
 
@@ -74,17 +88,3 @@ export const deleteCard = (id) => {
   });
 };
 ```
-
-#### Study Cards
-
-The main feature of the app is the ability to study cards and keep track of the user progress.  As the user clicks through the flash cards and reveal answers, they are asked how well they knew the answer on a scale of 1-5.  The goal is to know each card in the deck at a score of 5.  Once that goal is reached, the mastery percentage is shown as 100%.  Subsequently, the number of cards for each score is also shown as a progress bar on the side.
-
-![study_pic]
-
-[flashycards]: http://www.flashycards.club/
-[login_pic]: ./docs/screenshots/login_code_pic.png
-[manage_decks_pic]: ./docs/screenshots/manage_decks_pic.png
-[edit_card_pic]: ./docs/screenshots/edit_card_pic.png
-[study_pic]: ./docs/screenshots/study_pic.png
-[library-pic]: ./docs/screenshots/library-pic.png
-[search-page-pic]: ./docs/screenshots/search-page-pic.png
