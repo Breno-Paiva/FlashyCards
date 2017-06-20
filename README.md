@@ -21,6 +21,7 @@ Users can search through all the subjects that exist in the database.  Results d
 A single SQL query is responsible for returning all the subjects matching the search parameters and includes detailed information for each one.
 
 ```ruby
+# ruby
 def show
   @subjects = ActiveRecord::Base.connection.exec_query(<<-SQL)
     SELECT
@@ -65,6 +66,7 @@ The main feature of the app is the ability to study cards and keep track of the 
 Users can manage all the cards in a deck simultaneously.  The edit deck page shows all cards as questions and answers.  Users can remove cards, edit existing ones and add new ones all in the same page.  Once they click "Save Deck", all changes are then persisted to the database and the deck is updated.  If the user chooses they don't want to make the changes they began working on, they can simply click "Reset" and all the changes are canceled and the list of cards is reverted to it's original state.
 
 ```js
+// js
 export const createCard = (card) => {
   return $.ajax({
     method: 'POST',
