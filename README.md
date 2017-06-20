@@ -8,13 +8,17 @@
 
 #### Subscribe or Create Subjects
 
-![library-pic]
-
 Upon signing in, users are directed to the library page where they are shown the subjects they are subscribed to.  If a user wants to create a subject that doesn't exist, they can do it right in the library page.  For each subject in the user's library, a list of other user's who are also subscribed to that subject is shown.
+
+![library-pic]
 
 ### Search Subjects
 
+Users can search through all the subjects that exist in the database.  Results display detailed information about each subject including the number of decks, cards, and subscribers.  Additionally, users can subscribe or unsubscribe to subjects returned from the search on the same page.
+
 ![search-page-pic]
+
+A single SQL query is responsible for returning all the subjects matching the search parameters and includes detailed information for each one.
 
 ```ruby
 def show
