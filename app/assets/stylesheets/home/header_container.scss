@@ -97,8 +97,24 @@
 }
 
 .signup:hover {
-  // opacity: 0.8;
   background-color: rgb(42, 186, 249);
+}
+
+.demo-login {
+  width: 80px;
+  height: 25px;
+  margin: auto 10px auto 30px;
+  border-radius: 4px;
+  background-color: #ff8a47;
+  transition: opacity .2s;
+  text-transform: capitalize;
+  text-align: center;
+  font-size: 14px;
+  transition: background-color .2s;
+}
+
+.demo-login:hover {
+  background-color: #f99054;
 }
 
 .login {
