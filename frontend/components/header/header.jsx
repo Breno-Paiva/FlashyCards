@@ -113,6 +113,10 @@ class Header extends React.Component {
           <button onClick={this.setFormSignup}
             className="signup"
             >Get Started</button>
+          <input type="submit"
+            id="demo-user"
+            onClick={() => this.setState({username: "flashyUser", password: "friskyb"})}
+            value="DEMO" />
         </div>
       );
     }
