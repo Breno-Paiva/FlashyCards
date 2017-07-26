@@ -122,8 +122,7 @@ class Study extends React.Component {
     )
   }
 
-   barStyle(num, color){
-
+  barStyle(num, color){
      return {
        WebkitTransition: 'all',
        msTransition: 'all',
