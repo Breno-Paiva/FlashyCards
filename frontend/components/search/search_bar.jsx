@@ -14,7 +14,8 @@ class SearchBar extends React.Component {
     return e => this.setState({ query: e.currentTarget.value });
   }
 
-  searchSubject(){
+  searchSubject(e){
+    e.preventDefault()
     this.props.renderSpinner()
     this.props.searchSubjects(this.state.query)
   }
